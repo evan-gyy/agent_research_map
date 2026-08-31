@@ -1,0 +1,2333 @@
+对，我反而觉得你这个第二种思路更适合你现在的阶段。
+
+第一种是：
+
+Research Feed：每天追最新论文。
+
+第二种是：
+
+Agent / Harness Knowledge Base：先把这个领域的“骨架”搭起来，再不断往骨架上挂新论文。
+
+如果你的真实目的，是系统理解 Agent 和 Harness，而不是单纯追论文，我会优先做第二种，甚至可以把第一种作为后续模块接进来。
+
+1. 两种模式其实是完全不同的
+
+可以把它理解成：
+
+                    你的论文知识库
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+      经典知识库                     最新动态
+          │                             │
+     “这个领域怎么来的”             “最近发生了什么”
+          │                             │
+      Top 50/100 Papers              Daily Papers
+          │                             │
+      系统学习/补基础                 持续追踪
+
+第一种解决：
+
+我今天应该读什么？
+
+第二种解决：
+
+Agent 这个领域到底有哪些核心问题？每个问题最经典的工作是什么？这些工作之间是什么关系？
+
+对于你目前一直在研究的 Agent Loop / Context / Memory / Harness / DSH / OpenClaw，第二个其实价值更高。
+
+因为现在如果只追最新论文，很容易变成：
+
+今天：
+Agent Memory A
+
+明天：
+Agent Harness B
+
+后天：
+Agent Skill C
+
+下周：
+Agent Runtime D
+
+看了很多，但脑子里没有一张地图。
+
+2. 所以我会把它设计成「Agent Knowledge Map」
+
+不是：
+
+论文
+├── 2026-08-01
+├── 2026-08-02
+├── 2026-08-03
+...
+
+而是：
+
+Agent
+│
+├── 1. Agent 基础范式
+│   ├── ReAct
+│   ├── Plan-and-Execute
+│   ├── Reflection
+│   └── ...
+│
+├── 2. Planning
+│   ├── Task Decomposition
+│   ├── Planning
+│   ├── Search
+│   └── ...
+│
+├── 3. Tool Use
+│   ├── Toolformer
+│   ├── ReAct
+│   ├── Tool Learning
+│   └── MCP
+│
+├── 4. Memory
+│   ├── Short-term Memory
+│   ├── Long-term Memory
+│   ├── Episodic Memory
+│   ├── Semantic Memory
+│   └── ...
+│
+├── 5. Multi-Agent
+│   ├── Debate
+│   ├── Collaboration
+│   ├── Role-based
+│   └── ...
+│
+├── 6. Agent Training
+│   ├── SFT
+│   ├── RL
+│   ├── RLVR
+│   └── Agentic RL
+│
+├── 7. Agent Evaluation
+│   ├── General Agent
+│   ├── Web Agent
+│   ├── Coding Agent
+│   ├── Long Horizon
+│   └── ...
+│
+└── 8. Agent Harness
+    ├── Context
+    ├── Session
+    ├── Loop
+    ├── Tool
+    ├── Memory
+    ├── Execution
+    ├── Sandbox
+    ├── Evaluation
+    └── ...
+
+这里最重要的变化是：
+
+分类的第一层不是论文，而是“问题/概念”。
+
+论文只是挂在概念下面。
+
+3. 甚至可以把「经典论文」分成四种
+
+我不建议简单定义：
+
+引用最高 = 经典。
+
+因为 Agent 领域变化太快。
+
+更合理的是：
+
+A. Foundation
+
+奠定某个概念的论文。
+
+比如：
+
+ReAct
+Toolformer
+Reflexion
+Chain-of-Thought
+Tree of Thoughts
+B. Paradigm
+
+改变 Agent 系统设计范式的论文。
+
+比如：
+
+ReAct
+Plan-and-Execute
+Reflection
+Multi-Agent
+RAG Agent
+Code Agent
+C. Landmark System
+
+真正影响工业 Agent 架构的系统/项目。
+
+这个就不能只搜论文。
+
+例如你现在研究的：
+
+DeepSeek Harness
+OpenClaw
+Claude Code
+OpenHands
+SWE-agent
+BrowserGym
+MCP
+
+它们很多时候论文不一定是最重要的信息载体。
+
+所以你的 Knowledge Base 应该允许：
+
+Paper
+Blog
+System
+GitHub
+Technical Report
+Documentation
+Benchmark
+
+全部作为一等公民。
+
+这点我觉得尤其适合你。
+
+D. Turning Point
+
+这个分类非常有意思。
+
+即：
+
+某个领域从 A 走向 B 的转折点。
+
+例如你以后整理 Harness，可以形成：
+
+LLM
+ ↓
+Prompting
+ ↓
+ReAct
+ ↓
+Tool Use
+ ↓
+Agent Loop
+ ↓
+Agent Runtime
+ ↓
+Agent Harness
+ ↓
+Harness Optimization
+ ↓
+Harness Generation
+
+现在已经有专门把 Agent Harness 当作独立研究对象的综述，甚至明确将 Harness 从传统的“Agent 能力模块”视角中抽离出来进行系统化研究。
+
+而 2026 年的新工作甚至开始研究自动生成/演化 Harness，例如 JIT-Agent 将 Harness 作为可组合、可生成、可自演化的对象来研究。
+
+这就说明你现在关注的 Harness，本身已经很适合单独做一棵知识树。
+
+4. 这里我反而不建议完全交给 LLM 自动分类
+
+这是这个项目里我觉得最重要的设计点。
+
+不要：
+
+论文 → LLM → 随便生成 tags
+
+因为最后会变成：
+
+Agent
+Agentic AI
+AI Agent
+LLM Agent
+Autonomous Agent
+Agent System
+...
+
+一堆同义词。
+
+应该是：
+
+你定义 Knowledge Taxonomy
+             ↓
+        LLM负责映射
+             ↓
+       Paper → Node
+
+例如你先规定：
+
+Agent:
+  Planning:
+    - Task Decomposition
+    - Search
+    - Plan Execution
+
+  Memory:
+    - Context Memory
+    - Episodic Memory
+    - Semantic Memory
+    - Procedural Memory
+
+  Tool:
+    - Tool Use
+    - Tool Learning
+    - Tool Creation
+
+  Execution:
+    - Agent Loop
+    - Runtime
+    - Harness
+
+然后 Agent 只能从这里面选。
+
+5. 更进一步：不要只保存“论文”，保存「知识节点」
+
+例如：
+
+Knowledge Node
+────────────────────────
+
+名称：
+ReAct
+
+类型：
+Paradigm
+
+核心问题：
+Reasoning + Acting
+
+出现时间：
+2022
+
+代表论文：
+ReAct
+
+前置：
+Chain-of-Thought
+Tool Use
+
+后续：
+Reflection
+Agent Loop
+Planning Agent
+
+重要性：
+★★★★★
+
+我的理解：
+......
+
+关联：
+[[Tool Use]]
+[[Agent Loop]]
+[[Planning]]
+
+然后：
+
+Paper
+  ↓
+supports
+  ↓
+Knowledge Node
+
+关系变成：
+
+Paper ──implements──> Concept
+Paper ──improves───> Paper
+Paper ──criticizes─> Paper
+Concept ──extends──> Concept
+System ──implements─> Concept
+Benchmark ──evaluates─> Concept
+
+这时候你的库才真的开始“长脑子”。
+
+6. 我甚至建议你做一个「Agent Curriculum」
+
+这个特别适合你。
+
+因为你现在不是完全不了解 Agent，而是已经接触了很多：
+
+ReAct
+Plan-Execute
+DAG
+DSH
+Harness
+Context
+Memory
+OpenClaw
+Agent Loop
+
+问题反而是：
+
+这些东西之间到底是什么关系？
+
+所以 Agent 可以帮你自动生成：
+
+Agent 学习路线
+
+Level 1
+│
+├── LLM Reasoning
+├── Chain-of-Thought
+└── Tool Use
+       ↓
+Level 2
+│
+├── ReAct
+├── Planning
+├── Reflection
+└── Memory
+       ↓
+Level 3
+│
+├── Agent Loop
+├── Multi-Agent
+├── RAG Agent
+└── Coding Agent
+       ↓
+Level 4
+│
+├── Agent Runtime
+├── Harness
+├── Context Engineering
+└── Evaluation
+       ↓
+Level 5
+│
+├── Agentic RL
+├── Harness Optimization
+├── Self-improving Agent
+└── Long-horizon Agent
+
+比如系统发现你：
+
+已经读过 ReAct、Toolformer，但是没读 Reflexion。
+
+那么：
+
+推荐你下一篇不是最新论文，而是 Reflexion。
+
+这和第一种“每天推荐最新论文”完全不一样。
+
+7. 经典论文的筛选可以让 Agent 做一个「候选 → 评审」流程
+
+例如你输入：
+
+帮我整理 Agent Memory 的经典论文。
+
+Agent 不应该直接给你 10 篇。
+
+应该：
+
+                 Search
+                   ↓
+              200 Papers
+                   ↓
+             Candidate
+              Filtering
+                   ↓
+               30篇
+                   ↓
+        ┌──────────┼──────────┐
+        ↓          ↓          ↓
+      Citation   Impact     Concept
+        ↓          ↓          ↓
+        └──────────┼──────────┘
+                   ↓
+              LLM Review
+                   ↓
+               Top 10
+                   ↓
+             Human Review
+                   ↓
+            Canonical Set
+
+最后形成：
+
+Memory
+
+★★★★★ Canonical
+├── Paper A
+├── Paper B
+├── Paper C
+
+★★★★ Important
+├── Paper D
+├── Paper E
+
+★★★ Representative
+├── Paper F
+├── Paper G
+
+而且“经典”最好不是一个永久不变的标签，而是：
+
+canonical = true
+
+reason:
+  foundational / influential / representative
+
+last_reviewed:
+  2026-08-31
+
+以后可以重新评估。
+
+8. 这时候 Obsidian 的优势反而比第一种更明显
+
+因为最终你会形成这种东西：
+
+Agent
+│
+├── Planning
+│    ├── ReAct
+│    ├── ToT
+│    └── Plan-and-Execute
+│
+├── Memory
+│    ├── MemGPT
+│    ├── Reflexion
+│    └── ...
+│
+└── Harness
+     ├── DeepSeek Harness
+     ├── OpenClaw
+     ├── SWE-agent
+     └── ...
+
+Obsidian 非常适合这种**“节点—关系—文档”**结构。
+
+所以我反而更加确定：
+
+经典知识库：Obsidian
+
+Agent：自己写
+
+数据库：第一版不要
+
+Web UI：先不要
+
+9. 然后第一种“每日新论文”可以变成第二层
+
+这是我现在最推荐你的最终架构：
+
+                 Agent Research System
+                         │
+             ┌───────────┴───────────┐
+             │                       │
+        Knowledge Map            Research Feed
+             │                       │
+        “过去发生了什么”           “最近发生了什么”
+             │                       │
+       Canonical Papers          New Papers
+       Concepts                  Trending
+       Systems                   Hot Topics
+       Benchmarks                New Systems
+             │                       │
+             └───────────┬───────────┘
+                         ↓
+                  Research Agent
+                         ↓
+              ┌─────────────────────┐
+              │                     │
+          学习路径               每日推荐
+              │                     │
+       “你下一步该学什么”        “今天读什么”
+
+这比单纯做 Paper Manager 有意思很多。
+
+10. 而且它还能解决一个很现实的问题
+
+你以后看到一篇新论文：
+
+JIT-Agent: Scaling Harness Intelligence...
+
+系统不是简单告诉你：
+
+“这是 2026 年 8 月的新论文。”
+
+而是：
+
+JIT-Agent
+   │
+   ├── 新论文
+   │
+   ├── 属于
+   │      ↓
+   │   Harness
+   │
+   ├── 关联
+   │      ↓
+   │   Agent Runtime
+   │
+   ├── 前置概念
+   │      ↓
+   │   Agent Loop
+   │   Tool Orchestration
+   │   Memory
+   │
+   ├── 与你已读
+   │      ↓
+   │   DeepSeek Harness
+   │   OpenClaw
+   │
+   └── 推荐补充
+          ↓
+       Harness Survey
+
+这才是知识管理 Agent真正比 Zotero / Notion / 飞书强的地方。
+
+11. 如果让我现在帮你开这个项目，我会分成 3 个 Milestone
+M1：先建立「Agent 经典知识地图」
+
+先不要追每日论文。
+
+目标：
+
+Agent
+├── Planning
+├── Reasoning
+├── Tool Use
+├── Memory
+├── Reflection
+├── Multi-Agent
+├── Agent Training
+├── Evaluation
+├── Coding Agent
+└── Harness
+
+每个节点自动找：
+
+5~10 篇 Canonical Papers + 3~5 个重要 System
+
+最终可能得到：
+
+100~200 篇真正值得读的论文。
+
+M2：做 Reading Agent
+
+然后：
+
+100~200篇
+     ↓
+Agent自动排序
+     ↓
+Prerequisite Graph
+     ↓
+学习路线
+
+例如：
+
+① CoT
+ ↓
+② ReAct
+ ↓
+③ Toolformer
+ ↓
+④ Reflexion
+ ↓
+⑤ Memory
+ ↓
+⑥ Agent Loop
+ ↓
+⑦ Harness
+
+你按照路线读，而不是随机刷论文。
+
+M3：最后接每日论文
+
+这时候每天：
+
+New Paper
+     ↓
+分类
+     ↓
+和 Knowledge Map 对齐
+     ↓
+发现它属于哪个方向
+     ↓
+和哪些经典论文有关
+     ↓
+判断是否值得读
+     ↓
+更新 Knowledge Map
+
+于是你的知识库就会：
+
+经典论文 → 新论文 → 新概念 → 更新知识地图
+
+不断生长。
+
+我会把这个项目定义成一句话
+
+不是“AI 论文收藏夹”，而是一个能够自动构建和维护 Agent 领域知识地图的 Research Agent。
+
+这其实也和现在 Agent 研究的趋势很契合：已有 Agent survey 会从 planning、memory、tool use、evaluation 等能力维度组织知识；而近来的 Harness 研究开始进一步把 execution / context / tool / session / loop / evaluation 等基础设施本身作为独立研究对象。
+
+如果你准备真的动手，我建议下一步不是先写代码，而是先把“Agent + Harness 的知识树”设计出来。 这个树一旦定下来，后面的 Agent、Obsidian Schema、论文搜索、自动分类、阅读路线都会顺着它自然长出来。
+
+我可以直接帮你把这棵树设计成一套比较完整的 「Agent / Harness 经典论文知识地图 v1.0」，包括每个模块应该有哪些经典论文、代表系统、前置知识、论文之间的关系，以及哪些是你现在最值得优先读的。
+
+可以，帮我设计一下
+
+可以。我建议这次不要把它做成单纯的“论文分类目录”，而是直接设计成一套 Agent / Harness Knowledge Map v1.0。核心目标是：
+
+先用 50～100 篇核心材料把 Agent 的知识骨架搭起来，再不断把新论文挂到这棵树上。
+
+而且考虑到你已经在看 DSH、OpenClaw、Agent Loop、Context、Memory、Harness，我会把 Harness 单独拉出来，而不是把它埋在 Agent Engineering 下面。
+
+一、先看整体地图
+
+我建议第一版分成 10 个一级领域：
+
+Agent Knowledge Map
+│
+├── 00. Foundations
+│   ├── LLM Reasoning
+│   ├── Prompting
+│   ├── In-context Learning
+│   └── Chain-of-Thought
+│
+├── 01. Agent Paradigms
+│   ├── ReAct
+│   ├── Plan-Execute
+│   ├── Reflection
+│   ├── Search
+│   └── Self-Improvement
+│
+├── 02. Planning & Reasoning
+│   ├── Task Decomposition
+│   ├── Planning
+│   ├── Tree / Graph Search
+│   └── Long-Horizon Reasoning
+│
+├── 03. Tool Use
+│   ├── Tool Calling
+│   ├── Tool Learning
+│   ├── Tool Selection
+│   ├── Tool Creation
+│   └── Tool Protocol
+│
+├── 04. Memory & Context
+│   ├── Context
+│   ├── Short-term Memory
+│   ├── Long-term Memory
+│   ├── Episodic Memory
+│   ├── Semantic Memory
+│   └── Procedural Memory
+│
+├── 05. Multi-Agent
+│   ├── Collaboration
+│   ├── Debate
+│   ├── Role-based
+│   └── Agent Communication
+│
+├── 06. Agent Training
+│   ├── SFT
+│   ├── RL
+│   ├── RLVR
+│   ├── Agentic RL
+│   └── Self-Training
+│
+├── 07. Agent Evaluation
+│   ├── General Agent
+│   ├── Web Agent
+│   ├── Coding Agent
+│   ├── Long-Horizon
+│   └── Agent Reliability
+│
+├── 08. Agent Systems
+│   ├── Web Agent
+│   ├── Coding Agent
+│   ├── Research Agent
+│   ├── Computer Use
+│   └── Domain Agent
+│
+└── 09. Agent Harness
+    ├── Context Management
+    ├── Session
+    ├── Agent Loop
+    ├── Tool Orchestration
+    ├── Memory
+    ├── Runtime
+    ├── Sandbox
+    ├── Error Recovery
+    ├── Evaluation
+    └── Harness Optimization
+
+这里有一个很重要的设计：
+
+前 8 个更偏“Agent 本身”，第 9 个专门研究“怎么把 Agent 跑起来”。
+
+这正好可以对应你最近一直在思考的：
+
+Agent = Brain
+Harness = Operating Environment
+二、00 Foundations：地基
+
+这一层不要放太多。
+
+核心是理解：
+
+为什么 LLM 能做 Agent。
+
+第一批
+Topic	代表材料	优先级
+Chain-of-Thought	Chain-of-Thought Prompting	★★★★★
+In-context Learning	GPT-3	★★★★
+Emergent Reasoning	CoT 系列	★★★★
+Instruction Following	InstructGPT	★★★★
+Scaling	Scaling Laws	★★★
+
+其中 CoT 是非常重要的前置知识。
+
+因为后面：
+
+CoT
+ ↓
+Reasoning
+ ↓
+ReAct
+ ↓
+Planning
+ ↓
+Agent
+
+是一条非常自然的发展路线。
+
+三、01 Agent Paradigms：Agent 是怎么工作的
+
+这一层是你的第一核心层。
+
+我建议重点搞清楚这几个范式：
+
+LLM
+ │
+ ├── One-shot
+ │
+ ├── CoT
+ │
+ ├── ReAct
+ │
+ ├── Plan → Execute
+ │
+ ├── Reflection
+ │
+ ├── Search
+ │
+ └── Self-improvement
+Canonical Papers
+
+ReAct
+
+ReAct: Synergizing Reasoning and Acting in Language Models
+
+★★★★★
+
+这是必须读的。
+
+Reflexion
+
+Reflexion: Language Agents with Verbal Reinforcement Learning
+
+★★★★★
+
+理解：
+
+Action
+ ↓
+Feedback
+ ↓
+Reflection
+ ↓
+Next Action
+
+Tree of Thoughts
+
+理解 LLM 从：
+
+单条 reasoning chain
+
+变成：
+
+        Thought
+       /   |   \
+      A    B    C
+     / \       / \
+    ...       ...
+
+Plan-and-Execute
+
+这个非常值得你和 ReAct 放在一起看。
+
+你之前问过：
+
+Plan-Execute / ReAct / DAG 到底是什么关系？
+
+这里就应该专门建一个 Concept：
+
+Agent Execution Paradigms
+
+然后：
+
+ReAct
+
+Reason
+ ↓
+Act
+ ↓
+Observe
+ ↓
+Reason
+ ↓
+Act
+
+vs
+
+Plan-Execute
+
+Plan
+ ↓
+Task A
+ ↓
+Task B
+ ↓
+Task C
+
+vs
+
+DAG
+
+A ──→ B
+│      │
+└──→ C ──→ D
+
+这会成为你理解 Harness 的重要基础。
+
+四、02 Planning & Reasoning
+
+这一块单独出来。
+
+因为现在 Agent 的一个核心问题就是：
+
+怎么解决长链路任务？
+
+可以形成：
+
+Reasoning
+│
+├── Chain
+│
+├── Tree
+│
+├── Graph
+│
+├── Search
+│
+├── Planning
+│
+└── Verification
+
+重点研究：
+
+Task Decomposition
+Planning
+Search
+Verification
+Reflection
+Self-Correction
+
+然后建立一个非常重要的 Concept：
+
+Planning vs Reasoning vs Execution
+
+很多 Agent 论文把这三个混在一起。
+
+你自己的知识库应该强制区分：
+
+Reasoning
+= 想
+
+Planning
+= 决定接下来怎么做
+
+Execution
+= 真正执行
+
+Observation
+= 获取环境反馈
+
+然后：
+
+Agent Loop
+
+Reason
+ ↓
+Plan
+ ↓
+Execute
+ ↓
+Observe
+ ↓
+Reason
+
+这会直接连接到 Harness。
+
+五、03 Tool Use
+
+这是 Agent 的第二核心。
+
+知识树：
+
+Tool Use
+│
+├── Tool Calling
+│
+├── Tool Selection
+│
+├── Tool Learning
+│
+├── Tool Creation
+│
+├── Tool Discovery
+│
+└── Tool Protocol
+
+经典材料可以优先看：
+
+Toolformer
+
+Toolformer: Language Models Can Teach Themselves to Use Tools
+
+★★★★★
+
+这是 Tool Use 非常重要的早期工作。
+
+ReAct
+
+因为它同时奠定：
+
+Reasoning + Acting
+MCP
+
+MCP 不一定属于传统意义上的“论文”。
+
+但在你的 Knowledge Base 里应该作为：
+
+System / Protocol
+
+而不是 Paper。
+
+这样就不会犯一个错误：
+
+论文知识库 = arXiv。
+
+实际上你要管理的是：
+
+Research Knowledge。
+
+六、04 Memory & Context
+
+这一块我建议你重点做。
+
+因为它以后非常容易和 Harness 连起来。
+
+可以拆成：
+
+Memory
+│
+├── Context
+│
+├── Working Memory
+│
+├── Short-term Memory
+│
+├── Long-term Memory
+│
+├── Episodic Memory
+│
+├── Semantic Memory
+│
+├── Procedural Memory
+│
+├── Retrieval
+│
+└── Memory Editing
+
+然后建立：
+
+Context ≠ Memory
+
+这是非常重要的 Concept。
+
+例如：
+
+Context
+
+当前这一轮模型能看到的信息
+
+而：
+
+Memory
+
+跨时间保留的信息
+
+进一步：
+
+Context Management
+       ↓
+Memory Retrieval
+       ↓
+Memory Update
+       ↓
+Context Construction
+
+这其实已经开始进入 Harness 了。
+
+七、05 Multi-Agent
+
+这一块不用一开始钻太深。
+
+先形成：
+
+Multi-Agent
+│
+├── Independent Agents
+│
+├── Role-based
+│
+├── Collaboration
+│
+├── Debate
+│
+├── Hierarchical
+│
+└── Communication
+
+核心问题：
+
+为什么不用一个 Agent，而要多个 Agent？
+
+然后你的知识库必须记录：
+
+Multi-Agent 的收益
+vs
+Multi-Agent 的成本
+
+例如：
+
++ specialization
++ parallelism
++ diversity
+
+-
+communication cost
+-
+coordination
+-
+error propagation
+
+否则很容易变成“多 Agent 什么都能解决”的论文堆。
+
+八、06 Agent Training
+
+这一块和你自己的工作联系非常大。
+
+建议：
+
+Agent Training
+│
+├── SFT
+│
+├── RLHF
+│
+├── RLVR
+│
+├── GRPO
+│
+├── Agentic RL
+│
+├── Outcome Reward
+│
+├── Process Reward
+│
+└── Self-Improvement
+
+尤其建立一个非常重要的演进关系：
+
+Train Model
+     ↓
+Train Agent Behavior
+     ↓
+Train Agent Policy
+     ↓
+Optimize Agent + Environment
+     ↓
+Optimize Harness
+
+最后：
+
+Model Training → Agent Training → Harness Optimization
+
+这可能会成为你以后研究 Harness 非常重要的一条线。
+
+九、07 Agent Evaluation
+
+这一块非常重要，但经常被忽略。
+
+不要只记录：
+
+Benchmark
+Score
+
+应该研究：
+
+Evaluation
+│
+├── Task Success
+├── Pass@K
+├── Tool Success
+├── Planning Quality
+├── Long Horizon
+├── Robustness
+├── Cost
+├── Latency
+├── Safety
+└── Reliability
+
+然后建立：
+
+Capability
+        vs
+System Performance
+
+例如：
+
+模型能力很强
+      ↓
+Agent 不一定强
+
+因为：
+
+Context
+Tool
+Loop
+Memory
+Recovery
+Evaluation
+可能有问题
+
+这就是 Harness 出现的重要背景。
+
+十、08 Agent Systems
+
+这里不是“论文分类”，而是应用形态。
+
+Agent Systems
+│
+├── Coding Agent
+├── Web Agent
+├── Computer Use
+├── Research Agent
+├── Browser Agent
+├── Data Agent
+└── Domain Agent
+
+比如 Coding Agent：
+
+SWE-agent
+OpenHands
+Claude Code
+Codex
+...
+
+这里你就可以开始研究：
+
+一个真正的 Agent System 到底由什么组成？
+
+最后自然过渡到 Harness。
+
+十一、09 Harness：我建议单独做一棵树
+
+这应该成为你这个知识库最有特色的部分。
+
+我建议定义：
+
+Agent Harness
+│
+├── 01 Context
+│
+├── 02 Session
+│
+├── 03 Agent Loop
+│
+├── 04 Planning
+│
+├── 05 Tool Orchestration
+│
+├── 06 Memory
+│
+├── 07 Execution
+│
+├── 08 Runtime
+│
+├── 09 Sandbox
+│
+├── 10 Error Recovery
+│
+├── 11 Evaluation
+│
+└── 12 Harness Optimization
+Harness 01：Context
+
+研究：
+
+Context Construction
+Context Compression
+Context Selection
+Context Prioritization
+Context Window Management
+
+核心问题：
+
+模型每一步到底应该看到什么？
+
+Harness 02：Session
+
+研究：
+
+Session State
+Conversation State
+Task State
+Environment State
+Persistent State
+
+也就是：
+
+Agent 到底“记得”什么？
+
+Harness 03：Agent Loop
+
+这个是你目前最应该重点研究的。
+
+Loop
+
+while not done:
+
+    observe
+    reason
+    plan
+    act
+    evaluate
+
+然后对比：
+
+ReAct
+Plan-Execute
+DAG
+State Machine
+Event Loop
+Agent Loop
+
+这可以专门建立一篇：
+
+Agent Loop Paradigm
+
+把你之前的疑问彻底整理进去。
+
+十二、Harness 04～10
+
+然后逐渐形成：
+
+              Agent Harness
+                    │
+       ┌────────────┼────────────┐
+       ↓            ↓            ↓
+    Context       Loop          Tool
+       │            │            │
+       ↓            ↓            ↓
+    Memory       Session      Runtime
+       │            │            │
+       └────────────┼────────────┘
+                    ↓
+                 Sandbox
+                    ↓
+               Error Recovery
+                    ↓
+                Evaluation
+
+这张图以后甚至可以成为你研究 Harness 的总览图。
+
+十三、最关键的是：给每篇材料一个统一 Schema
+
+不管是论文、GitHub、博客还是系统，都使用：
+
+---
+type: paper
+
+title:
+authors:
+year:
+
+domain:
+  - Agent
+  - Harness
+
+category:
+  - Memory
+
+status:
+  - unread
+
+importance: 5
+
+difficulty: 3
+
+canonical: true
+
+source:
+  type: arxiv
+  url:
+
+related_concepts:
+  - Agent Memory
+  - Context
+  - Agent Loop
+
+related_papers:
+
+prerequisite:
+
+followup:
+
+---
+
+正文固定：
+
+# 一句话
+
+# 解决什么问题
+
+# 为什么重要
+
+# 核心方法
+
+# Architecture
+
+# 实验
+
+# 主要结论
+
+# 局限
+
+# 与其他工作的关系
+
+# 我的理解
+
+# 值得记住的东西
+十四、然后每一个 Concept 也应该有自己的页面
+
+例如：
+
+Concepts/
+    Agent Loop.md
+
+内容：
+
+# Agent Loop
+
+## Definition
+
+Agent 在环境中反复执行：
+
+Observe → Reason → Act → Observe
+
+## Evolution
+
+CoT
+↓
+ReAct
+↓
+Plan-Execute
+↓
+Agent Loop
+↓
+Harness
+
+## Key Questions
+
+- Loop 谁控制？
+- Model 是否决定下一步？
+- Tool 是否可以改变 Loop？
+- Loop 如何终止？
+- Error 如何恢复？
+
+## Canonical Papers
+
+- [[ReAct]]
+- [[Reflexion]]
+- ...
+
+## Related Concepts
+
+- [[Planning]]
+- [[Tool Use]]
+- [[Context]]
+- [[Memory]]
+- [[Harness]]
+
+## My Understanding
+
+...
+
+这个东西比“论文总结”有价值很多。
+
+十五、最终你会得到一个非常漂亮的结构
+                   AGENT
+                     │
+       ┌─────────────┼─────────────┐
+       │             │             │
+   Reasoning      Planning       Tool
+       │             │             │
+       └─────────────┼─────────────┘
+                     │
+                   Memory
+                     │
+                  Context
+                     │
+                Agent Loop
+                     │
+          ┌──────────┼──────────┐
+          │          │          │
+       Session     Runtime    Sandbox
+          │          │          │
+          └──────────┼──────────┘
+                     │
+                  Harness
+                     │
+                Evaluation
+                     │
+              Self Improvement
+
+这张图其实就是你整个知识库的核心 ontology。
+
+十六、第一批到底读多少？
+
+不要一上来搞 300 篇。
+
+我建议第一阶段控制在：
+
+约 60 篇
+Foundations             5
+Agent Paradigms          8
+Planning/Reasoning       8
+Tool Use                 6
+Memory/Context           8
+Multi-Agent              5
+Agent Training           6
+Evaluation               5
+Agent Systems            5
+Harness                  4+
+────────────────────────
+                       ~60
+
+其中：
+
+★★★★★ 20篇
+★★★★   20篇
+★★★    20篇
+
+然后：
+
+★★★★★ 必须真正读完。
+
+★★★★：
+
+看论文 + 总结 + 实验。
+
+★★★：
+
+知道它解决什么问题即可。
+
+这样你不会陷入“收藏了 300 篇论文但是一篇都没认真看”的陷阱。
+
+十七、然后给每篇论文一个「知识角色」
+
+我觉得这个字段非常值得加入：
+
+role:
+  - foundational
+  - paradigm
+  - improvement
+  - benchmark
+  - system
+  - survey
+  - critique
+
+例如：
+
+ReAct
+→ foundational / paradigm
+
+Reflexion
+→ improvement / paradigm
+
+SWE-agent
+→ system
+
+AgentBench
+→ benchmark
+
+Agent Survey
+→ survey
+
+某 Harness 新论文
+→ paradigm / system
+
+这样以后你问：
+
+“Agent Memory 最经典的 5 篇论文”
+
+Agent 不需要重新搜索整个互联网。
+
+直接：
+
+Knowledge Graph
+     ↓
+Memory
+     ↓
+role = foundational
+     ↓
+importance >= 4
+
+就能得到。
+
+十八、我甚至建议加一个「Why Read」字段
+
+这个对于你的使用体验会特别好。
+
+每篇论文：
+
+importance: 5
+
+why_read:
+  - 奠定 Agent Memory 基本范式
+  - 后续大量工作引用
+  - 与 Harness Context/Mem 直接相关
+
+prerequisite:
+  - ReAct
+
+unlocks:
+  - Agent Memory
+  - Long-term Memory
+  - Memory-Augmented Agent
+
+于是系统以后可以告诉你：
+
+为什么你现在应该读这篇？
+
+而不仅仅是：
+
+这篇论文很经典。
+
+十九、所以最终的产品形态，我会这样设计
+                 My Agent Research OS
+                         │
+        ┌────────────────┼────────────────┐
+        ↓                ↓                ↓
+ Knowledge Map       Reading Plan     New Papers
+        │                │                │
+        ↓                ↓                ↓
+  Concepts/Papers     Prerequisite       Daily
+  Systems             Graph              Feed
+        │                │                │
+        └────────────────┼────────────────┘
+                         ↓
+                   Research Agent
+                         │
+              ┌──────────┼──────────┐
+              ↓          ↓          ↓
+           Search      Read       Connect
+              ↓          ↓          ↓
+            Web        LLM       Knowledge
+                                   Graph
+
+第一阶段我甚至不会做 Web UI。
+
+直接：
+
+Python
++
+Obsidian
++
+LLM API
++
+arXiv / Semantic Scholar / GitHub
+
+就够了。
+
+最后给你一个我认为最重要的调整
+
+你这个项目最好不要叫：
+
+论文知识管理工具
+
+而是定义成：
+
+Agent Research OS
+
+因为“论文”只是输入。
+
+真正管理的是：
+
+Paper
+System
+Concept
+Benchmark
+Person/Team
+Method
+Experiment
+Relationship
+Reading Progress
+
+最终形成：
+
+Concept → Paper → System → Experiment → New Paper
+
+的一张知识网络。
+
+而你刚才提出的两个需求也就自然统一了：
+
+经典模式：
+
+Agent Knowledge Map
+       ↓
+Canonical Papers
+       ↓
+Learning Path
+
+每日模式：
+
+New Papers
+       ↓
+自动映射到 Knowledge Map
+       ↓
+判断是否改变现有认知
+       ↓
+值得读 → 加入 Daily Reading
+
+这比单纯的“每天给我 5 篇 arXiv”要强一个层级。
+
+如果按这个方向做，下一步最值得做的其实是把这 10 个一级领域进一步落成一份“60 篇 Canonical Papers 初始清单”——每篇给出论文、年份、解决的问题、为什么经典、前置论文、后续影响，并且专门把 Agent Loop / Context / Memory / Harness / DSH / OpenClaw 这条线串起来。这样你可以直接把它导入 Obsidian，作为整个 Agent Research OS 的 v0 知识库。
+
+怎么搞定这份初始清单呢
+
+我建议不要人工一篇篇搜，而是把“做初始清单”本身设计成一个小型 Agent workflow。
+
+而且这里和“每天搜新论文”不一样：初始清单最重要的不是最新，而是覆盖面 + 代表性 + 历史脉络 + 你自己的研究方向。
+
+我会这么搞。
+
+1. 先不要追求“60 篇准确答案”
+
+第一轮目标应该是：
+
+从一个宽松的候选池里，让 Agent 帮你筛出 150～200 篇，再人工确认成 60～80 篇 Canonical Set。
+
+流程：
+
+知识地图
+   ↓
+每个节点定义检索问题
+   ↓
+Semantic Scholar / arXiv / Google Scholar / GitHub
+   ↓
+候选 300~500 篇
+   ↓
+去重
+   ↓
+LLM 分类
+   ↓
+引用/影响力/代表性排序
+   ↓
+每个节点 Top 5~10
+   ↓
+人工 Review
+   ↓
+Canonical 60~80
+
+这里不要让 LLM 一个人决定经典论文。
+
+因为它很容易产生一种问题：
+
+“我知道这篇论文，所以它一定很重要。”
+
+但真正的经典性往往来自历史影响 + 后续工作 + 社区认可 + 是否改变范式。
+
+2. 第一步：先把你的知识树固定下来
+
+比如先只做这 10 个领域：
+
+01 Foundations
+02 Agent Paradigms
+03 Planning & Reasoning
+04 Tool Use
+05 Memory & Context
+06 Multi-Agent
+07 Agent Training
+08 Agent Evaluation
+09 Agent Systems
+10 Harness
+
+然后每个领域继续拆 3～8 个 Topic。
+
+例如：
+
+Memory & Context
+
+├── Context Management
+├── Long-term Memory
+├── Episodic Memory
+├── Semantic Memory
+├── Memory Retrieval
+└── Memory Editing
+
+这一步最好人工定。
+
+因为这是你的“知识体系”，不是搜索结果。
+
+3. 第二步：每个 Topic 自动生成“检索问题”
+
+比如：
+
+Topic = Agent Memory
+
+不要只搜：
+
+agent memory paper
+
+而是让 Agent 生成多种 query：
+
+"LLM agent memory"
+"language agent long term memory"
+"memory augmented language agents"
+"episodic memory language agents"
+"semantic memory LLM agents"
+"long-term memory autonomous agents"
+
+然后再去搜索。
+
+一个 Topic 最好生成：
+
+5～10 个检索 query
+
+这样可以减少搜索引擎偏差。
+
+4. 第三步：候选论文不要只来自一个地方
+
+这是非常重要的。
+
+我会做：
+
+             Candidate Sources
+                    │
+      ┌─────────────┼─────────────┐
+      ↓             ↓             ↓
+    arXiv      Semantic Scholar  Google Scholar
+      │             │             │
+      ├─────────────┼─────────────┤
+      ↓             ↓             ↓
+   GitHub        Papers       Survey Papers
+
+其中有一个非常好用的策略：
+
+先找 Survey，再顺藤摸瓜
+
+比如：
+
+Agent Survey
+    ↓
+引用了 300 篇
+    ↓
+按照 Planning / Memory / Tool / ...
+    ↓
+得到候选池
+
+因为 Survey 本身已经帮你做了一轮领域整理。
+
+然后：
+
+Survey
+  ↓
+References
+  ↓
+Candidate Papers
+
+再用引用关系补漏：
+
+经典论文
+   ↑
+引用它的论文
+   ↓
+它引用的论文
+
+这比单纯关键词搜索靠谱得多。
+
+5. 第四步：给每篇候选论文建立一个评分
+
+我建议你的 Agent 不要直接输出：
+
+这篇很经典
+
+而是：
+
+canonical_score: 8.7
+
+factors:
+  foundational: 9
+  influence: 8
+  novelty: 9
+  relevance: 10
+  representative: 9
+  current_importance: 7
+
+role:
+  - foundational
+  - paradigm
+
+confidence: 0.91
+
+可以简单搞成：
+
+Canonical Score
+
+30% Foundational
+20% Influence
+20% Representativeness
+15% Relevance
+10% Novelty
+ 5% Current Importance
+
+但注意：
+
+这个分数只是排序工具，不是真理。
+
+6. 最重要的一招：让 Agent 做“反向验证”
+
+比如它认为：
+
+ReAct 是 Agent 的经典论文。
+
+不要就结束。
+
+让另一个 Agent / 第二轮 prompt 问：
+
+如果只能保留 3 篇 Agent Paradigm 论文，ReAct 是否必须保留？为什么？如果不保留，应该换成什么？
+
+这时候你得到：
+
+ReAct
+★★★★★
+
+原因：
+- 奠定 reasoning + acting 范式
+- 后续 Agent 大量采用
+- 连接 reasoning 与 environment interaction
+
+Alternatives:
+- Toolformer
+- Reflexion
+- Plan-and-Execute
+
+这个过程非常重要。
+
+它相当于：
+
+不是让 Agent 找“好论文”，而是让 Agent 进行“课程设计”。
+
+7. 第五步：做一个“每个节点至少 3 篇”的约束
+
+比如：
+
+Memory
+
+至少要有：
+
+Foundational
+Representative
+Recent
+
+三个层次。
+
+例如：
+
+Memory
+│
+├── Foundational
+│     └── Paper A
+│
+├── Representative
+│     └── Paper B
+│
+└── Recent
+      └── Paper C
+
+这样你的知识库不会变成：
+
+只有老论文。
+
+也不会变成：
+
+全是 2025/2026 的论文。
+
+8. 我特别建议加入“反例论文”
+
+这个非常容易被忽略。
+
+比如某个领域大家都在说：
+
+Multi-Agent 比 Single Agent 好。
+
+那你应该主动找：
+
+Multi-Agent works
+        VS
+Multi-Agent doesn't help
+
+也就是：
+
+Positive Evidence
+Negative Evidence
+
+最终你的 Knowledge Node 可以变成：
+
+Multi-Agent
+
+核心观点：
+
+多 Agent 在某些任务上有效。
+
+Supporting:
+A
+B
+C
+
+Counter Evidence:
+D
+E
+
+Open Question:
+什么时候多 Agent 真正有收益？
+
+这比单纯收藏经典论文高级很多。
+
+9. 最后一定要人工做一次“知识地图 Review”
+
+Agent 给你：
+
+Agent Memory
+
+1. Paper A ★★★★★
+2. Paper B ★★★★★
+3. Paper C ★★★★
+4. Paper D ★★★★
+5. Paper E ★★★
+...
+
+你不要一篇篇判断：
+
+这篇我要不要。
+
+而应该看：
+
+这个 Topic 有没有讲完整？
+
+比如：
+
+Memory
+
+Foundations
+  ✓
+
+Retrieval
+  ✓
+
+Episodic
+  ✓
+
+Semantic
+  ✓
+
+Procedural
+  ✗
+
+Memory Editing
+  ✗
+
+发现：
+
+Procedural Memory 没有代表论文。
+
+再让 Agent 补。
+
+所以最终是：
+
+Coverage
++
+Canonicality
+
+两个维度一起保证。
+
+10. 你可以直接做一个 knowledge_map.yaml
+
+例如：
+
+agent:
+  planning:
+    description: "How agents decide what to do"
+
+    topics:
+      - task_decomposition
+      - planning
+      - search
+      - verification
+
+    target_papers: 6
+
+  tool_use:
+    topics:
+      - tool_calling
+      - tool_learning
+      - tool_selection
+      - tool_creation
+
+    target_papers: 6
+
+  memory:
+    topics:
+      - context
+      - long_term_memory
+      - episodic_memory
+      - semantic_memory
+      - procedural_memory
+
+    target_papers: 8
+
+  harness:
+    topics:
+      - context_management
+      - session
+      - agent_loop
+      - tool_orchestration
+      - runtime
+      - sandbox
+      - error_recovery
+      - evaluation
+
+    target_papers: 8
+
+然后你的程序读取这个 YAML：
+
+knowledge_map.yaml
+        ↓
+Query Generator
+        ↓
+Paper Search
+        ↓
+Candidate Pool
+        ↓
+Classifier
+        ↓
+Ranker
+        ↓
+Gap Detector
+        ↓
+Final List
+
+这就已经是一个很像样的 Agent workflow 了。
+
+11. 实际上我会让 Agent 做 4 个 Loop
+
+而不是一个大 Prompt。
+
+                 Knowledge Map
+                       ↓
+                ┌─────────────┐
+                │ Discovery   │
+                └──────┬──────┘
+                       ↓
+                  Candidates
+                       ↓
+                ┌─────────────┐
+                │ Classifier  │
+                └──────┬──────┘
+                       ↓
+                  Categorized
+                       ↓
+                ┌─────────────┐
+                │ Ranker      │
+                └──────┬──────┘
+                       ↓
+                Top Candidates
+                       ↓
+                ┌─────────────┐
+                │ Gap Detector│
+                └──────┬──────┘
+                       │
+                 ┌─────┴─────┐
+                 ↓           ↓
+              Missing      Enough
+                 │           │
+                 ↓           ↓
+              Search       Review
+                 │
+                 └──────────→
+
+Gap Detector 是关键。
+
+因为它回答：
+
+“我这个知识地图哪里还缺东西？”
+
+12. 甚至可以让 Agent 自动发现“知识脉络”
+
+比如最后得到：
+
+Tool Use
+
+Toolformer
+   ↓
+ReAct
+   ↓
+Tool Learning
+   ↓
+Tool Creation
+   ↓
+MCP / Tool Protocol
+
+Memory：
+
+Context
+  ↓
+Memory-Augmented LLM
+  ↓
+Long-term Memory
+  ↓
+Agent Memory
+  ↓
+Memory Retrieval
+  ↓
+Memory Optimization
+
+Harness：
+
+ReAct
+  ↓
+Agent Loop
+  ↓
+Tool Orchestration
+  ↓
+Agent Runtime
+  ↓
+Harness
+  ↓
+Harness Optimization
+
+这个“时间/思想演化线”甚至比论文列表本身更重要。
+
+13. 你的第一版代码其实可以非常小
+
+甚至：
+
+project/
+│
+├── config/
+│   └── knowledge_map.yaml
+│
+├── agents/
+│   ├── discovery.py
+│   ├── classifier.py
+│   ├── ranker.py
+│   └── gap_detector.py
+│
+├── sources/
+│   ├── arxiv.py
+│   ├── semantic_scholar.py
+│   └── github.py
+│
+├── output/
+│   └── candidates.json
+│
+└── main.py
+
+第一阶段甚至不用 Obsidian。
+
+先生成：
+
+canonical_papers.json
+
+等你确认这 60～80 篇没问题，再：
+
+JSON
+ ↓
+Markdown
+ ↓
+Obsidian
+14. 我建议你实际执行的时候采用“人机共创”
+
+最终流程：
+
+AI 找 200 篇
+       ↓
+AI 分类
+       ↓
+AI 排序
+       ↓
+AI 找缺口
+       ↓
+AI 给出 80 篇
+       ↓
+       👨 你 Review
+       ↓
+Canonical 60
+       ↓
+Obsidian
+
+你只需要做最有价值的部分：
+
+告诉 Agent：“这个领域我认为应该这样理解。”
+
+例如你可能会说：
+
+“我觉得 Harness 不应该只是 Agent Engineering，它应该包含 Context、Session、Loop、Tool、Memory、Runtime、Evaluation。”
+
+那就把它写进 ontology。
+
+知识树由你定，论文由 Agent 帮你填。
+
+这才是最合理的分工。
+
+我甚至建议我们现在就直接做第一版
+
+不要停留在设计层面。
+
+我们可以直接以你现在最关心的范围：
+
+Agent + Harness
+
+先做一版：
+
+10 个一级领域 → 30～40 个 Topic → 每个 Topic 3～5 篇候选 → 最终约 80 篇 Canonical / Important 材料
+
+而且我建议不要只限制论文，同时纳入：
+
+⭐ Canonical Paper
+📄 Survey
+🛠️ Representative System
+📊 Benchmark
+🔧 Framework / Protocol
+📝 Landmark Blog / Technical Report
+
+然后我可以直接帮你把这套第一版清单查出来、去重、按知识树分类，并给每篇标注“为什么值得读 / 前置知识 / 后续影响 / 推荐阅读顺序”。这样你拿到的就不是一个论文列表，而是可以直接放进 Obsidian 的 Agent Research OS v0.1。
+
+在使用额度在 19:15重置前，文件、图像和数据分析不可用。你可以继续仅使用文本聊天，或升级以获得更多使用权限。
+免费试用 Plus

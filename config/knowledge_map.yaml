@@ -1,0 +1,356 @@
+# ============================================================
+# Agent Research OS — Knowledge Map v1.0
+# ============================================================
+# 这是整个知识库的"骨架"。
+# 所有材料（论文/系统/基准/框架）只能挂到这棵树的某个节点上。
+# 树的结构由人工定义，不由 LLM 自动生成。
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-08-31"
+
+# ---- 一级领域 ----
+# 前 8 个偏 Agent 本身，第 9 个偏 Agent 应用形态，第 10 个专门研究 Harness
+# 共 10 个一级领域，每个含 3-8 个 Topic
+
+domains:
+
+  # ============================================================
+  # 00. Foundations — 为什么 LLM 能做 Agent
+  # ============================================================
+  foundations:
+    name: "Foundations"
+    name_cn: "基础"
+    description: "为什么 LLM 能做 Agent——推理能力、指令遵循、上下文学习"
+    target_papers: 5
+    topics:
+      - id: llm_reasoning
+        name: "LLM Reasoning"
+        name_cn: "LLM 推理"
+        description: "LLM 的推理能力是如何涌现的"
+      - id: prompting
+        name: "Prompting"
+        name_cn: "提示工程"
+        description: "通过提示激发模型能力"
+      - id: in_context_learning
+        name: "In-context Learning"
+        name_cn: "上下文学习"
+        description: "无需训练，在上下文中学习新任务"
+      - id: chain_of_thought
+        name: "Chain-of-Thought"
+        name_cn: "思维链"
+        description: "让模型展示推理过程，而非直接给答案"
+      - id: instruction_following
+        name: "Instruction Following"
+        name_cn: "指令遵循"
+        description: "模型遵循自然语言指令的能力"
+
+  # ============================================================
+  # 01. Agent Paradigms — Agent 是怎么工作的
+  # ============================================================
+  agent_paradigms:
+    name: "Agent Paradigms"
+    name_cn: "Agent 范式"
+    description: "Agent 的基本工作方式——从单步到循环到反思"
+    target_papers: 8
+    topics:
+      - id: react
+        name: "ReAct"
+        name_cn: "推理+行动"
+        description: "Reasoning + Acting 交替执行"
+      - id: plan_execute
+        name: "Plan-and-Execute"
+        name_cn: "先规划后执行"
+        description: "先生成完整计划，再逐步执行"
+      - id: reflection
+        name: "Reflection"
+        name_cn: "反思"
+        description: "从失败中学习，自我纠正"
+      - id: search
+        name: "Search"
+        name_cn: "搜索"
+        description: "在推理空间中搜索（ToT, MCTS 等）"
+      - id: self_improvement
+        name: "Self-Improvement"
+        name_cn: "自我改进"
+        description: "Agent 通过自身经验改进策略"
+      - id: execution_paradigm_comparison
+        name: "Execution Paradigm Comparison"
+        name_cn: "执行范式对比"
+        description: "ReAct vs Plan-Execute vs DAG vs State Machine"
+
+  # ============================================================
+  # 02. Planning & Reasoning — 怎么解决长链路任务
+  # ============================================================
+  planning_reasoning:
+    name: "Planning & Reasoning"
+    name_cn: "规划与推理"
+    description: "任务分解、搜索、验证——解决长链路复杂任务"
+    target_papers: 8
+    topics:
+      - id: task_decomposition
+        name: "Task Decomposition"
+        name_cn: "任务分解"
+        description: "把复杂任务拆成子任务"
+      - id: planning
+        name: "Planning"
+        name_cn: "规划"
+        description: "生成和调整执行计划"
+      - id: tree_graph_search
+        name: "Tree / Graph Search"
+        name_cn: "树/图搜索"
+        description: "在推理空间中做树搜索或图搜索"
+      - id: long_horizon_reasoning
+        name: "Long-Horizon Reasoning"
+        name_cn: "长链路推理"
+        description: "多步骤长链路任务的推理策略"
+      - id: verification
+        name: "Verification"
+        name_cn: "验证"
+        description: "对推理结果做验证和自我检查"
+
+  # ============================================================
+  # 03. Tool Use — Agent 的核心能力
+  # ============================================================
+  tool_use:
+    name: "Tool Use"
+    name_cn: "工具使用"
+    description: "工具调用、工具学习、工具创建、工具协议"
+    target_papers: 6
+    topics:
+      - id: tool_calling
+        name: "Tool Calling"
+        name_cn: "工具调用"
+        description: "模型直接调用外部工具"
+      - id: tool_learning
+        name: "Tool Learning"
+        name_cn: "工具学习"
+        description: "模型学习如何使用新工具"
+      - id: tool_selection
+        name: "Tool Selection"
+        name_cn: "工具选择"
+        description: "从大量工具中选择合适的工具"
+      - id: tool_creation
+        name: "Tool Creation"
+        name_cn: "工具创建"
+        description: "Agent 自主创建新工具"
+      - id: tool_protocol
+        name: "Tool Protocol"
+        name_cn: "工具协议"
+        description: "MCP 等标准化工具协议"
+
+  # ============================================================
+  # 04. Memory & Context — Agent 的记忆
+  # ============================================================
+  memory_context:
+    name: "Memory & Context"
+    name_cn: "记忆与上下文"
+    description: "上下文管理、短期/长期记忆、记忆检索与编辑"
+    target_papers: 8
+    topics:
+      - id: context_management
+        name: "Context Management"
+        name_cn: "上下文管理"
+        description: "模型每一步应该看到什么——Context ≠ Memory"
+      - id: short_term_memory
+        name: "Short-term Memory"
+        name_cn: "短期记忆"
+        description: "当前会话内的临时记忆"
+      - id: long_term_memory
+        name: "Long-term Memory"
+        name_cn: "长期记忆"
+        description: "跨会话持久化的记忆"
+      - id: episodic_memory
+        name: "Episodic Memory"
+        name_cn: "情景记忆"
+        description: "对过去交互事件的记忆"
+      - id: semantic_memory
+        name: "Semantic Memory"
+        name_cn: "语义记忆"
+        description: "事实和知识类记忆"
+      - id: procedural_memory
+        name: "Procedural Memory"
+        name_cn: "程序记忆"
+        description: "技能和操作流程类记忆"
+      - id: memory_retrieval
+        name: "Memory Retrieval"
+        name_cn: "记忆检索"
+        description: "如何从记忆库中检索相关信息"
+      - id: memory_editing
+        name: "Memory Editing"
+        name_cn: "记忆编辑"
+        description: "对已有记忆的修改和更新"
+
+  # ============================================================
+  # 05. Multi-Agent — 多智能体
+  # ============================================================
+  multi_agent:
+    name: "Multi-Agent"
+    name_cn: "多智能体"
+    description: "协作、辩论、角色分工、Agent 间通信"
+    target_papers: 5
+    topics:
+      - id: collaboration
+        name: "Collaboration"
+        name_cn: "协作"
+        description: "多 Agent 协同完成任务"
+      - id: debate
+        name: "Debate"
+        name_cn: "辩论"
+        description: "多 Agent 通过辩论提升答案质量"
+      - id: role_based
+        name: "Role-based"
+        name_cn: "角色分工"
+        description: "不同 Agent 扮演不同角色"
+      - id: agent_communication
+        name: "Agent Communication"
+        name_cn: "Agent 通信"
+        description: "Agent 之间的信息交换协议"
+      - id: multi_agent_tradeoffs
+        name: "Multi-Agent Tradeoffs"
+        name_cn: "多 Agent 权衡"
+        description: "多 Agent 的收益 vs 成本（含反例证据）"
+
+  # ============================================================
+  # 06. Agent Training — 训练 Agent
+  # ============================================================
+  agent_training:
+    name: "Agent Training"
+    name_cn: "Agent 训练"
+    description: "SFT、RL、RLVR、Agentic RL、自我训练"
+    target_papers: 6
+    topics:
+      - id: sft
+        name: "SFT"
+        name_cn: "监督微调"
+        description: "用 Agent 轨迹做监督微调"
+      - id: rlhf
+        name: "RLHF"
+        name_cn: "人类反馈强化学习"
+        description: "基于人类反馈的强化学习"
+      - id: rlvr
+        name: "RLVR"
+        name_cn: "可验证奖励强化学习"
+        description: "Reinforcement Learning with Verifiable Rewards"
+      - id: agentic_rl
+        name: "Agentic RL"
+        name_cn: "Agent 强化学习"
+        description: "在 Agent 任务上做 RL，优化完整轨迹"
+      - id: process_reward
+        name: "Process Reward"
+        name_cn: "过程奖励"
+        description: "对推理/执行的中间步骤给奖励"
+      - id: self_training
+        name: "Self-Training"
+        name_cn: "自我训练"
+        description: "Agent 用自身生成的数据训练自己"
+
+  # ============================================================
+  # 07. Agent Evaluation — 评估
+  # ============================================================
+  agent_evaluation:
+    name: "Agent Evaluation"
+    name_cn: "Agent 评估"
+    description: "通用/Web/Coding Agent 基准、长链路、可靠性"
+    target_papers: 5
+    topics:
+      - id: general_agent_eval
+        name: "General Agent"
+        name_cn: "通用 Agent 评估"
+        description: "AgentBench 等通用能力评估"
+      - id: web_agent_eval
+        name: "Web Agent"
+        name_cn: "Web Agent 评估"
+        description: "WebArena, BrowserGym 等"
+      - id: coding_agent_eval
+        name: "Coding Agent"
+        name_cn: "Coding Agent 评估"
+        description: "SWE-bench, HumanEval 等"
+      - id: long_horizon_eval
+        name: "Long-Horizon"
+        name_cn: "长链路评估"
+        description: "长链路多步骤任务的评估方法"
+      - id: agent_reliability
+        name: "Agent Reliability"
+        name_cn: "Agent 可靠性"
+        description: "鲁棒性、一致性、错误率"
+
+  # ============================================================
+  # 08. Agent Systems — 应用形态
+  # ============================================================
+  agent_systems:
+    name: "Agent Systems"
+    name_cn: "Agent 系统"
+    description: "真正的 Agent 系统长什么样——Coding/Web/Research/Computer Use"
+    target_papers: 5
+    topics:
+      - id: coding_agent
+        name: "Coding Agent"
+        name_cn: "编程 Agent"
+        description: "SWE-agent, OpenHands, Claude Code, Codex"
+      - id: web_agent
+        name: "Web Agent"
+        name_cn: "Web Agent"
+        description: "浏览器自动化 Agent"
+      - id: computer_use
+        name: "Computer Use"
+        name_cn: "计算机操作"
+        description: "直接操作桌面/GUI 的 Agent"
+      - id: research_agent
+        name: "Research Agent"
+        name_cn: "研究 Agent"
+        description: "自主做文献检索、实验设计的 Agent"
+      - id: domain_agent
+        name: "Domain Agent"
+        name_cn: "领域 Agent"
+        description: "特定领域（法律/医疗/金融等）的 Agent"
+
+  # ============================================================
+  # 09. Agent Harness — 把 Agent 跑起来的基础设施
+  # ============================================================
+  agent_harness:
+    name: "Agent Harness"
+    name_cn: "Agent Harness"
+    description: "怎么把 Agent 跑起来——Context/Session/Loop/Tool/Memory/Runtime/Sandbox/Recovery"
+    target_papers: 8
+    topics:
+      - id: context_management
+        name: "Context Management"
+        name_cn: "上下文管理"
+        description: "模型每步看到什么——上下文构建、压缩、选择、优先级"
+      - id: session
+        name: "Session"
+        name_cn: "会话"
+        description: "会话状态、对话状态、任务状态、环境状态"
+      - id: agent_loop
+        name: "Agent Loop"
+        name_cn: "Agent 循环"
+        description: "observe → reason → plan → act → evaluate 的循环"
+      - id: tool_orchestration
+        name: "Tool Orchestration"
+        name_cn: "工具编排"
+        description: "工具注册、选择、组合、并行"
+      - id: memory_harness
+        name: "Memory (Harness)"
+        name_cn: "记忆（Harness）"
+        description: "Harness 层的记忆管理——记忆检索→上下文构建→记忆更新"
+      - id: runtime
+        name: "Runtime"
+        name_cn: "运行时"
+        description: "Agent 的执行环境——进程模型、调度、资源管理"
+      - id: sandbox
+        name: "Sandbox"
+        name_cn: "沙箱"
+        description: "安全隔离的代码执行环境"
+      - id: error_recovery
+        name: "Error Recovery"
+        name_cn: "错误恢复"
+        description: "工具失败、模型幻觉、超时后的恢复策略"
+      - id: evaluation_harness
+        name: "Evaluation (Harness)"
+        name_cn: "评估（Harness）"
+        description: "Harness 层的评估——能力 vs 系统性能"
+      - id: harness_optimization
+        name: "Harness Optimization"
+        name_cn: "Harness 优化"
+        description: "自动优化/生成 Harness 配置"

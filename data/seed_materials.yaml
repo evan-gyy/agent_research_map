@@ -1,0 +1,930 @@
+# ============================================================
+# Agent Research OS — Seed Materials v1.0
+# ============================================================
+# 这是 v1 的"种子经典材料"。
+# 不是 LLM 自动搜索的，而是人工筛选的 Agent 领域公认经典。
+# 每篇标注：所属领域、Topic、类型、重要性、前置/后续、为什么读。
+#
+# 类型 (type):
+#   paper, survey, system, benchmark, framework, protocol, blog, tech_report
+#
+# 重要性 (importance): 1-5
+#   5 = 必读  4 = 重要  3 = 有代表性  2 = 补充  1 = 可选
+#
+# 角色 (role):
+#   foundational, paradigm, improvement, benchmark, system, survey, critique
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-08-31"
+
+materials:
+
+  # ============================================================
+  # 00. Foundations
+  # ============================================================
+  - id: gpt3
+    title: "Language Models are Few-Shot Learners"
+    authors: ["Brown et al."]
+    year: 2020
+    type: paper
+    domain: foundations
+    topic: in_context_learning
+    role: [foundational]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2005.14165"
+    why_read: "奠定 In-context Learning 范式——不改参数就能学会新任务，这是 Agent 的基础"
+    prerequisite: []
+    followup: [chain_of_thought, react]
+    status: unread
+
+  - id: chain_of_thought
+    title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+    authors: ["Wei et al."]
+    year: 2022
+    type: paper
+    domain: foundations
+    topic: chain_of_thought
+    role: [foundational, paradigm]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2201.11903"
+    why_read: "CoT 是 Agent 推理的基石——ReAct/Planning/Reflection 都建立在它之上"
+    prerequisite: [gpt3]
+    followup: [react, tree_of_thoughts, self_consistency]
+    status: unread
+
+  - id: scaling_laws
+    title: "Scaling Laws for Neural Language Models"
+    authors: ["Kaplan et al."]
+    year: 2020
+    type: paper
+    domain: foundations
+    topic: llm_reasoning
+    role: [foundational]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2001.08361"
+    why_read: "理解为什么模型越大能力越强——Agent 能力涌现的基础"
+    prerequisite: []
+    followup: [emergent_abilities]
+    status: unread
+
+  - id: emergent_abilities
+    title: "Emergent Abilities of Large Language Models"
+    authors: ["Wei et al."]
+    year: 2022
+    type: paper
+    domain: foundations
+    topic: llm_reasoning
+    role: [foundational]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2206.07682"
+    why_read: "解释模型能力的涌现——什么时候 Agent 能力会突然出现"
+    prerequisite: [scaling_laws]
+    followup: []
+    status: unread
+
+  - id: instruct_gpt
+    title: "Training language models to follow instructions with human feedback"
+    authors: ["Ouyang et al."]
+    year: 2022
+    type: paper
+    domain: foundations
+    topic: instruction_following
+    role: [foundational]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2203.02155"
+    why_read: "指令遵循——Agent 能理解并执行复杂指令的前提"
+    prerequisite: [gpt3]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 01. Agent Paradigms
+  # ============================================================
+  - id: react
+    title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    authors: ["Yao et al."]
+    year: 2022
+    type: paper
+    domain: agent_paradigms
+    topic: react
+    role: [foundational, paradigm]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2210.03629"
+    why_read: "Agent 最重要的范式论文——Reason + Act 交替执行，几乎所有后续 Agent 都基于它"
+    prerequisite: [chain_of_thought]
+    followup: [reflexion, toolformer, agent_loop_concept]
+    status: unread
+
+  - id: reflexion
+    title: "Reflexion: Language Agents with Verbal Reinforcement Learning"
+    authors: ["Shinn et al."]
+    year: 2023
+    type: paper
+    domain: agent_paradigms
+    topic: reflection
+    role: [improvement, paradigm]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2303.11366"
+    why_read: "反思范式——Action→Feedback→Reflection→Next Action，连接到 Harness 的错误恢复"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: tree_of_thoughts
+    title: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models"
+    authors: ["Yao et al."]
+    year: 2023
+    type: paper
+    domain: agent_paradigms
+    topic: search
+    role: [paradigm]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2305.10601"
+    why_read: "从单条推理链到树搜索——理解 Agent 在推理空间中搜索的范式"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: self_consistency
+    title: "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
+    authors: ["Wang et al."]
+    year: 2022
+    type: paper
+    domain: agent_paradigms
+    topic: search
+    role: [improvement]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2203.11171"
+    why_read: "多条推理链投票——简单但有效的推理增强策略"
+    prerequisite: [chain_of_thought]
+    followup: [tree_of_thoughts]
+    status: unread
+
+  - id: plan_and_execute
+    title: "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models"
+    authors: ["Wang et al."]
+    year: 2023
+    type: paper
+    domain: agent_paradigms
+    topic: plan_execute
+    role: [paradigm]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2305.04091"
+    why_read: "先规划后执行范式——和 ReAct 的交替执行形成对比"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: toolformer
+    title: "Toolformer: Language Models Can Teach Themselves to Use Tools"
+    authors: ["Schick et al."]
+    year: 2023
+    type: paper
+    domain: tool_use
+    topic: tool_learning
+    role: [foundational]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2302.04761"
+    why_read: "工具学习奠基——模型自己学会何时、如何调用工具"
+    prerequisite: [gpt3]
+    followup: [react]
+    status: unread
+
+  - id: hugginggpt
+    title: "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face"
+    authors: ["Shen et al."]
+    year: 2023
+    type: paper
+    domain: tool_use
+    topic: tool_orchestration
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2303.17580"
+    why_read: "LLM 做调度器，编排多个模型工具——理解工具编排范式"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: gorilla
+    title: "Gorilla: Large Language Model Connected with Massive APIs"
+    authors: ["Patil et al."]
+    year: 2023
+    type: paper
+    domain: tool_use
+    topic: tool_selection
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2304.08377"
+    why_read: "大规模 API 选择——从几千个工具中选对工具"
+    prerequisite: [toolformer]
+    followup: []
+    status: unread
+
+  - id: voyager
+    title: "Voyager: An Open-Ended Embodied Agent with Large Language Models"
+    authors: ["Wang et al."]
+    year: 2023
+    type: paper
+    domain: agent_paradigms
+    topic: self_improvement
+    role: [system, paradigm]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2305.16291"
+    why_read: "终身学习 Agent——自动发现、编写、复用技能，程序记忆的代表"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 02. Planning & Reasoning
+  # ============================================================
+  - id: least_to_most
+    title: "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models"
+    authors: ["Zhou et al."]
+    year: 2022
+    type: paper
+    domain: planning_reasoning
+    topic: task_decomposition
+    role: [foundational]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2205.11825"
+    why_read: "任务分解的经典策略——把复杂问题拆成简单子问题"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: llm_pddl
+    title: "LLM+P: Empowering Large Language Models with Optimal Planning or rather, with Good Heuristics"
+    authors: ["Liu et al."]
+    year: 2023
+    type: paper
+    domain: planning_reasoning
+    topic: planning
+    role: [improvement]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2302.06706"
+    why_read: "LLM + 经典规划器——理解 LLM 与符号规划的结合"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: ada_prompting
+    title: "AdaPrompt: Adaptive Task Decomposition and Routing for LLM-based Agents"
+    authors: ["Various"]
+    year: 2023
+    type: paper
+    domain: planning_reasoning
+    topic: task_decomposition
+    role: [improvement]
+    importance: 2
+    canonical: false
+    source:
+      type: arxiv
+      url: ""
+    why_read: "自适应任务分解——根据任务复杂度动态调整分解策略"
+    prerequisite: [least_to_most]
+    followup: []
+    status: unread
+
+  - id: self_refine
+    title: "Self-Refine: Iterative Refinement with Self-Feedback"
+    authors: ["Madaan et al."]
+    year: 2023
+    type: paper
+    domain: planning_reasoning
+    topic: verification
+    role: [improvement, paradigm]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2303.17651"
+    why_read: "自我反馈迭代优化——和 Reflexion 互补的另一个自我改进范式"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: critique_llm
+    title: "Large Language Models Cannot Self-Correct their Reasoning Errors"
+    authors: ["Huang et al."]
+    year: 2023
+    type: paper
+    domain: planning_reasoning
+    topic: verification
+    role: [critique]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2310.01798"
+    why_read: "反例论文——LLM 自我纠正在推理任务上不一定有效，理解反思的边界"
+    prerequisite: [self_refine]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 04. Memory & Context
+  # ============================================================
+  - id: memgpt
+    title: "MemGPT: Towards LLMs as Operating Systems"
+    authors: ["Packer et al."]
+    year: 2023
+    type: paper
+    domain: memory_context
+    topic: long_term_memory
+    role: [paradigm, system]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2310.08560"
+    why_read: "LLM 作为操作系统——虚拟上下文管理，核心内存和外部记忆的分层管理，直接关联 Harness Context"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: generative_agents
+    title: "Generative Agents: Interactive Simulacra of Human Behavior"
+    authors: ["Park et al."]
+    year: 2023
+    type: paper
+    domain: memory_context
+    topic: episodic_memory
+    role: [system]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2304.03442"
+    why_read: "情景记忆+反思+规划——Agent 记忆系统的经典实现"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: ret_aug
+    title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    authors: ["Lewis et al."]
+    year: 2020
+    type: paper
+    domain: memory_context
+    topic: memory_retrieval
+    role: [foundational]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2005.11401"
+    why_read: "RAG 奠基——理解记忆检索与上下文构建的基础"
+    prerequisite: [gpt3]
+    followup: [memgpt]
+    status: unread
+
+  - id: long_rope
+    title: "RoPE: Rotary Position Embedding / Extending Context Window"
+    authors: ["Su et al."]
+    year: 2021
+    type: paper
+    domain: memory_context
+    topic: context_management
+    role: [improvement]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2104.09864"
+    why_read: "理解上下文窗口的技术基础——上下文管理的底层约束"
+    prerequisite: []
+    followup: []
+    status: unread
+
+  - id: rag_survey
+    title: "Retrieval-Augmented Generation for Large Language Models: A Survey"
+    authors: ["Gao et al."]
+    year: 2023
+    type: survey
+    domain: memory_context
+    topic: memory_retrieval
+    role: [survey]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2312.10997"
+    why_read: "RAG 综述——系统理解记忆检索的全景"
+    prerequisite: [ret_aug]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 05. Multi-Agent
+  # ============================================================
+  - id: multiagent_debate
+    title: "Improving Factuality and Reasoning in Language Models through Multiagent Debate"
+    authors: ["Du et al."]
+    year: 2023
+    type: paper
+    domain: multi_agent
+    topic: debate
+    role: [paradigm]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2305.14325"
+    why_read: "多 Agent 辩论——通过辩论提升答案质量和事实性"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: camel
+    title: "CAMEL: Communicative Agents for Mind Exploration of Large Language Model Society"
+    authors: ["Li et al."]
+    year: 2023
+    type: paper
+    domain: multi_agent
+    topic: role_based
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2303.17760"
+    why_read: "角色扮演多 Agent——理解 Agent 间通信和协作"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: metagpt
+    title: "MetaGPT: Meta Programming for a Multi-Agent Collaborative Framework"
+    authors: ["Hong et al."]
+    year: 2023
+    type: paper
+    domain: multi_agent
+    topic: collaboration
+    role: [system]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2308.00352"
+    why_read: "多 Agent 协作框架——用软件工程角色分工协作"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: more_agents_not_better
+    title: "More Agents Is Not All You Need"
+    authors: [" various"]
+    year: 2024
+    type: paper
+    domain: multi_agent
+    topic: multi_agent_tradeoffs
+    role: [critique]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2403.04236"
+    why_read: "反例论文——多 Agent 不一定更好，理解多 Agent 的成本和边界"
+    prerequisite: [multiagent_debate]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 06. Agent Training
+  # ============================================================
+  - id: webgpt
+    title: "WebGPT: Browser-assisted question-answering with human feedback"
+    authors: ["Nakano et al."]
+    year: 2021
+    type: paper
+    domain: agent_training
+    topic: rlhf
+    role: [foundational, system]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2112.09332"
+    why_read: "最早用 RLHF 训练 Agent 的工作——理解 Agent 训练的起点"
+    prerequisite: [instruct_gpt]
+    followup: []
+    status: unread
+
+  - id: deepseek_r1
+    title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+    authors: ["DeepSeek-AI"]
+    year: 2025
+    type: paper
+    domain: agent_training
+    topic: rlvr
+    role: [paradigm]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2501.12948"
+    why_read: "RLVR 范式——用可验证奖励做 RL，理解 Agent 推理训练的最新范式"
+    prerequisite: [chain_of_thought]
+    followup: []
+    status: unread
+
+  - id: sft_agent_data
+    title: "AgentTrek: Agent Trajectory Synthesis and Agent SFT Data Generation"
+    authors: ["Various"]
+    year: 2024
+    type: paper
+    domain: agent_training
+    topic: sft
+    role: [improvement]
+    importance: 2
+    canonical: false
+    source:
+      type: arxiv
+      url: ""
+    why_read: "用 Agent 轨迹做 SFT——理解 Agent 行为训练"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: rest_mcts
+    title: "Rest: Reinforced Self-Training and MCTS for LLM"
+    authors: ["Singh et al."]
+    year: 2023
+    type: paper
+    domain: agent_training
+    topic: self_training
+    role: [improvement]
+    importance: 3
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2312.06585"
+    why_read: "自我训练 + MCTS——理解 Agent 自我生成数据训练自己"
+    prerequisite: [deepseek_r1]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 07. Agent Evaluation
+  # ============================================================
+  - id: agentbench
+    title: "AgentBench: Evaluating LLMs as Agents"
+    authors: ["Liu et al."]
+    year: 2023
+    type: benchmark
+    domain: agent_evaluation
+    topic: general_agent_eval
+    role: [benchmark]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2308.03688"
+    why_read: "通用 Agent 评估基准——理解怎么衡量 Agent 能力"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: webarena
+    title: "WebArena: A Realistic Web Environment for Building Autonomous Agents"
+    authors: ["Zhou et al."]
+    year: 2023
+    type: benchmark
+    domain: agent_evaluation
+    topic: web_agent_eval
+    role: [benchmark]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2307.13854"
+    why_read: "Web Agent 评估基准——真实网页环境中的 Agent 评估"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: swebench
+    title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+    authors: ["Jimenez et al."]
+    year: 2023
+    type: benchmark
+    domain: agent_evaluation
+    topic: coding_agent_eval
+    role: [benchmark]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2310.06770"
+    why_read: "Coding Agent 核心基准——直接连接到 SWE-agent/OpenHands/Claude Code 等 Harness"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: gaia
+    title: "GAIA: a benchmark for General AI Assistants"
+    authors: ["Mialon et al."]
+    year: 2023
+    type: benchmark
+    domain: agent_evaluation
+    topic: long_horizon_eval
+    role: [benchmark]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2311.12983"
+    why_read: "长链路真实世界任务评估——理解长链路 Agent 的评估标准"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 08. Agent Systems
+  # ============================================================
+  - id: swe_agent
+    title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+    authors: ["Yang et al."]
+    year: 2024
+    type: system
+    domain: agent_systems
+    topic: coding_agent
+    role: [system]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2405.15793"
+    why_read: "Coding Agent 代表系统——Agent-Computer Interface 设计，直接关联 Harness"
+    prerequisite: [react, swebench]
+    followup: []
+    status: unread
+
+  - id: openhands
+    title: "OpenHands (formerly OpenDevin): An Open Platform for AI Software Developers"
+    authors: ["OpenHands Team"]
+    year: 2024
+    type: system
+    domain: agent_systems
+    topic: coding_agent
+    role: [system]
+    importance: 4
+    canonical: true
+    source:
+      type: github
+      url: "https://github.com/All-Hands-AI/OpenHands"
+    why_read: "开源 Coding Agent 平台——理解 Agent 系统架构的完整实现"
+    prerequisite: [swe_agent]
+    followup: []
+    status: unread
+
+  - id: autogpt
+    title: "AutoGPT: An Autonomous GPT-4 Agent"
+    authors: ["Significant Gravitas"]
+    year: 2023
+    type: system
+    domain: agent_systems
+    topic: coding_agent
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: github
+      url: "https://github.com/Significant-Gravitas/AutoGPT"
+    why_read: "最早爆火的自主 Agent——理解早期 Agent Loop 的设计和局限"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: claude_code
+    title: "Claude Code: Anthropic's CLI Coding Agent"
+    authors: ["Anthropic"]
+    year: 2025
+    type: system
+    domain: agent_systems
+    topic: coding_agent
+    role: [system]
+    importance: 4
+    canonical: true
+    source:
+      type: blog
+      url: "https://www.anthropic.com/news/claude-code"
+    why_read: "工业级 Coding Agent——理解商业 Agent 的 Harness 设计"
+    prerequisite: [swe_agent]
+    followup: []
+    status: unread
+
+  - id: devin
+    title: "Devin / Cognition AI"
+    authors: ["Cognition AI"]
+    year: 2024
+    type: system
+    domain: agent_systems
+    topic: coding_agent
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: blog
+      url: "https://cognition.ai/blog"
+    why_read: "号称第一个 AI 软件工程师——理解 Agent 系统的工业化尝试"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  # ============================================================
+  # 09. Agent Harness
+  # ============================================================
+  - id: dsh
+    title: "DeepSeek Harness (DSH)"
+    authors: ["DeepSeek"]
+    year: 2025
+    type: system
+    domain: agent_harness
+    topic: agent_loop
+    role: [system]
+    importance: 5
+    canonical: true
+    source:
+      type: github
+      url: ""
+    why_read: "你正在研究的 Harness——Agent Loop/Cordis/Profile/Bundles/Patches 的完整实现"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: openclaw
+    title: "OpenClaw"
+    authors: ["Various"]
+    year: 2025
+    type: system
+    domain: agent_harness
+    topic: agent_loop
+    role: [system]
+    importance: 4
+    canonical: true
+    source:
+      type: github
+      url: ""
+    why_read: "DSH 的对比框架——理解不同 Harness 架构的差异"
+    prerequisite: [dsh]
+    followup: []
+    status: unread
+
+  - id: mcp
+    title: "Model Context Protocol (MCP)"
+    authors: ["Anthropic"]
+    year: 2024
+    type: protocol
+    domain: tool_use
+    topic: tool_protocol
+    role: [paradigm]
+    importance: 5
+    canonical: true
+    source:
+      type: blog
+      url: "https://modelcontextprotocol.io"
+    why_read: "标准化工具协议——Agent 与外部工具/数据源通信的统一协议，Harness 的核心组件"
+    prerequisite: [toolformer]
+    followup: []
+    status: unread
+
+  - id: agent_survey
+    title: "A Survey on Large Language Model based Autonomous Agents"
+    authors: ["Wang et al."]
+    year: 2024
+    type: survey
+    domain: agent_paradigms
+    topic: react
+    role: [survey]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: "https://arxiv.org/abs/2401.02506"
+    why_read: "Agent 领域最全面的综述——从 Planning/Memory/Tool/Evaluation 维度组织知识"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: harness_survey
+    title: "Agent Harness: Survey and Research Directions"
+    authors: ["Various"]
+    year: 2025
+    type: survey
+    domain: agent_harness
+    topic: agent_loop
+    role: [survey]
+    importance: 5
+    canonical: true
+    source:
+      type: arxiv
+      url: ""
+    why_read: "把 Harness 作为独立研究对象的综述——Context/Session/Loop/Tool/Memory/Runtime"
+    prerequisite: [agent_survey, dsh]
+    followup: []
+    status: unread
+
+  - id: e2b_sandbox
+    title: "E2B: Secure Sandboxed Code Execution Environment"
+    authors: ["E2B"]
+    year: 2024
+    type: framework
+    domain: agent_harness
+    topic: sandbox
+    role: [system]
+    importance: 3
+    canonical: true
+    source:
+      type: github
+      url: "https://github.com/e2b-dev/E2B"
+    why_read: "Agent 沙箱执行环境——理解 Harness Sandbox 层的设计"
+    prerequisite: [react]
+    followup: []
+    status: unread
+
+  - id: context_engineering
+    title: "Context Engineering for AI Agents"
+    authors: ["Various"]
+    year: 2025
+    type: blog
+    domain: agent_harness
+    topic: context_management
+    role: [paradigm]
+    importance: 4
+    canonical: true
+    source:
+      type: blog
+      url: ""
+    why_read: "上下文工程——从 Prompt Engineering 到 Context Engineering 的范式转变"
+    prerequisite: [memgpt]
+    followup: []
+    status: unread
+
+  - id: jit_agent
+    title: "JIT-Agent: Scaling Harness Intelligence"
+    authors: ["Various"]
+    year: 2026
+    type: paper
+    domain: agent_harness
+    topic: harness_optimization
+    role: [paradigm, system]
+    importance: 4
+    canonical: true
+    source:
+      type: arxiv
+      url: ""
+    why_read: "把 Harness 作为可组合、可生成、可自演化的对象——Harness 研究的最新前沿"
+    prerequisite: [harness_survey, dsh]
+    followup: []
+    status: unread
