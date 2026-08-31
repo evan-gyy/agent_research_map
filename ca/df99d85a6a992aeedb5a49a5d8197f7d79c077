@@ -1,0 +1,32 @@
+templates/paper.md
+  s_f02602ad2e1ede::t_bba4d2c2409f0c 1-75
+templates/concept.md
+  s_f02602ad2e1ede::t_98acae810e5805 1-34
+data/seed_materials.yaml
+  s_f02602ad2e1ede::t_a60ff4536bb616 1-930
+scripts/generate_vault.py
+  s_f02602ad2e1ede::t_0fd11bf56cbd05 580
+  s_f02602ad2e1ede::t_516d5f33bfecab 1-579
+README.md
+  s_f02602ad2e1ede::t_14bf7b82a84877 1,3-105
+.gitignore
+  s_f02602ad2e1ede::t_ebab9a35d7ba80 219-221
+config/knowledge_map.yaml
+  s_f02602ad2e1ede::t_6f3bb4cd6596cc 1-356
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "cadf99d85a6a992aeedb5a49a5d8197f7d79c077",
+  "prompts": {},
+  "sessions": {
+    "s_f02602ad2e1ede": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a056a4-9d68-7701-aad6-4f123a97467d",
+        "model": "glm-5.2-discount[1M]"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
