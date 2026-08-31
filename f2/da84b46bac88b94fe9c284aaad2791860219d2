@@ -1,0 +1,14 @@
+README.md
+  h_81e2197ac73818 2-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "f2da84b46bac88b94fe9c284aaad2791860219d2",
+  "prompts": {},
+  "humans": {
+    "h_81e2197ac73818": {
+      "author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
