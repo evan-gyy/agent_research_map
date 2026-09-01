@@ -2,6 +2,10 @@
 id: Q0043
 legacy_id: Q0052
 area: Multi-Agent
+knowledge_point: multi-agent-collaboration
+tags:
+  - Multi-Agent
+  - Collaboration
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

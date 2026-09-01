@@ -2,6 +2,10 @@
 id: Q0008
 legacy_id: Q0008
 area: Agent / Harness
+knowledge_point: agent-architecture-core
+tags:
+  - Agent
+  - Architecture
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

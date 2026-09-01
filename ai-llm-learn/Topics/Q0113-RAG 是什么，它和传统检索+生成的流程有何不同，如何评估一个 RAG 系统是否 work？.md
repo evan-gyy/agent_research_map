@@ -2,6 +2,10 @@
 id: Q0113
 legacy_id: Q0130
 area: RAG
+knowledge_point: rag-architecture
+tags:
+  - RAG
+  - Architecture
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

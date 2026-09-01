@@ -2,6 +2,10 @@
 id: Q0012
 legacy_id: Q0012
 area: Agent Application
+knowledge_point: intent-routing
+tags:
+  - Intent
+  - Routing
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

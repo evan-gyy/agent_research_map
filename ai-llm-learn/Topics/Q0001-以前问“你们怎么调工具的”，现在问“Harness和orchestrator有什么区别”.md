@@ -2,6 +2,10 @@
 id: Q0001
 legacy_id: Q0001
 area: Tool / Protocol
+knowledge_point: mcp-protocol
+tags:
+  - MCP
+  - Protocol
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

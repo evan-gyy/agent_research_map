@@ -2,6 +2,10 @@
 id: Q0027
 legacy_id: Q0032
 area: RAG
+knowledge_point: document-parsing-chunking
+tags:
+  - Chunking
+  - Document Parsing
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

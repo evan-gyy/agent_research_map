@@ -2,6 +2,10 @@
 id: Q0108
 legacy_id: Q0125
 area: Model / Inference
+knowledge_point: inference-optimization
+tags:
+  - Inference
+  - Optimization
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

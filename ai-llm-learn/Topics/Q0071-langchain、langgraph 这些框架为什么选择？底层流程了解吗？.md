@@ -2,6 +2,10 @@
 id: Q0071
 legacy_id: Q0087
 area: Agent / Harness
+knowledge_point: agent-framework-langgraph
+tags:
+  - LangGraph
+  - Framework
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

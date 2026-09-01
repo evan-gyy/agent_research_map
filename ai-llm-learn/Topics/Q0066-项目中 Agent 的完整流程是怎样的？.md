@@ -2,6 +2,10 @@
 id: Q0066
 legacy_id: Q0082
 area: Agent Application
+knowledge_point: agent-architecture-core
+tags:
+  - Agent
+  - Architecture
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

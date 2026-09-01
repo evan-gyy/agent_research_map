@@ -2,6 +2,10 @@
 id: Q0074
 legacy_id: Q0090
 area: Memory / Context
+knowledge_point: memory-systems
+tags:
+  - Memory
+  - Context
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

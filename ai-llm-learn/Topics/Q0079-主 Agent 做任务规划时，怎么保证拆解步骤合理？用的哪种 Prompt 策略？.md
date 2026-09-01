@@ -2,6 +2,10 @@
 id: Q0079
 legacy_id: Q0095
 area: Agent / Harness
+knowledge_point: planning-task-decomposition
+tags:
+  - Planning
+  - Task Decomposition
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

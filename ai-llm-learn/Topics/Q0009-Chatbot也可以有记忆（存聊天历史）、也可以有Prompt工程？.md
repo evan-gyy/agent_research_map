@@ -2,6 +2,10 @@
 id: Q0009
 legacy_id: Q0009
 area: Memory / Context
+knowledge_point: memory-systems
+tags:
+  - Memory
+  - Context
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

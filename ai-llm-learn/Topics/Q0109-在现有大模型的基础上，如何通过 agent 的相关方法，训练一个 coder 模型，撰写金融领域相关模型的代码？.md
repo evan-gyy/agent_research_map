@@ -2,6 +2,10 @@
 id: Q0109
 legacy_id: Q0126
 area: Agent Application
+knowledge_point: alignment-training-distillation
+tags:
+  - Post-Training
+  - Distillation
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

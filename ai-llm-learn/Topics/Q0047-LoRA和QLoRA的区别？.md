@@ -2,6 +2,10 @@
 id: Q0047
 legacy_id: Q0057
 area: Training
+knowledge_point: parameter-efficient-finetuning
+tags:
+  - LoRA
+  - Fine-tuning
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

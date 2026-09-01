@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllQuestions, getAreaRows, getFrequencyRows } from "../../lib/content";
+const questions = await getAllQuestions();
+const areas = getAreaRows(questions);
+const frequencies = getFrequencyRows(questions);
+const answered = questions.filter(q => q.answerHtml).length;
+const maxArea = Math.max(...areas.map(row => row.count));
+const maxFrequency = Math.max(...frequencies.map(row => row.count));
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="知识统计" description="查看当前学习库的分类、知识点频率与本机学习进度。" active="stats">
+  <section class="page container"><p class="eyebrow">Knowledge Statistics</p><h1>知识统计</h1><p class="lede">所有频率均来自当前个人学习库，只用于理解已有内容的分布与学习重心。</p>
+    <div class="stat-grid"><div class="card stat-card"><strong class="stat-value">{questions.length}</strong><span class="stat-label">正式题目</span></div><div class="card stat-card"><strong class="stat-value">{areas.length}</strong><span class="stat-label">知识分类</span></div><div class="card stat-card"><strong class="stat-value">{frequencies.length}</strong><span class="stat-label">主知识点</span></div><div class="card stat-card"><strong class="stat-value">{Math.round(answered / questions.length * 100)}%</strong><span class="stat-label">学习笔记覆盖率</span></div></div>
+    <div class="stats-grid">
+      <section class="card panel"><div class="panel-head"><div><h2>分类题量</h2><span class="panel-note">点击分类查看对应题目</span></div></div><div class="bar-list">{areas.map(row => <a class="bar-item" href={base + "questions/?area=" + encodeURIComponent(row.area)}><span>{row.area}</span><span class="bar-track"><span class="bar-fill" style={"width:" + row.count/maxArea*100 + "%"}></span></span><span class="bar-count">{row.count}</span></a>)}</div></section>
+      <section class="card panel"><div class="panel-head"><div><h2>学习笔记</h2><span class="panel-note">题库内容完成情况</span></div></div><div class="progress-donut" style={"--progress:" + answered/questions.length*100} role="img" aria-label={"已有学习笔记 " + answered + " 道，共 " + questions.length + " 道"}><div><strong>{answered}</strong><span>已有笔记</span></div></div><div class="legend"><span><i style="background:var(--primary)"></i>已有学习笔记 {answered}</span><span><i style="background:var(--surface-soft)"></i>待补充 {questions.length-answered}</span></div></section>
+    </div>
+    <section class="card panel split-section"><div class="panel-head"><div><h2>知识点频率</h2><span class="panel-note">每题只按一个主知识点计数；前 25% 且不少于 3 题标记为高频</span></div></div><div class="frequency-grid">{frequencies.map((row,index) => <a class="frequency-card" href={base + "questions/?point=" + row.slug}><div class="frequency-rank">{String(index+1).padStart(2,"0")}</div><div><strong>{row.label}</strong><div class="bar-track"><span class="bar-fill" style={"width:" + row.count/maxFrequency*100 + "%"}></span></div></div><span class={row.highFrequency ? "badge hot" : "badge"}>{row.count} 题</span></a>)}</div></section>
+    <section class="card panel split-section"><div class="panel-head"><div><h2>本机学习进度</h2><span class="panel-note">只统计当前浏览器中的记录</span></div></div><div class="local-progress-grid"><div><strong data-progress-unseen>{questions.length}</strong><span>未开始</span></div><div><strong data-progress-learning>0</strong><span>学习中</span></div><div><strong data-progress-review>0</strong><span>待复习</span></div><div><strong data-progress-mastered>0</strong><span>已掌握</span></div></div></section>
+  </section>
+  <script>
+    import { getLearningState } from "../../scripts/learning-state";
+    const values = Object.values(getLearningState().questions); const total = Number(document.querySelector(".stat-value")?.textContent ?? 0);
+    const count = (status: string) => values.filter(item => item.status === status).length;
+    const learning = count("learning"), review = count("review"), mastered = count("mastered");
+    document.querySelector<HTMLElement>("[data-progress-learning]")!.textContent=String(learning); document.querySelector<HTMLElement>("[data-progress-review]")!.textContent=String(review); document.querySelector<HTMLElement>("[data-progress-mastered]")!.textContent=String(mastered); document.querySelector<HTMLElement>("[data-progress-unseen]")!.textContent=String(Math.max(0,total-learning-review-mastered));
+  </script>
+</BaseLayout>

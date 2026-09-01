@@ -2,6 +2,10 @@
 id: Q0010
 legacy_id: Q0010
 area: Memory / Context
+knowledge_point: agent-architecture-core
+tags:
+  - Agent
+  - Architecture
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

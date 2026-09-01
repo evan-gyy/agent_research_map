@@ -2,6 +2,10 @@
 id: Q0059
 legacy_id: Q0069
 area: Model / Inference
+knowledge_point: transformer-attention
+tags:
+  - Transformer
+  - Attention
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

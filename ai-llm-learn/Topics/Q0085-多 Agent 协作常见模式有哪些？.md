@@ -2,6 +2,10 @@
 id: Q0085
 legacy_id: Q0101
 area: Multi-Agent
+knowledge_point: multi-agent-collaboration
+tags:
+  - Multi-Agent
+  - Collaboration
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

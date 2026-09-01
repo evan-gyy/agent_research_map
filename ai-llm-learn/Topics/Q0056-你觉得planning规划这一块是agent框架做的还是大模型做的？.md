@@ -2,6 +2,10 @@
 id: Q0056
 legacy_id: Q0066
 area: Agent / Harness
+knowledge_point: planning-task-decomposition
+tags:
+  - Planning
+  - Task Decomposition
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

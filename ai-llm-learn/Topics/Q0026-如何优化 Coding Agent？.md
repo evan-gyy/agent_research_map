@@ -2,6 +2,10 @@
 id: Q0026
 legacy_id: Q0026
 area: Agent / Harness
+knowledge_point: harness-coding-agent
+tags:
+  - Harness
+  - Coding Agent
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text
