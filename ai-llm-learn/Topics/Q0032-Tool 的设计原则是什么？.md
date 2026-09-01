@@ -1,5 +1,6 @@
 ---
 id: Q0032
+normalized_question: Tool 的设计原则是什么？
 legacy_id: Q0041
 area: Tool / Protocol
 knowledge_point: tool-design

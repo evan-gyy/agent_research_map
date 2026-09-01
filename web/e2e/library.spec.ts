@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/test";
 test("dashboard and question filtering work under the Pages base path", async ({ page }) => {
-  await page.goto("/agent_research_map/"); await expect(page.getByRole("heading", { name: /把零散问题/ })).toBeVisible(); await expect(page.getByText("118", { exact: true }).first()).toBeVisible();
-  await page.getByRole("link", { name: /浏览全部题目/ }).click(); await page.getByRole("searchbox").fill("Q0118"); await expect(page.locator("[data-result-count]")).toHaveText("1"); await expect(page.getByRole("heading", { name: "Flash Attention 的原理？" })).toBeVisible();
+  await page.goto("/agent_research_map/"); await expect(page.getByRole("heading", { name: /把零散问题/ })).toBeVisible(); await expect(page.getByText("117", { exact: true }).first()).toBeVisible();
+  await page.getByRole("link", { name: /浏览全部题目/ }).click(); await page.getByRole("searchbox").fill("Q0117"); await expect(page.locator("[data-result-count]")).toHaveText("1"); await expect(page.getByRole("heading", { name: "Flash Attention 的原理是什么？" })).toBeVisible();
 });
 test("desktop question rows stay compact with metadata aligned to the right", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/agent_research_map/questions/");
   const cards = page.locator("[data-question-card]");
-  await expect(cards).toHaveCount(118);
+  await expect(cards).toHaveCount(117);
   const layout = await cards.first().evaluate((card) => {
     const row = card.getBoundingClientRect();
     const main = card.querySelector(".question-card-main")!.getBoundingClientRect();

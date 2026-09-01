@@ -4,12 +4,12 @@ import { getAllQuestions, getAreaRows, getFrequencyRows } from "../src/lib/conte
 
 test("formal questions parse into a public whitelist", async () => {
   const questions = await getAllQuestions();
-  assert.equal(questions.length, 118);
+  assert.equal(questions.length, 117);
   assert.deepEqual(Object.keys(questions[0]).sort(), [
     "answerHtml", "area", "collectedAt", "id", "knowledgePoint", "sourceUrl", "tags", "title", "verificationLabel",
   ].sort());
   assert.equal(questions[0].id, "Q0001");
-  assert.equal(questions.at(-1)?.id, "Q0118");
+  assert.equal(questions.at(-1)?.id, "Q0117");
 });
 
 test("frequency counts each question exactly once", async () => {
