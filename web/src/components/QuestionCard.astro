@@ -8,8 +8,16 @@ const base = import.meta.env.BASE_URL;
 const searchText = [question.id, question.title, question.area, getKnowledgePointLabel(question.knowledgePoint), ...question.tags, stripHtml(question.answerHtml)].join(" ").toLowerCase();
 ---
 <article class="card question-card" data-question-card data-id={question.id} data-area={question.area} data-point={question.knowledgePoint} data-answer={question.answerHtml ? "answered" : "unanswered"} data-date={question.collectedAt} data-frequency={frequency} data-search={searchText}>
-  <div class="question-topline"><span class="question-id">{question.id}</span><span class="badge">{question.area}</span>{highFrequency && <span class="badge hot">高频知识点 · {frequency} 题</span>}</div>
-  <h2><a href={base + "questions/" + question.id.toLowerCase() + "/"}>{question.title}</a></h2>
-  <div class="question-tags"><span class="pill">{getKnowledgePointLabel(question.knowledgePoint)}</span>{question.tags.map((tag) => <span class="badge">{tag}</span>)}</div>
-  <div class="question-card-footer"><span>{question.answerHtml ? "已有学习笔记" : "学习笔记待补充"}</span><button class="favorite-small" type="button" data-favorite-toggle aria-label={"收藏 " + question.id}>☆</button></div>
+  <div class="question-card-main">
+    <span class="question-id">{question.id}</span>
+    <h2><a href={base + "questions/" + question.id.toLowerCase() + "/"}>{question.title}</a></h2>
+  </div>
+  <div class="question-card-meta">
+    <span class="badge">{question.area}</span>
+    {highFrequency && <span class="badge hot">高频 · {frequency}</span>}
+    <span class="pill">{getKnowledgePointLabel(question.knowledgePoint)}</span>
+    {question.tags.map((tag) => <span class="badge question-tag">{tag}</span>)}
+    <span class:list={["note-state", { answered: Boolean(question.answerHtml) }]}>{question.answerHtml ? "有笔记" : "待补充"}</span>
+    <button class="favorite-small" type="button" data-favorite-toggle aria-label={"收藏 " + question.id}>☆</button>
+  </div>
 </article>
