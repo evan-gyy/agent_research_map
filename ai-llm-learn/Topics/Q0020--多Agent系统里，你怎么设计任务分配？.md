@@ -2,6 +2,10 @@
 id: Q0020
 legacy_id: Q0020
 area: Agent / Harness
+knowledge_point: multi-agent-collaboration
+tags:
+  - Multi-Agent
+  - Collaboration
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

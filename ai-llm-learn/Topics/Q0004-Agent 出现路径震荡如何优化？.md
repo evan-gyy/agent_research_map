@@ -2,6 +2,10 @@
 id: Q0004
 legacy_id: Q0004
 area: Reliability / Production
+knowledge_point: reliability-resilience
+tags:
+  - Reliability
+  - Resilience
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

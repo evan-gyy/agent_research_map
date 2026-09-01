@@ -2,6 +2,10 @@
 id: Q0006
 legacy_id: Q0006
 area: Tool / Protocol
+knowledge_point: context-token-compression
+tags:
+  - Context
+  - Token
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

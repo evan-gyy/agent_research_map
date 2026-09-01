@@ -2,6 +2,10 @@
 id: Q0065
 legacy_id: Q0076
 area: RAG
+knowledge_point: rag-evaluation-hallucination
+tags:
+  - RAG Evaluation
+  - Hallucination
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

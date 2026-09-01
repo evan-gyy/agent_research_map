@@ -2,6 +2,10 @@
 id: Q0019
 legacy_id: Q0019
 area: Agent / Harness
+knowledge_point: react-agent-loop
+tags:
+  - ReAct
+  - Agent Loop
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

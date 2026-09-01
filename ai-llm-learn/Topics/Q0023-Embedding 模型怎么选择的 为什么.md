@@ -2,6 +2,10 @@
 id: Q0023
 legacy_id: Q0023
 area: RAG
+knowledge_point: embedding-vector-retrieval
+tags:
+  - Embedding
+  - Vector Search
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

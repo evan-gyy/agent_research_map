@@ -2,6 +2,10 @@
 id: Q0083
 legacy_id: Q0099
 area: Tool / Protocol
+knowledge_point: function-calling
+tags:
+  - Function Calling
+  - JSON
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

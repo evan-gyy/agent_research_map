@@ -2,6 +2,10 @@
 id: Q0094
 legacy_id: Q0111
 area: Agent / Harness
+knowledge_point: harness-coding-agent
+tags:
+  - Harness
+  - Coding Agent
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

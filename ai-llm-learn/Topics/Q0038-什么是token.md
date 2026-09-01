@@ -2,6 +2,10 @@
 id: Q0038
 legacy_id: Q0047
 area: Memory / Context
+knowledge_point: context-token-compression
+tags:
+  - Context
+  - Token
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

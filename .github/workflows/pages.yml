@@ -1,0 +1,51 @@
+name: Deploy AI LLM Learning Library
+on:
+  push:
+    branches: [master]
+    paths: ["ai-llm-learn/Topics/**", "ai-llm-learn/Templates/**", "web/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+      - name: Validate, check, and test
+        working-directory: web
+        run: npm run data:check && npm run check && npm test
+      - name: Build and audit public files
+        working-directory: web
+        run: npm run build
+      - name: Install browser for end-to-end tests
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests
+        working-directory: web
+        run: npm run test:e2e
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/dist
+  deploy:
+    environment:
+      name: github-pages
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

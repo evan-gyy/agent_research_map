@@ -2,6 +2,10 @@
 id: Q0111
 legacy_id: Q0128
 area: Model / Inference
+knowledge_point: transformer-attention
+tags:
+  - Transformer
+  - Attention
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

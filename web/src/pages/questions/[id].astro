@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllQuestions, getFrequencyRows, getKnowledgePointLabel } from "../../lib/content";
+export async function getStaticPaths() { const questions = await getAllQuestions(); return questions.map((question, index) => ({ params: { id: question.id.toLowerCase() }, props: { question, previous: questions[index-1] ?? null, next: questions[index+1] ?? null } })); }
+const { question, previous, next } = Astro.props;
+const questions = await getAllQuestions(); const frequencies = getFrequencyRows(questions); const frequency = frequencies.find(row => row.slug === question.knowledgePoint)!; const related = questions.filter(q => q.knowledgePoint === question.knowledgePoint && q.id !== question.id).slice(0,4); const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title={question.title} description={question.title} active="questions">
+  <section class="page container question-detail"><nav class="breadcrumbs" aria-label="面包屑"><a href={base}>首页</a><span>/</span><a href={base + "questions/"}>题库</a><span>/</span><span>{question.id}</span></nav>
+    <div class="question-detail-grid"><article><header class="detail-header"><div class="question-topline"><span class="question-id">{question.id}</span><span class="badge">{question.area}</span>{frequency.highFrequency && <span class="badge hot">高频知识点 · {frequency.count} 题</span>}</div><h1>{question.title}</h1><div class="question-tags"><a class="pill" href={base + "questions/?point=" + question.knowledgePoint}>{getKnowledgePointLabel(question.knowledgePoint)}</a>{question.tags.map(tag => <span class="badge">{tag}</span>)}</div></header>
+      <section class="card detail-section"><h2>题目原文</h2><blockquote>{question.title}</blockquote></section>
+      <section class="card detail-section"><h2>学习笔记</h2>{question.answerHtml ? <div class="prose" set:html={question.answerHtml} /> : <div class="empty-note"><strong>学习笔记待补充</strong><p>可继续在本地 Markdown 中完善，下一次推送后会自动更新。</p></div>}</section>
+      <section class="source-card"><div><strong>来源{question.verificationLabel}</strong><span>{question.collectedAt}</span></div><a href={question.sourceUrl} target="_blank" rel="noopener noreferrer">查看原始链接 ↗</a></section>
+      <nav class="prev-next" aria-label="相邻题目">{previous ? <a href={base + "questions/" + previous.id.toLowerCase() + "/"}><span>← 上一题</span><strong>{previous.title}</strong></a> : <span></span>}{next && <a href={base + "questions/" + next.id.toLowerCase() + "/"}><span>下一题 →</span><strong>{next.title}</strong></a>}</nav>
+    </article><aside class="detail-aside"><div class="card progress-card"><h2>学习状态</h2><button class="favorite-action" type="button" data-detail-favorite>☆ 收藏这道题</button><div class="status-buttons" role="group" aria-label="设置学习状态"><button type="button" data-set-status="learning">学习中</button><button type="button" data-set-status="review">待复习</button><button type="button" data-set-status="mastered">已掌握</button></div><p class="panel-note">状态只保存在当前浏览器。</p></div>{related.length > 0 && <div class="card related-card"><h2>同知识点题目</h2>{related.map(item => <a href={base + "questions/" + item.id.toLowerCase() + "/"}><span>{item.id}</span>{item.title}</a>)}</div>}</aside></div>
+  </section>
+  <script is:inline define:vars={{ questionId: question.id }}>
+    window.__QUESTION_ID__ = questionId;
+  </script>
+  <script>
+    import mermaid from "mermaid"; import { getLearningState, updateQuestionState } from "../../scripts/learning-state";
+    const id = (window as any).__QUESTION_ID__ as string; let record = getLearningState().questions[id] ?? { status: "unseen", favorite: false }; updateQuestionState(id, { lastVisitedAt: new Date().toISOString() });
+    const favorite = document.querySelector<HTMLButtonElement>("[data-detail-favorite]")!; const refresh = () => { favorite.textContent = record.favorite ? "★ 已收藏" : "☆ 收藏这道题"; document.querySelectorAll<HTMLElement>("[data-set-status]").forEach(el => el.classList.toggle("active", el.dataset.setStatus === record.status)); }; favorite.addEventListener("click", () => { record = updateQuestionState(id, { favorite: !record.favorite }); refresh(); }); document.querySelectorAll<HTMLButtonElement>("[data-set-status]").forEach(button => button.addEventListener("click", () => { record = updateQuestionState(id, { status: button.dataset.setStatus as any }); refresh(); })); refresh();
+    document.querySelectorAll<HTMLElement>("pre > code.language-mermaid").forEach(code => { const pre=code.parentElement!; const div=document.createElement("div"); div.className="mermaid"; div.textContent=code.textContent; pre.replaceWith(div); }); if(document.querySelector(".mermaid")){ mermaid.initialize({ startOnLoad:false, theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default", securityLevel:"strict" }); await mermaid.run({nodes:document.querySelectorAll<HTMLElement>(".mermaid")}); }
+  </script>
+</BaseLayout>

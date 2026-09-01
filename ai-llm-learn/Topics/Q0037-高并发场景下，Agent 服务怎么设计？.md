@@ -2,6 +2,10 @@
 id: Q0037
 legacy_id: Q0046
 area: Reliability / Production
+knowledge_point: system-performance-concurrency
+tags:
+  - Concurrency
+  - Performance
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

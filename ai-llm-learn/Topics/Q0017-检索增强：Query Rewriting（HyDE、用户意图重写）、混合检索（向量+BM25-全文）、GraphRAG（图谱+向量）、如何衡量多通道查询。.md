@@ -2,6 +2,10 @@
 id: Q0017
 legacy_id: Q0017
 area: RAG
+knowledge_point: hybrid-retrieval-reranking
+tags:
+  - Hybrid Search
+  - Reranking
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

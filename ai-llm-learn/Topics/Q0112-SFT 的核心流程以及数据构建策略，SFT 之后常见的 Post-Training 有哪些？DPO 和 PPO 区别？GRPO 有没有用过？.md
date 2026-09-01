@@ -2,6 +2,10 @@
 id: Q0112
 legacy_id: Q0129
 area: Training
+knowledge_point: alignment-training-distillation
+tags:
+  - Post-Training
+  - Distillation
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

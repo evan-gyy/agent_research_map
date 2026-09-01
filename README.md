@@ -1,171 +1,155 @@
-# Agent Career Research OS
+# AI · LLM 学习库
 
-不是"AI 论文收藏夹"，而是一套**以求职/能力要求为目标，自动构建个人 Agent 学习路线的 Research Agent**。
+一个由 Markdown 驱动、面向长期积累的 AI / LLM 系统化学习库。
 
-核心闭环：
+这里把分散的技术问题整理成可检索、可关联、可持续补充的知识体系，覆盖语言模型、Agent、RAG、模型训练与推理、上下文与记忆、工具协议、评测和生产可靠性等主题。
 
-```
-          招聘市场
-             │
-      ┌──────┴──────┐
-      ↓             ↓
-     JD            面经
-      │             │
-      └──────┬──────┘
-             ↓
-       Skill / Topic Extractor
-             ↓
-      ┌───────────────┐
-      │ Agent 能力地图 │  ← config/knowledge_map.yaml (60 个 Topic)
-      └───────┬───────┘
-              ↓
-       Knowledge Gap     ← data/personal/skill_profile.yaml
-              ↓
-      Paper / Blog / GitHub  ← data/seed_materials.yaml (49 篇)
-              ↓
-        学习 & 面试          ← data/interview_questions.yaml
-              ↓
-       新 JD / 新面经
-              ↺
-```
+> 当前收录 118 道正式问题、28 个受控知识点，并提供学习笔记、全文检索、分类统计和本机学习进度。
+
+## 学习库能做什么
+
+- **按问题学习**：每道题都有独立页面，可逐步补充核心回答、公式、代码和流程图。
+- **按知识点组织**：问题通过受控知识点建立关联，自动统计出现频率和主题分布。
+- **快速检索与筛选**：支持题号、标题、笔记全文搜索，以及分类、知识点和学习状态筛选。
+- **记录个人进度**：收藏、最近浏览、学习中、待复习和已掌握状态保存在当前浏览器。
+- **同时服务 Web 与 Obsidian**：Markdown 题库既可以直接在 Obsidian 中维护，也可以构建为静态网站。
+- **静态、可审计、无后端**：不需要数据库或账号系统，可直接部署到 GitHub Pages。
+
+## 内容范围
+
+学习库聚焦 NLP、语言模型和 LLM 工程：
+
+- Transformer、Attention、Token、训练、微调、对齐与推理优化
+- Agent 架构、Planning、ReAct、Workflow、Harness 与多 Agent 协作
+- Tool Use、Function Calling、MCP、参数 Schema 与工具可靠性
+- RAG、Embedding、文档解析、混合检索、重排与检索评估
+- Context、Memory、长上下文压缩与状态管理
+- 评测体系、错误恢复、并发、稳定性与生产化设计
+
+正式题库只收录有可追溯来源、且明确属于上述范围的问题。无法完成在线复核的内容会如实标记，推导题和自动扩展题不会混入正式编号。
+
+## 工作方式
+
+~~~text
+可追溯的技术问题
+        │
+        ▼
+Markdown 正式题库 ──────► Obsidian 本地知识库
+        │
+        ├──► 内容校验：编号、来源、知识点、公开字段
+        │
+        ▼
+Astro 静态构建
+        │
+        ├──► 题库 / 详情 / 知识统计
+        ├──► 搜索 / 筛选 / 公式 / Mermaid
+        └──► GitHub Pages
+                 │
+                 ▼
+          浏览器本机学习进度
+~~~
+
+正式 Markdown 是唯一内容源。网站在构建时读取题库，不复制第二份内容，也不会把私有采集字段直接发布到前端。
 
 ## 项目结构
 
-```
+~~~text
 agent_research_map/
-├── config/
-│   └── knowledge_map.yaml          # 知识树（10 领域，60 Topic）— 系统骨架
-├── data/
-│   ├── seed_materials.yaml         # 49 篇经典种子材料
-│   ├── interview_questions.yaml    # 面试题库（含 answer keys）
-│   ├── market/
-│   │   ├── jd/                     # 招聘信息（YAML，按 Topic 结构化）
-│   │   ├── interviews/             # 面经（YAML，按 Topic 结构化）
-│   │   └── SCHEMA.md               # 数据格式说明
-│   └── personal/
-│       └── skill_profile.yaml      # 个人能力自评（60 Topic × level/interest）
-├── scripts/
-│   ├── generate_vault.py           # v1: 生成 Obsidian Vault
-│   └── market_analyzer.py          # v2: 市场分析 + 缺口 + 推荐
-├── output/
-│   ├── daily_brief.md              # 每日摘要
-│   ├── market_analysis.md         # 完整分析报告
-│   └── analysis.json               # 原始数据（供程序使用）
-├── templates/
-│   ├── paper.md
-│   └── concept.md
-├── vault/                          # 生成的 Obsidian Vault（gitignore）
-└── docs/
-    └── history.txt
-```
+├── ai-llm-learn/
+│   ├── Topics/                 # Q0001... 正式题库与学习笔记
+│   ├── Archive/                # 非原题、非 NLP 等非正式归档
+│   └── Templates/              # Obsidian 内容模板
+├── web/
+│   ├── src/                    # Astro 页面、内容解析与交互
+│   ├── tests/                  # 数据与统计单元测试
+│   ├── e2e/                    # Playwright 浏览器验收
+│   └── scripts/                # 内容校验与公开产物审计
+├── config/                     # 可选的扩展知识地图配置
+├── data/                       # 可选的材料与离线分析数据
+├── scripts/                    # Vault 与学习地图生成工具
+└── .github/workflows/pages.yml # GitHub Pages 自动构建与发布
+~~~
 
 ## 快速开始
 
-```bash
-# v1: 生成 Obsidian 知识库
-python scripts/generate_vault.py
+### 浏览和维护 Markdown 题库
 
-# v2: 市场分析 + 缺口 + 每日推荐
-python scripts/market_analyzer.py          # 完整报告
-python scripts/market_analyzer.py --brief  # 只看每日摘要
-```
+用 Obsidian 直接打开 **ai-llm-learn/**。正式题目位于 **ai-llm-learn/Topics/**，每个文件对应一道问题。
+
+### 启动学习网站
+
+需要 Node.js 22 或更高版本：
+
+~~~bash
+cd web
+npm ci
+npm run data:check
+npm run dev
+~~~
+
+浏览器访问：
+
+~~~text
+http://localhost:4321/agent_research_map/
+~~~
+
+### 构建与验证
+
+~~~bash
+cd web
+npm run data:check  # 检查正式题号、来源、知识点和公开字段
+npm run check       # Astro / TypeScript 检查
+npm test            # 数据解析与统计单元测试
+npm run build       # 静态构建并审计最终公开产物
+npm run test:e2e    # 浏览器端到端测试
+~~~
+
+首次运行端到端测试前需要安装 Chromium 测试运行时：
+
+~~~bash
+npx playwright install chromium
+~~~
+
+## 添加一道正式问题
+
+1. 确认问题在原始网页或其他可验证来源中明确出现。
+2. 在 **ai-llm-learn/Topics/** 新建下一个连续编号的 Markdown 文件。
+3. 填写来源 URL、核验状态、knowledge_point 和 tags 等 frontmatter。
+4. 在正文中补充学习笔记；暂时没有答案也可以保留为空。
+5. 在 web 目录运行 npm run data:check，确认编号、来源和知识点均有效。
+
+知识点使用受控目录，定义在 **web/src/data/knowledge-points.json**。需要新增知识点时，应先更新目录，再给题目引用，避免同义标签造成统计分裂。
+
+## GitHub Pages
+
+仓库已包含 GitHub Actions 工作流。推送到 master 后，工作流会依次完成：
+
+~~~text
+内容校验 → 类型检查 → 单元测试 → 静态构建 → 公开产物审计 → 浏览器测试 → Pages 部署
+~~~
+
+首次启用时，在仓库的 **Settings → Pages → Build and deployment** 中把 Source 设置为 **GitHub Actions**。项目站点路径为：
+
+~~~text
+https://evan-gyy.github.io/agent_research_map/
+~~~
+
+## 可选：扩展知识地图
+
+仓库仍保留一套离线知识地图与材料分析工具，用于从更高层级查看主题、材料和个人知识缺口。它不是网站运行的依赖，可以按需使用：
+
+~~~bash
+python scripts/generate_vault.py
+python scripts/market_analyzer.py
+python scripts/market_analyzer.py --brief
+~~~
+
+这部分生成的 vault 和 output 是辅助视图；正式问题和学习笔记仍以 **ai-llm-learn/Topics/** 为准。
 
 ## 设计原则
 
-### 1. Topic ID 是整个系统的连接键
-
-所有数据——JD、面经、种子材料、个人能力——都通过 `knowledge_map.yaml` 中定义的 Topic ID 连接。
-
-```yaml
-# knowledge_map.yaml 定义了 topic: agent_loop
-# seed_materials.yaml 的材料挂在 topic: agent_loop 下
-# jd/*.yaml 的 skill 指向 topic_id: agent_loop
-# interviews/*.yaml 的 question 指向 topics: [agent_loop]
-# skill_profile.yaml 评估 topic_id: agent_loop 的 level
-# interview_questions.yaml 关联 topics: [agent_loop]
-```
-
-这意味着：**加一个 Topic 到 knowledge_map.yaml，整个系统自动知道它。**
-
-### 2. 数据是 YAML，不是数据库
-
-所有数据是纯 YAML 文件，git 跟踪，人可读可改。不需要数据库、不需要服务端。
-
-### 3. 分析是确定性 Python，不是 LLM
-
-`market_analyzer.py` 是纯 Python 统计：频次、缺口、排序。不调用任何 LLM API。
-LLM 的角色在数据采集层（把原始 JD/面经文本结构化为 YAML），这是可选的离线步骤。
-
-### 4. 渐进式自动化
-
-```
-v1 (已完成): 人工定义知识树 + 人工筛选种子材料
-v2 (已完成): 人工结构化市场数据 + 自动分析缺口 + 自动推荐
-v3 (下一步): LLM 辅助从原始 JD/面经文本提取 Topic（半自动）
-v4 (未来):   自动抓取 + 全自动 Daily Brief
-```
-
-## v2 模块
-
-### ① Market Intelligence
-
-`data/market/jd/` 和 `data/market/interviews/` 存放结构化的 JD 和面经。
-每个条目的 skill/question 都关联到 `knowledge_map.yaml` 的 Topic ID。
-
-### ② Knowledge Map
-
-`config/knowledge_map.yaml` 是系统骨架，10 个一级领域、60 个 Topic。
-`data/seed_materials.yaml` 是 49 篇人工筛选的经典材料，挂在 Topic 下。
-
-### ③ Research Agent（推荐引擎）
-
-`market_analyzer.py` 的 `recommend_materials()` 函数：
-对每个能力缺口，从种子材料中按 importance 排序推荐。
-
-### ④ Interview Agent
-
-`data/interview_questions.yaml` 是面试题库，每题关联 Topic + answer keys。
-`market_analyzer.py` 的 `recommend_interview_questions()` 按缺口推荐。
-
-## 输出示例
-
-```
-📌 你最大的能力缺口 Top 5
-
-1. 🔴 Agent 可靠性 — 市场 4 | 你的水平 2/5 | Gap Score 13.5
-2. 🔴 Harness 优化 — 市场 4 | 你的水平 2/5 | Gap Score 12.0
-3. 🟠 错误恢复 — 市场 5 | 你的水平 3/5 | Gap Score 10.0
-4. 🟠 评估（Harness） — 市场 3 | 你的水平 2/5 | Gap Score 9.0
-5. 🟠 工具调用 — 市场 9 | 你的水平 4/5 | Gap Score 9.0
-```
-
-## 后续路线
-
-**v3: LLM 辅助数据采集**
-- 从原始 JD/面经文本自动提取 Topic（半自动，人工 review）
-- 从 arXiv / Semantic Scholar 自动搜索新论文
-- 判断新论文是否改变现有认知
-
-**v4: 趋势分析**
-- 按日期统计 Topic 频次变化
-- 识别上升/下降趋势
-- 自动生成 Daily Brief
-
-## 使用方法
-
-```bash
-# 1. 生成 Obsidian Vault（知识库浏览）
-python scripts/generate_vault.py
-
-# 2. 运行市场分析
-python scripts/market_analyzer.py --brief
-
-# 3. 添加新 JD
-# 在 data/market/jd/ 下创建 YAML，skills 的 topic_id 匹配 knowledge_map.yaml
-
-# 4. 更新个人能力
-# 编辑 data/personal/skill_profile.yaml
-
-# 5. 重新分析
-python scripts/market_analyzer.py
-```
+1. **内容优先**：先沉淀可复核的问题和高质量笔记，再增加自动化。
+2. **单一数据源**：Markdown 同时服务 Obsidian 和网站，不维护重复题库。
+3. **来源可追溯**：正式问题必须能够回到明确来源，不把推测包装成事实。
+4. **本地优先**：阅读、编辑和学习进度不依赖云端数据库。
+5. **构建即审计**：编号、统计、字段白名单和公开定位文本都由自动检查守护。

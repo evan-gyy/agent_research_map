@@ -2,6 +2,10 @@
 id: Q0115
 legacy_id: Q0132
 area: Training
+knowledge_point: parameter-efficient-finetuning
+tags:
+  - LoRA
+  - Fine-tuning
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

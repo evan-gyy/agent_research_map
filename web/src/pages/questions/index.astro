@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuestionCard from "../../components/QuestionCard.astro";
+import { getAllQuestions, getAreaRows, getFrequencyRows } from "../../lib/content";
+const questions = await getAllQuestions();
+const areas = getAreaRows(questions);
+const frequencies = getFrequencyRows(questions);
+const frequencyMap = new Map(frequencies.map((row) => [row.slug, row]));
+---
+<BaseLayout title="题库" description="按分类、知识点和学习状态浏览正式题目。" active="questions">
+  <section class="page container"><p class="eyebrow">Question Library</p><h1>题库</h1><p class="lede">搜索题目与学习笔记，或按知识主题和本机进度逐步浏览。</p>
+    <button class="button mobile-filter-button" type="button" data-filter-open>筛选与分类</button>
+    <div class="questions-layout">
+      <aside class="filter-sidebar card" data-filter-sidebar>
+        <div class="filter-sidebar-head"><h2>分类与筛选</h2><button class="icon-button mobile-filter-close" type="button" data-filter-close aria-label="关闭筛选">×</button></div>
+        <div class="filter-group"><h3>知识分类</h3><label class="filter-option"><input type="radio" name="area-side" value="" checked /> 全部分类 <span>{questions.length}</span></label>{areas.map(row => <label class="filter-option"><input type="radio" name="area-side" value={row.area} /> {row.area}<span>{row.count}</span></label>)}</div>
+        <div class="filter-group"><h3>本机数据</h3><button class="button ghost" type="button" data-reset-learning>重置学习进度</button><p class="panel-note">状态只保存在当前浏览器，清理网站数据后会丢失。</p></div>
+      </aside>
+      <div class="questions-main">
+        <div class="toolbar card"><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-filter-q placeholder="搜索题号、题目、答案、标签…" aria-label="搜索题库" /></label><select data-filter-point aria-label="知识点"><option value="">全部知识点</option>{frequencies.map(row => <option value={row.slug}>{row.label}（{row.count}）</option>)}</select><select data-filter-answer aria-label="答案状态"><option value="">全部笔记状态</option><option value="answered">已有学习笔记</option><option value="unanswered">待补充</option></select><select data-filter-learning aria-label="学习状态"><option value="">全部学习状态</option><option value="unseen">未开始</option><option value="learning">学习中</option><option value="review">待复习</option><option value="mastered">已掌握</option></select><select data-filter-sort aria-label="排序"><option value="id">按题号</option><option value="date">最近收录</option><option value="frequency">知识点频率</option></select></div>
+        <div class="result-summary"><span>找到 <strong data-result-count>{questions.length}</strong> 道题</span><button type="button" data-clear-filters>清除筛选</button></div>
+        <div class="question-list" data-question-list>{questions.map(question => { const freq = frequencyMap.get(question.knowledgePoint)!; return <QuestionCard question={question} frequency={freq.count} highFrequency={freq.highFrequency} />; })}</div>
+        <p class="card empty" data-no-results hidden>没有匹配的题目，试试减少筛选条件。</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    import { clearLearningState, getLearningState, updateQuestionState } from "../../scripts/learning-state";
+    const cards = [...document.querySelectorAll<HTMLElement>("[data-question-card]")];
+    const list = document.querySelector<HTMLElement>("[data-question-list]")!;
+    const qInput = document.querySelector<HTMLInputElement>("[data-filter-q]")!;
+    const point = document.querySelector<HTMLSelectElement>("[data-filter-point]")!;
+    const answer = document.querySelector<HTMLSelectElement>("[data-filter-answer]")!;
+    const learning = document.querySelector<HTMLSelectElement>("[data-filter-learning]")!;
+    const sort = document.querySelector<HTMLSelectElement>("[data-filter-sort]")!;
+    const areaInputs = [...document.querySelectorAll<HTMLInputElement>('input[name="area-side"]')];
+    const params = new URLSearchParams(location.search);
+    qInput.value = params.get("q") ?? ""; point.value = params.get("point") ?? ""; answer.value = params.get("answer") ?? ""; learning.value = params.get("status") ?? ""; sort.value = params.get("sort") ?? "id";
+    const initialArea = params.get("area") ?? ""; const areaInput = areaInputs.find(x => x.value === initialArea); if (areaInput) areaInput.checked = true;
+    function apply() {
+      const state = getLearningState(); const area = areaInputs.find(x => x.checked)?.value ?? ""; const query = qInput.value.trim().toLowerCase(); let visible = 0;
+      cards.forEach(card => { const localStatus = state.questions[card.dataset.id!]?.status ?? "unseen"; const show = (!query || card.dataset.search!.includes(query)) && (!area || card.dataset.area === area) && (!point.value || card.dataset.point === point.value) && (!answer.value || card.dataset.answer === answer.value) && (!learning.value || localStatus === learning.value); card.hidden = !show; if (show) visible++; const favorite = state.questions[card.dataset.id!]?.favorite; const button = card.querySelector<HTMLButtonElement>("[data-favorite-toggle]"); if (button) { button.textContent = favorite ? "★" : "☆"; button.classList.toggle("active", Boolean(favorite)); } });
+      const order = { id: (a:HTMLElement,b:HTMLElement) => a.dataset.id!.localeCompare(b.dataset.id!), date: (a:HTMLElement,b:HTMLElement) => b.dataset.date!.localeCompare(a.dataset.date!) || b.dataset.id!.localeCompare(a.dataset.id!), frequency: (a:HTMLElement,b:HTMLElement) => Number(b.dataset.frequency)-Number(a.dataset.frequency) || a.dataset.id!.localeCompare(b.dataset.id!) }[sort.value] ?? ((a:HTMLElement,b:HTMLElement)=>a.dataset.id!.localeCompare(b.dataset.id!)); cards.sort(order).forEach(card => list.append(card));
+      document.querySelector<HTMLElement>("[data-result-count]")!.textContent = String(visible); document.querySelector<HTMLElement>("[data-no-results]")!.hidden = visible !== 0;
+      const next = new URLSearchParams(); if (query) next.set("q", qInput.value.trim()); if (area) next.set("area", area); if (point.value) next.set("point", point.value); if (answer.value) next.set("answer", answer.value); if (learning.value) next.set("status", learning.value); if (sort.value !== "id") next.set("sort", sort.value); history.replaceState(null, "", location.pathname + (next.size ? "?" + next : ""));
+    }
+    [qInput, point, answer, learning, sort, ...areaInputs].forEach(el => el.addEventListener("input", apply));
+    document.querySelectorAll<HTMLButtonElement>("[data-favorite-toggle]").forEach(button => button.addEventListener("click", () => { const card = button.closest<HTMLElement>("[data-question-card]")!; const current = getLearningState().questions[card.dataset.id!]; updateQuestionState(card.dataset.id!, { favorite: !current?.favorite }); apply(); }));
+    document.querySelector("[data-clear-filters]")?.addEventListener("click", () => { qInput.value=""; point.value=""; answer.value=""; learning.value=""; sort.value="id"; areaInputs[0].checked=true; apply(); });
+    document.querySelector("[data-reset-learning]")?.addEventListener("click", () => { if (confirm("确定清除这台设备上的收藏与学习进度吗？")) { clearLearningState(); apply(); } });
+    const sidebar = document.querySelector("[data-filter-sidebar]"); document.querySelector("[data-filter-open]")?.addEventListener("click",()=>sidebar?.classList.add("open")); document.querySelector("[data-filter-close]")?.addEventListener("click",()=>sidebar?.classList.remove("open")); apply();
+  </script>
+</BaseLayout>

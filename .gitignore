@@ -219,3 +219,8 @@ __marimo__/
 
 vault/
 __pycache__/
+web/node_modules/
+web/dist/
+web/.astro/
+web/test-results/
+web/playwright-report/

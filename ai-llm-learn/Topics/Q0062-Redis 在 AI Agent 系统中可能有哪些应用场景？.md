@@ -2,6 +2,10 @@
 id: Q0062
 legacy_id: Q0073
 area: Agent / Harness
+knowledge_point: system-performance-concurrency
+tags:
+  - Concurrency
+  - Performance
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

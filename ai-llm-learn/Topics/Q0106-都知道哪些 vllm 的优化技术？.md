@@ -2,6 +2,10 @@
 id: Q0106
 legacy_id: Q0123
 area: Reliability / Production
+knowledge_point: inference-optimization
+tags:
+  - Inference
+  - Optimization
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

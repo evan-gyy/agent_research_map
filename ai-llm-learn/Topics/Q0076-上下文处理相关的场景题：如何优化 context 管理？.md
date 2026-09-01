@@ -2,6 +2,10 @@
 id: Q0076
 legacy_id: Q0092
 area: Memory / Context
+knowledge_point: context-token-compression
+tags:
+  - Context
+  - Token
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

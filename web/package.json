@@ -1,0 +1,38 @@
+{
+  "name": "ai-llm-learning-library",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "annotate": "node scripts/annotate-content.mjs",
+    "data:check": "tsx scripts/validate-content.ts",
+    "dev": "astro dev",
+    "check": "astro check",
+    "test": "tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "build": "npm run data:check && astro build && tsx scripts/audit-dist.ts",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.2.10",
+    "gray-matter": "4.0.3",
+    "katex": "0.18.5",
+    "mermaid": "11.17.2",
+    "rehype-katex": "7.0.1",
+    "rehype-raw": "7.0.0",
+    "rehype-stringify": "10.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.1.2",
+    "unified": "11.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.10.1",
+    "tsx": "4.20.6",
+    "typescript": "6.0.3"
+  }
+}

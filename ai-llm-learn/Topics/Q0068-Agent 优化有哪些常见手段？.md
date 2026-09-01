@@ -2,6 +2,10 @@
 id: Q0068
 legacy_id: Q0084
 area: Reliability / Production
+knowledge_point: reliability-resilience
+tags:
+  - Reliability
+  - Resilience
 company: 阿里巴巴
 source_track: verified-web-original
 evidence: verified-page-text

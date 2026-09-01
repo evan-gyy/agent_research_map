@@ -2,6 +2,10 @@
 id: Q0050
 legacy_id: Q0060
 area: Agent / Harness
+knowledge_point: agent-self-evolution
+tags:
+  - Self-Evolution
+  - Agent
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

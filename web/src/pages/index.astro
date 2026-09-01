@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getAllQuestions, getAreaRows, getFrequencyRows } from "../lib/content";
+const questions = await getAllQuestions();
+const areas = getAreaRows(questions);
+const frequencies = getFrequencyRows(questions);
+const answered = questions.filter((q) => q.answerHtml).length;
+const maxArea = Math.max(...areas.map((row) => row.count));
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="AI · LLM 学习库" description="面向个人学习、知识整理与长期积累的 AI 与语言模型知识库。">
+  <section class="hero container">
+    <div class="hero-row"><div><p class="eyebrow">Personal Knowledge Library</p><h1>把零散问题，沉淀成<br />可持续学习的知识体系。</h1><p class="lede">浏览 AI、语言模型、Agent 与 RAG 等主题，在自己的节奏里标记进度、收藏重点，并从知识点频率中找到学习重心。</p></div><div class="hero-actions"><a class="button primary" href={base + "questions/"}>浏览全部题目 →</a><a class="button ghost" href={base + "stats/"}>查看知识统计</a></div></div>
+    <div class="stat-grid" aria-label="学习库概览"><div class="card stat-card"><strong class="stat-value">{questions.length}</strong><span class="stat-label">正式题目</span></div><div class="card stat-card"><strong class="stat-value">{answered}</strong><span class="stat-label">已有学习笔记</span></div><div class="card stat-card"><strong class="stat-value" data-home-mastered>0</strong><span class="stat-label">本机已掌握</span></div><div class="card stat-card"><strong class="stat-value" data-home-review>0</strong><span class="stat-label">本机待复习</span></div></div>
+  </section>
+  <section class="container grid-2">
+    <div class="card panel"><div class="panel-head"><div><h2>分类分布</h2><span class="panel-note">当前学习库中的内容结构</span></div><a class="pill" href={base + "stats/"}>完整统计</a></div><div class="bar-list">{areas.map((row) => <a class="bar-item" href={base + "questions/?area=" + encodeURIComponent(row.area)}><span>{row.area}</span><span class="bar-track"><span class="bar-fill" style={"width:" + (row.count / maxArea) * 100 + "%"}></span></span><span class="bar-count">{row.count}</span></a>)}</div></div>
+    <div class="card panel"><div class="panel-head"><div><h2>高频知识点</h2><span class="panel-note">按当前题库出现次数</span></div></div><div class="rank-list">{frequencies.slice(0, 10).map((row, index) => <a class="rank-item" href={base + "questions/?point=" + row.slug}><span class="rank-number">{String(index + 1).padStart(2, "0")}</span><span>{row.label}</span><span class={row.highFrequency ? "badge hot" : "badge"}>{row.count} 题</span></a>)}</div></div>
+  </section>
+  <section class="container grid-2 split-section" style="padding-bottom:64px"><div class="card panel"><div class="panel-head"><div><h2>最近浏览</h2><span class="panel-note">进度只保存在这台设备</span></div></div><div class="question-mini-list" data-recent-list><p class="empty">还没有浏览记录，从题库选择一道题开始。</p></div></div><div class="card panel"><div class="panel-head"><div><h2>我的收藏</h2><span class="panel-note">随时回到重点内容</span></div></div><div class="question-mini-list" data-favorite-list><p class="empty">还没有收藏题目。</p></div></div></section>
+  <script is:inline id="home-questions" type="application/json" set:html={JSON.stringify(questions.map(q => ({ id: q.id, title: q.title })))} />
+  <script>
+    import { getLearningState } from "../scripts/learning-state";
+    const state = getLearningState();
+    const records = Object.values(state.questions);
+    document.querySelector<HTMLElement>("[data-home-mastered]")!.textContent = String(records.filter(x => x.status === "mastered").length);
+    document.querySelector<HTMLElement>("[data-home-review]")!.textContent = String(records.filter(x => x.status === "review").length);
+    const questions = JSON.parse(document.querySelector("#home-questions")?.textContent ?? "[]") as Array<{id:string;title:string}>;
+    const map = new Map(questions.map(q => [q.id, q]));
+    const base = import.meta.env.BASE_URL;
+    const render = (target: string, ids: string[]) => { const el = document.querySelector<HTMLElement>(target); if (!el || !ids.length) return; el.innerHTML = ids.slice(0, 5).map(id => { const q = map.get(id); return q ? '<a class="question-mini" href="' + base + 'questions/' + id.toLowerCase() + '/"><span class="question-id">' + id + '</span><span>' + q.title + '</span></a>' : ''; }).join(''); };
+    render("[data-recent-list]", Object.entries(state.questions).filter(([,v]) => v.lastVisitedAt).sort((a,b) => (b[1].lastVisitedAt ?? '').localeCompare(a[1].lastVisitedAt ?? '')).map(([id]) => id));
+    render("[data-favorite-list]", Object.entries(state.questions).filter(([,v]) => v.favorite).map(([id]) => id));
+  </script>
+</BaseLayout>

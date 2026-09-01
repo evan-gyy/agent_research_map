@@ -2,6 +2,10 @@
 id: Q0033
 legacy_id: Q0042
 area: Tool / Protocol
+knowledge_point: parameter-schema
+tags:
+  - Schema
+  - Structured Output
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text

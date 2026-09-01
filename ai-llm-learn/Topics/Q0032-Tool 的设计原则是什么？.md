@@ -2,6 +2,10 @@
 id: Q0032
 legacy_id: Q0041
 area: Tool / Protocol
+knowledge_point: tool-design
+tags:
+  - Tool Use
+  - Design
 company: 字节跳动
 source_track: verified-web-original
 evidence: verified-page-text
