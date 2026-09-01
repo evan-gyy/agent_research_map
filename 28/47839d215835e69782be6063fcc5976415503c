@@ -1,0 +1,24 @@
+web/e2e/library.spec.ts
+  s_ee3be2ae76751d::t_2b09c44d442c04 6-19
+web/src/styles/global.css
+  s_ee3be2ae76751d::t_95757e5d620087 39,49,53,57,60-64,89,114-115,117-123,125,134-135
+  s_ee3be2ae76751d::t_9c9ee52af861e3 233-234,257-260
+web/src/components/QuestionCard.astro
+  s_ee3be2ae76751d::t_95757e5d620087 11-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "2847839d215835e69782be6063fcc5976415503c",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
