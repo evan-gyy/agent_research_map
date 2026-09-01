@@ -1,0 +1,19 @@
+ai-llm-learn/Templates/主题模板.md
+  s_ee3be2ae76751d::t_d029851c873ee7 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "12aff2adfbf882bd7e65ba434ddf9bb76482a1b5",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
