@@ -1,0 +1,22 @@
+web/src/styles/global.css
+  s_ee3be2ae76751d::t_36ec931ac88e68 115
+web/e2e/library.spec.ts
+  s_ee3be2ae76751d::t_f529a8ac2f46d8 28-29
+  s_ee3be2ae76751d::t_36ec931ac88e68 20-27,30-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "a698124e056964bc401f82ec28080e930e410ecd",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
