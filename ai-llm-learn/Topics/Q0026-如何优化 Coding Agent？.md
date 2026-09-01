@@ -1,5 +1,6 @@
 ---
 id: Q0026
+normalized_question: 如何优化 Coding Agent？
 legacy_id: Q0026
 area: Agent / Harness
 knowledge_point: harness-coding-agent
