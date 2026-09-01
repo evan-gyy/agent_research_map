@@ -1,0 +1,208 @@
+ai-llm-learn/Templates/主题模板.md
+  s_0a24cf09aa02e0::t_736418a2e7e8ac 5-8,14,16,18,20,22,25-33
+  s_0a24cf09aa02e0::t_b32de3a0f1baf2 2,11
+  s_0a24cf09aa02e0::t_c3e601cd7b6365 1,9,12-13,15,17,19,21,23-24
+  s_0a24cf09aa02e0::t_9dd5b0bf69868a 10
+  s_0a24cf09aa02e0::t_ea1c101ba35d70 3-4
+data/market/interviews/seed_interviews.yaml
+  s_ff3ec17a4e5779::t_7fc0146caab29c 1-95
+ai-llm-learn/Topics/Q0042-项目用的什么架构？.md
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,40-43,47-49,52-54,87,89,91,95,97-99
+  s_0a24cf09aa02e0::t_a28ec34c5dbcc2 21,23,25,27-39,44-46,50-51,55-86,88,90,92-94,96,100-103
+ai-llm-learn/Topics/Q0008-一个完整的Agent系统通常包含哪些核心模块？.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_a28ec34c5dbcc2 21,23,25,27,29-31,33-68,71-72,74-75,77,79-87,91-92
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,28,32,69-70,73,76,78,88-90
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-9,11-20,93-103
+ai-llm-learn/Topics/Q0012-如果使用大模型完成意图分类，如何选择Zero-shot、Few-shot方案？.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+README.md
+  s_ff3ec17a4e5779::t_47aa70bb0c9f6f 1,3,5-30,37,39-46,48-57,59,62-92,94,96-97,99,102-105,108,110,112-130,133,135-140,142,144-147,149-152,154,156-158,160-170
+"ai-llm-learn/Topics/Q0035-ReAct、Plan-and-Execute、Workflow 三者有什么区别？.md"
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,52,54,62-64,96,99,101
+  s_0a24cf09aa02e0::t_c3e30e6b8dc79b 21,23,25,27-51,53,55-61,65-95,97-98,100,102-104
+data/personal/skill_profile.yaml
+  s_ff3ec17a4e5779::t_4022ccd6316260 1-7,14-211
+  s_ff3ec17a4e5779::t_69f3acd8272c0f 8-13
+skills/interview-original-question-collector/SKILL.md
+  s_0a24cf09aa02e0::t_68208fb5afbc20 1-27
+output/analysis.json
+  s_ff3ec17a4e5779::t_3d3f942baa7176 1-648
+"ai-llm-learn/Notes/FN-MIX-01-多来源 Agent 问答记录.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-25
+"ai-llm-learn/Notes/RS-TX-01-腾讯 AI Agent 研发方向.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-24
+"ai-llm-learn/Topics/Q0004-Agent 出现路径震荡如何优化？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+"ai-llm-learn/Notes/RS-DS-01-DeepSeek Agent Infrastructure 方向.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-24
+ai-llm-learn/Topics/Q0014-高频追问：用户问题连续触发多个工具时，怎么避免工具调用混乱？.md
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+data/market/README.md
+  s_ff3ec17a4e5779::t_ce2e809f49bbb0 1-14
+"ai-llm-learn/Topics/Q0078-如何设计评价 Agent 系统好坏的指标体系？.md"
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,46-47,56,68,70,94,98
+  s_0a24cf09aa02e0::t_a28ec34c5dbcc2 21,23,25,27-45,48-55,57-67,69,71-93,95-97,99
+ai-llm-learn/Notes/采集记录-2026-09-01.md
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 2-4,11,13,18,20,28,34,36
+  s_0a24cf09aa02e0::t_b32de3a0f1baf2 7-8,10,21-26,43
+  s_0a24cf09aa02e0::t_736418a2e7e8ac 1,5-6,9,12,14-17,19,27,29-33,35,37-42
+"ai-llm-learn/Topics/Q0005-Context 和长期 Memory 有什么区别？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+ai-llm-learn/Topics/Q0016-预处理阶段：PDF和复杂表格怎么解析？.md
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+ai-llm-learn/Templates/笔记模板.md
+  s_0a24cf09aa02e0::t_c3e601cd7b6365 1-12
+ai-llm-learn/Topics/Q0011-意图识别模块通常有哪些实现方式？.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+ai-llm-learn/学习索引.md
+  s_0a24cf09aa02e0::t_f02cd9ebf5811a 1,3,10-12,23,27,55-92,94,96-118,120,122-152,158-162
+  s_0a24cf09aa02e0::t_66a9d8d296b041 5,7-9,14-15,18-22,24-26,28-54,93,95,119,121,153-157
+  s_0a24cf09aa02e0::t_87bbbc92e789c7 2,4,6,13,17
+  s_0a24cf09aa02e0::t_ea1c101ba35d70 16
+ai-llm-learn/采集网页台账.md
+  s_0a24cf09aa02e0::t_f02cd9ebf5811a 3,12-15,20,22-31,34,36
+  s_0a24cf09aa02e0::t_66a9d8d296b041 1,5,7,9-11,16-19,21,32-33,35
+  s_0a24cf09aa02e0::t_665f837085fe24 2,4,6,8
+ai-llm-learn/Archive/非原题/README.md
+  s_0a24cf09aa02e0::t_06c0768a7ae4a3 1-9
+skills/interview-original-question-collector/agents/openai.yaml
+  s_0a24cf09aa02e0::t_68208fb5afbc20 1-3
+"ai-llm-learn/Notes/FN-BD-01-字节跳动 Agent 问答记录.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-25
+"ai-llm-learn/Topics/Q0037-高并发场景下，Agent 服务怎么设计？.md"
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,28,33,38-39,48,79,84
+  s_0a24cf09aa02e0::t_a28ec34c5dbcc2 21,23,25,27,29-32,34-37,40-47,49-78,80-83,85
+ai-llm-learn/Topics/Q0019--Agent的ReAct框架你了解吗？.md
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+"ai-llm-learn/Topics/Q0023-Embedding 模型怎么选择的 为什么.md"
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+ai-llm-learn/Topics/Q0021--你们Agent目前在生产环境稳定运行了吗？.md
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+"ai-llm-learn/Topics/Q0010-在Agent项目中，常见的规划（Planning）、记忆（Memory）、工具调用（Tool Use）和执行模块分别承担什么职责？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+ai-llm-learn/Topics/Q0022--评估Agent效果你们用什么指标？.md
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+ai-llm-learn/题目分类索引.md
+  s_0a24cf09aa02e0::t_f6a5370f89692d 8
+  s_0a24cf09aa02e0::t_ea1c101ba35d70 2,4-6,124
+  s_0a24cf09aa02e0::t_f02cd9ebf5811a 1,3,9-18,28-50,52-72,79-90,99-106,114-121,123,125-131,136-141,145-151,154-161,163-166
+  s_0a24cf09aa02e0::t_66a9d8d296b041 7,19-27,51,73-78,91-98,107-113,132-135,142-144,152-153,162
+  s_0a24cf09aa02e0::t_f74df29b8a77e1 122
+ai-llm-learn/Notes/网页快照-2026-09-01-2.md
+  s_0a24cf09aa02e0::t_6fc5b6b8c1bcbe 14,20-24,31-33,35-42,49-59
+  s_0a24cf09aa02e0::t_19bd92e29b236d 1-13,15-19,25-30,34,43-48,60-67
+ai-llm-learn/Topics/Q0018-如果业务中的状态机数量不断增加，状态类型扩展到二十多种甚至更多，应该如何设计和维护？.md
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+ai-llm-learn/Topics/Q0009-Chatbot也可以有记忆（存聊天历史）、也可以有Prompt工程？.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+data/interview_questions.yaml
+  s_ff3ec17a4e5779::t_5ba95d1e926ae8 1-180
+"ai-llm-learn/Topics/Q0006-如何处理大量工具描述导致 Prompt 过长？.md"
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+output/market_analysis.md
+  s_ff3ec17a4e5779::t_3d3f942baa7176 1-380
+ai-llm-learn/Topics/Q0003-上下文超过模型限制如何处理？.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+"ai-llm-learn/Topics/Q0002-ReAct 和 Plan 模式有什么区别？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+data/market/jd/seed_jds.yaml
+  s_ff3ec17a4e5779::t_16c3fc846b23f9 1-168
+"ai-llm-learn/Topics/Q0015-RAG 召回结果不理想，从哪些维度排查？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,47-48,56,90,95,97,99
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-9,11-20,102-112
+  s_0a24cf09aa02e0::t_c3e30e6b8dc79b 21,23,25,27-46,49-55,57-89,91-94,96,98,100-101
+"ai-llm-learn/Notes/RS-ALI-01-阿里巴巴 Agent Platform 方向.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-25
+ai-llm-learn/Notes/网页快照-2026-09-01-1.md
+  s_0a24cf09aa02e0::t_6fc5b6b8c1bcbe 87-92,99,101,108-111,117-121,135,137-138,144-146,154-158,166-168,174,177,184-187,193-194,202-205,207,215-218,224
+  s_0a24cf09aa02e0::t_19bd92e29b236d 1-86,93-98,100,102-107,112-116,122-134,136,139-143,147-153,159-165,169-173,175-176,178-183,188-192,195-201,206,208-214,219-223,225
+ai-llm-learn/Topics/Q0025-为什么上下文压缩和记忆提取可以使用小模型？.md
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+  s_0a24cf09aa02e0::t_907fb131d448cc 1-2,4-32
+data/market/SCHEMA.md
+  s_ff3ec17a4e5779::t_f74ab83cebf15d 1-34
+"ai-llm-learn/Notes/FN-ALI-01-阿里巴巴 Agent 问答记录.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-25
+ai-llm-learn/Topics/Q0001-以前问“你们怎么调工具的”，现在问“Harness和orchestrator有什么区别”.md
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+"ai-llm-learn/Topics/Q0017-检索增强：Query Rewriting（HyDE、用户意图重写）、混合检索（向量+BM25-全文）、GraphRAG（图谱+向量）、如何衡量多通道查询。.md"
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+"ai-llm-learn/Topics/Q0087-场景题：处理一万个长文档构建 RAG 知识库，怎么做？.md"
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26-28,31-34,37-38,40,44,46
+  s_0a24cf09aa02e0::t_a28ec34c5dbcc2 21,23,25,29-30,35-36,39,41-43,45,47-100
+"ai-llm-learn/Topics/Q0118-Flash Attention 的原理？.md"
+  s_0a24cf09aa02e0::t_c3e30e6b8dc79b 21,23,25,27-43,46-51,53-78,80-84,86,90-92
+  s_0a24cf09aa02e0::t_cfb207635feef6 10,22,24,26,44-45,52,79,85,87-89
+output/daily_brief.md
+  s_ff3ec17a4e5779::t_55bead4ef0f437 1-87
+scripts/market_analyzer.py
+  s_ff3ec17a4e5779::t_d5575ad36b7b01 1-522
+ai-llm-learn/Topics/Q0020--多Agent系统里，你怎么设计任务分配？.md
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+"ai-llm-learn/Topics/Q0026-如何优化 Coding Agent？.md"
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+  s_0a24cf09aa02e0::t_907fb131d448cc 1-2,4-32
+ai-llm-learn/Notes/网页快照-2026-09-01-3.md
+  s_0a24cf09aa02e0::t_19bd92e29b236d 1-13,19-23,31-37,45-49,52-53,56-60,66-71,76
+  s_0a24cf09aa02e0::t_6fc5b6b8c1bcbe 14-18,24-30,38-44,50-51,54-55,61-65,72-75
+"ai-llm-learn/Notes/RS-BD-01-字节跳动 AI Agent 方向.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-25
+ai-llm-learn/Topics/Q0013-RAG系统从文档进入到最终生成答案的完整流程是什么？.md
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+"ai-llm-learn/Notes/RS-MT-01-美团 LLM Agent 方向.md"
+  s_0a24cf09aa02e0::t_2e8a7a46576dde 1-24
+"ai-llm-learn/Topics/Q0007-多个 Agent 同时修改文件如何避免冲突？.md"
+  s_0a24cf09aa02e0::t_9546461b082dba 3
+  s_0a24cf09aa02e0::t_cbc0b75ed7fd3e 1-2,4-32
+ai-llm-learn/Archive/非NLP方向/README.md
+  s_0a24cf09aa02e0::t_b32de3a0f1baf2 1-32
+"ai-llm-learn/Topics/Q0024-MCP 调用工具的流程是什么？.md"
+  s_0a24cf09aa02e0::t_5e6c493f8d1edd 1-2,4-32
+  s_0a24cf09aa02e0::t_e167b6ee683761 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "a4e5212f1394ccbc622c906575da64ce96b6711c",
+  "prompts": {},
+  "sessions": {
+    "s_0a24cf09aa02e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05ad5-d02e-7112-b119-ae6d53137d2f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    },
+    "s_ff3ec17a4e5779": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a057b7-a93b-7dc1-93fd-c8f7c3e698bc",
+        "model": "glm-5.2-discount[1M]"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
