@@ -112,6 +112,7 @@ h3 { margin: 0; font-size: 1rem; }
 .filter-toggle { display: none; }
 .result-summary { display: flex; justify-content: space-between; gap: 12px; margin: 14px 2px; color: var(--muted); font-size: .86rem; }
 .question-list { display: grid; gap: 7px; }
+.question-card[hidden] { display: none; }
 .question-card { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(330px, auto); align-items: center; gap: 14px; min-height: 54px; padding: 9px 12px 9px 14px; border-radius: 10px; box-shadow: none; transition: border-color .15s, background-color .15s; }
 .question-card:hover { border-color: color-mix(in srgb, var(--primary) 55%, var(--line)); transform: translateY(-1px); }
 .question-card-main { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: baseline; gap: 9px; min-width: 0; }

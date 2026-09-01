@@ -17,6 +17,19 @@ test("desktop question rows stay compact with metadata aligned to the right", as
   expect(layout.height).toBeLessThanOrEqual(64);
   expect(layout.metaStartsAfterMain).toBe(true);
 });
+test("area and knowledge point filters hide non-matching question rows", async ({ page }) => {
+  await page.goto("/agent_research_map/questions/");
+  const cards = page.locator("[data-question-card]");
+  await page.getByLabel("Evaluation").check();
+  await expect(page.locator("[data-result-count]")).toHaveText("7");
+  await expect(cards.filter({ visible: true })).toHaveCount(7);
+  await expect(cards.filter({ visible: true }).first()).toHaveAttribute("data-area", "Evaluation");
+  await page.getByLabel("全部分类").check();
+  await page.getByLabel("知识点").selectOption("evaluation-metrics-datasets");
+  const expected = await page.locator('[data-question-card][data-point="evaluation-metrics-datasets"]').count();
+  await expect(page.locator("[data-result-count]")).toHaveText(String(expected));
+  await expect(cards.filter({ visible: true })).toHaveCount(expected);
+});
 test("local learning progress persists after refresh", async ({ page }) => {
   await page.goto("/agent_research_map/questions/q0008/"); await page.getByRole("button", { name: "已掌握" }).click(); await page.getByRole("button", { name: "收藏" }).click(); await page.reload(); await expect(page.getByRole("button", { name: "已掌握" })).toHaveClass(/active/); await expect(page.getByRole("button", { name: "收藏" })).toHaveText(/已收藏/);
 });
