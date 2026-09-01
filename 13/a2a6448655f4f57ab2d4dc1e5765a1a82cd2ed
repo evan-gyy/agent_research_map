@@ -1,0 +1,269 @@
+"ai-llm-learn/Topics/Q0020-多 Agent 系统如何设计任务分配机制？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0029-如何理解 Spec Coding 和 Harness？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0060-消息队列在 AI Agent 系统中有什么作用？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0010-Agent 项目中的 Planning、Memory、Tool Use 和执行模块分别承担什么职责？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0075-如何优化 Agent 的 Context 管理？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0094-BIRD 数据集和 DB-BIRD Reward 模型分别是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0102-问答和评估使用同一个模型有什么优缺点？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0092-Self-Attention 解决了 RNN 的哪些问题？在 MHA 实现中由哪些关键计算体现？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0024-MCP 调用工具的完整流程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0105-vLLM 有哪些常见的推理优化技术？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0038-什么是 Token？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0015-RAG 召回结果不理想时，应从哪些维度排查？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0074-Agent 系统的容错和异常处理机制应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0033-Tool 的参数 Schema 应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0079-子 Agent 之间如何传递上下文？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0103-问答模型与评估模型分开时，应该如何设计和处理？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Notes/采集记录-2026-09-01.md
+  s_0a24cf09aa02e0::t_1e07c5ce685021 7-8,10,21
+"ai-llm-learn/Topics/Q0027-RAG 流程中的文档切分策略应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0066-项目中对 Agent 做过哪些优化？具体如何调优？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0090-AI Coding 过程中遇到的最大问题是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0007-多个 Agent 同时修改文件时如何避免冲突？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0032-Tool 的设计原则是什么？.md"
+  s_0a24cf09aa02e0::t_ffad9be269cc73 3
+"ai-llm-learn/Topics/Q0108-如何利用 Agent 方法训练面向金融代码生成的 Coder 模型？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Notes/网页快照-2026-09-01-1.md
+  s_0a24cf09aa02e0::t_87ed4f3b56aed4 187,193-194,202-205,207,215,217-218,224
+"ai-llm-learn/Topics/Q0009-Chatbot 的记忆和 Prompt 工程与 Agent 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0077-如何设计评价 Agent 系统的指标体系？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0112-RAG 是什么？它与传统“检索加生成”有何区别？如何评估 RAG 系统？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0096-如何为 Agent 系统设计过程指标和结果指标？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0019-你了解 Agent 的 ReAct 框架吗？它的原理是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Topics/Q0071-如何约束大模型的输出格式和规则？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0008-一个完整的 Agent 系统通常包含哪些核心模块？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0016-RAG 预处理阶段如何解析 PDF 和复杂表格？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0084-多 Agent 协作有哪些常见模式？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0117-Flash Attention 的原理是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0113-如何进行端到端 RAG 评估？Modular Agent 如何实现多步规划、调度和异常回退？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0089-你使用过哪些 Agent 产品？其中哪些设计令人印象深刻？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0091-Claude Code 的 Memory 机制如何实现？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0003-上下文超过模型限制时如何处理？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0088-如何验证 Agent 项目效果？最终评测结果如何？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0114-LoRA 的可训练参数量如何计算？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0100-为什么选择 RAG 而不是微调？两者应该如何取舍？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0040-LangGraph 的 State 中通常保存哪些字段？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Topics/Q0069-向量数据库在项目中承担什么作用？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0001-Harness 和 Orchestrator 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0053-如何测试 Agent 并设计评测集？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0067-Agent 常见的优化手段有哪些？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0013-RAG 系统从文档入库到生成答案的完整流程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Topics/Q0098-多轮智能追问机制应该如何设计？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0104-文档如何分块？固定大小如何设置？语义不连贯时怎么办？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Notes/网页快照-2026-09-01-2.md
+  s_0a24cf09aa02e0::t_87ed4f3b56aed4 14,31-33,35-42,49-59
+"ai-llm-learn/Topics/Q0006-如何处理大量工具描述导致的 Prompt 过长问题？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0023-如何选择 Embedding 模型？主要依据是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0115-DPO、PPO、GRPO 的原理与训练结构有何区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0081-Function Calling 的完整流程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0070-为什么选择 LangChain 或 LangGraph？是否了解其底层流程？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/题目分类索引.md
+  s_0a24cf09aa02e0::t_2a0dcc400d3cfd 3,11,22-26,28-50,54-71,75,77-89,93-96,98-105,109-113,115-120,124-130,134-140,144-150,154-158,162-165
+"ai-llm-learn/Topics/Q0042-项目采用了什么 Agent 架构？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Templates/主题模板.md
+  s_0a24cf09aa02e0::t_1e07c5ce685021 2-3,14,17,23
+"ai-llm-learn/Topics/Q0051-Agent 自进化所使用的数据来自哪里？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0111-SFT 的流程和数据策略是什么？SFT 后常见哪些 Post-Training 方法？DPO、PPO、GRPO 有何区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0049-Workflow 与 Agent Loop 分别应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0087-Agent 项目中的“思考”由大模型推理完成，还是由模型外机制控制？整体方案如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0085-多用户并发调用 API 时，任务过多导致系统卡死，应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Notes/网页快照-2026-09-01-3.md
+  s_0a24cf09aa02e0::t_87ed4f3b56aed4 14-17,24-30,38-44,50-51,54-55,61-65,72-75
+"ai-llm-learn/Topics/Q0052-为什么要在沙箱环境中执行 Agent 自进化？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0030-Agent 与普通 LLM 应用、Workflow 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0012-使用大模型完成意图分类时，如何选择 Zero-shot 或 Few-shot 方案？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0035-ReAct、Plan-and-Execute 和 Workflow 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0059-上下文工程中如何使用 To-Do List 机制？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0002-ReAct 与 Plan 模式有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0061-Redis 在 AI Agent 系统中有哪些应用场景？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0107-DeepSeek MTP 用于训练还是推理？具体过程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0109-Transformer 中 Attention 的本质是什么？请从数学角度简要解释。.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0043-项目采用单 Agent 还是多 Agent 架构？为什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0054-如何测试 Skill 路由并设计评测集？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0064-优化 Agent 时，如何判断性能瓶颈来自模型、检索还是工具调用？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0011-意图识别模块通常有哪些实现方式？.md
+  s_0a24cf09aa02e0::t_4aa70593931642 3
+"ai-llm-learn/Topics/Q0076-为什么 Agent 经常出现幻觉或错误调用工具？如何缓解？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0082-Function Calling 返回的 JSON 不规范时如何处理？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0083-大模型捏造工具调用参数时应该如何处理？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0080-ReAct 范式是什么？有哪些优缺点？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0072-Agent 的记忆模块应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0025-为什么上下文压缩和记忆提取可以使用小模型？.md
+  s_0a24cf09aa02e0::t_ffad9be269cc73 3
+"ai-llm-learn/Topics/Q0086-如何为一万个长文档构建 RAG 知识库？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0068-语义检索是如何实现的？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3
+"ai-llm-learn/Topics/Q0062-RAG 流程中为什么要引入父子索引？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3
+"ai-llm-learn/Topics/Q0063-之前参与的 Agent 项目采用了什么架构？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0095-RRF 的原理是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0034-多 Agent 协作系统应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0036-如何缓解 RAG 系统中的幻觉问题？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Topics/Q0018-业务状态机和状态类型不断增加时，应该如何设计和维护？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0031-请解释 ReAct 的原理并画出完整执行流程。.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0047-LoRA 与 QLoRA 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/采集网页台账.md
+  s_0a24cf09aa02e0::t_2a0dcc400d3cfd 3,12,15-16,21,23-33,40
+ai-llm-learn/Topics/Q0056-短期记忆与长期记忆有什么区别？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0057-是否使用过 MCP？它在工具调用中起什么作用？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0110-在 Agent 多轮对话中，Attention 的局限性体现在哪里？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/Topics/Q0014-用户问题连续触发多个工具时，如何避免工具调用混乱？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0093-什么是 Harness Engineering？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0106-算力受限时，如何利用大模型蒸馏出 3B 模型？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0039-LangGraph 在项目中起什么作用？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0050-Agent 自进化产物的提取标准应该如何设计？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0037-高并发场景下应该如何设计 Agent 服务？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0044-多 Agent 之间如何协作？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0028-开发过程中常用哪些 AI Coding 工具？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0048-Workflow 的原子性在项目中如何体现？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0097-Reward 应该如何设计？模型蒸馏通常使用哪些损失函数？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0004-Agent 出现路径震荡时如何优化？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0046-RAG 的完整流程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0078-主 Agent 规划任务时，如何保证拆解合理？应该使用什么 Prompt 策略？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0073-多轮、多会话场景下如何管理 Memory？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0005-Context 与长期 Memory 有什么区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+ai-llm-learn/Topics/Q0045-首次生成和多轮补充请求的路由链路应该如何区分和实现？.md
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0101-项目的 RAG 知识库中包含哪些内容？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+ai-llm-learn/学习索引.md
+  s_0a24cf09aa02e0::t_2a0dcc400d3cfd 3,10-12,27,29-38,40-52,55-59,61-91,95-117,121-151,153,157-163
+skills/interview-original-question-collector/SKILL.md
+  s_0a24cf09aa02e0::t_1e07c5ce685021 15,22-24
+"ai-llm-learn/Topics/Q0058-Self-Attention 中为什么要将输入映射为 Q、K、V？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0022-评估 Agent 效果通常使用哪些指标？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0116-MHA、GQA、MQA、MLA 的结构有何区别？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0065-项目中 Agent 的完整执行流程是什么？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0041-项目使用了什么 Agent 框架？为什么选择它？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0026-如何优化 Coding Agent？.md"
+  s_0a24cf09aa02e0::t_ffad9be269cc73 3
+"ai-llm-learn/Topics/Q0017-如何设计 RAG 的查询改写、混合检索和 GraphRAG，并评估多通道检索效果？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0099-RAG 项目如何进行分批评估？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+"ai-llm-learn/Topics/Q0021-如何判断 Agent 是否能够在生产环境稳定运行？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 3,18
+"ai-llm-learn/Topics/Q0055-Agent 的 Planning 主要由框架还是大模型完成？.md"
+  s_0a24cf09aa02e0::t_e72fe63ceb38c7 2-3,18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "13a2a6448655f4f57ab2d4dc1e5765a1a82cd2ed",
+  "prompts": {},
+  "sessions": {
+    "s_0a24cf09aa02e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05ad5-d02e-7112-b119-ae6d53137d2f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
