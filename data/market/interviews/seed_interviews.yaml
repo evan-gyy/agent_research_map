@@ -1,0 +1,95 @@
+# ============================================================
+# Seed Interview Data — 字节/阿里 Agent 岗面经
+# 来源: 牛客网公开面经，手工结构化
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-08-31"
+
+interviews:
+  - id: bytedance_agent_20260828
+    source: nowcoder
+    url: "https://www.nowcoder.com/discuss/922659050167226368"
+    company: 字节跳动
+    position: AI Agent 工程师
+    date: 2026-08-28
+    round: 技术面
+    questions:
+      - text: "Harness 和 orchestrator 有什么区别？"
+        topics: [agent_loop, harness_optimization]
+        difficulty: 4
+      - text: "ReAct 和 Plan-Execute 有什么区别？"
+        topics: [react, plan_execute, execution_paradigm_comparison]
+        difficulty: 3
+      - text: "Context 超限怎么办？"
+        topics: [context_management, context_management]
+        difficulty: 4
+      - text: "Agent 路径震荡怎么办？"
+        topics: [error_recovery, agent_loop]
+        difficulty: 4
+      - text: "Tool 描述过长怎么办？"
+        topics: [tool_orchestration, tool_calling]
+        difficulty: 3
+      - text: "多 Agent 并发修改文件冲突怎么办？"
+        topics: [collaboration, multi_agent_tradeoffs]
+        difficulty: 4
+
+  - id: alibaba_agent_20260827
+    source: nowcoder
+    url: "https://www.nowcoder.com/discuss/923739430513299456"
+    company: 阿里巴巴
+    position: Agent Platform Engineer
+    date: 2026-08-27
+    round: 技术面
+    questions:
+      - text: "Agent 性能瓶颈来自模型还是 RAG 还是 Tool，怎么定位？"
+        topics: [evaluation_harness, agent_reliability, tool_calling]
+        difficulty: 4
+      - text: "Agent 幻觉怎么处理？"
+        topics: [error_recovery, agent_reliability]
+        difficulty: 3
+      - text: "Agent Evaluation 体系怎么设计？"
+        topics: [general_agent_eval, agent_reliability, evaluation_harness]
+        difficulty: 4
+      - text: "Planning 怎么做？"
+        topics: [planning, task_decomposition]
+        difficulty: 3
+      - text: "Multi-Agent 的场景和局限？"
+        topics: [collaboration, multi_agent_tradeoffs]
+        difficulty: 3
+      - text: "Function Calling 和 Tool Use 的区别？"
+        topics: [tool_calling]
+        difficulty: 2
+      - text: "Tool 参数幻觉怎么办？"
+        topics: [tool_calling, error_recovery]
+        difficulty: 3
+      - text: "RAG 和 Memory 的关系？"
+        topics: [memory_retrieval, long_term_memory]
+        difficulty: 3
+
+  - id: mix_agent_20260826
+    source: nowcoder
+    url: "https://www.nowcoder.com/discuss/923309821460221952"
+    company: 多家公司
+    position: Agent Engineer
+    date: 2026-08-26
+    round: 技术面
+    questions:
+      - text: "Claude Code 的 Memory 机制？"
+        topics: [long_term_memory, context_management]
+        difficulty: 4
+      - text: "Harness Engineering 是什么？"
+        topics: [agent_loop, harness_optimization]
+        difficulty: 4
+      - text: "Agent 系统评价指标有哪些？"
+        topics: [general_agent_eval, agent_reliability, evaluation_harness]
+        difficulty: 3
+      - text: "Agent Loop 怎么设计？"
+        topics: [agent_loop]
+        difficulty: 3
+      - text: "Context 怎么管理？"
+        topics: [context_management]
+        difficulty: 3
+      - text: "Tool 怎么设计？"
+        topics: [tool_orchestration, tool_calling]
+        difficulty: 3

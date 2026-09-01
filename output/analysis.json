@@ -1,0 +1,648 @@
+{
+  "generated": "2026-08-31T20:14:54.223946",
+  "stats": {
+    "total_jds": 5,
+    "total_interviews": 3,
+    "total_questions": 20,
+    "total_topics_with_signal": 26
+  },
+  "market_heat": {
+    "tool_protocol": {
+      "jd_count": 1.5,
+      "interview_count": 0,
+      "total": 1.5,
+      "companies": [
+        "字节跳动",
+        "美团",
+        "阿里巴巴"
+      ],
+      "company_count": 3
+    },
+    "evaluation_harness": {
+      "jd_count": 0,
+      "interview_count": 3,
+      "total": 3,
+      "companies": [
+        "多家公司",
+        "阿里巴巴"
+      ],
+      "company_count": 2
+    },
+    "long_term_memory": {
+      "jd_count": 1,
+      "interview_count": 2,
+      "total": 3,
+      "companies": [
+        "多家公司",
+        "阿里巴巴"
+      ],
+      "company_count": 2
+    },
+    "react": {
+      "jd_count": 1,
+      "interview_count": 1,
+      "total": 2,
+      "companies": [
+        "字节跳动",
+        "美团"
+      ],
+      "company_count": 2
+    },
+    "plan_execute": {
+      "jd_count": 0,
+      "interview_count": 1,
+      "total": 1,
+      "companies": [
+        "字节跳动"
+      ],
+      "company_count": 1
+    },
+    "collaboration": {
+      "jd_count": 2,
+      "interview_count": 2,
+      "total": 4,
+      "companies": [
+        "字节跳动",
+        "美团",
+        "阿里巴巴"
+      ],
+      "company_count": 3
+    },
+    "harness_optimization": {
+      "jd_count": 2.0,
+      "interview_count": 2,
+      "total": 4.0,
+      "companies": [
+        "DeepSeek",
+        "多家公司",
+        "字节跳动",
+        "腾讯",
+        "阿里巴巴"
+      ],
+      "company_count": 5
+    },
+    "sandbox": {
+      "jd_count": 1,
+      "interview_count": 0,
+      "total": 1,
+      "companies": [
+        "DeepSeek"
+      ],
+      "company_count": 1
+    },
+    "multi_agent_tradeoffs": {
+      "jd_count": 0,
+      "interview_count": 2,
+      "total": 2,
+      "companies": [
+        "字节跳动",
+        "阿里巴巴"
+      ],
+      "company_count": 2
+    },
+    "coding_agent": {
+      "jd_count": 1,
+      "interview_count": 0,
+      "total": 1,
+      "companies": [
+        "美团"
+      ],
+      "company_count": 1
+    },
+    "execution_paradigm_comparison": {
+      "jd_count": 0,
+      "interview_count": 1,
+      "total": 1,
+      "companies": [
+        "字节跳动"
+      ],
+      "company_count": 1
+    },
+    "memory_retrieval": {
+      "jd_count": 2,
+      "interview_count": 1,
+      "total": 3,
+      "companies": [
+        "美团",
+        "阿里巴巴"
+      ],
+      "company_count": 2
+    },
+    "error_recovery": {
+      "jd_count": 2,
+      "interview_count": 3,
+      "total": 5,
+      "companies": [
+        "DeepSeek",
+        "字节跳动",
+        "阿里巴巴"
+      ],
+      "company_count": 3
+    },
+    "general_agent_eval": {
+      "jd_count": 3,
+      "interview_count": 2,
+      "total": 5,
+      "companies": [
+        "多家公司",
+        "字节跳动",
+        "腾讯",
+        "阿里巴巴"
+      ],
+      "company_count": 4
+    },
+    "agent_loop": {
+      "jd_count": 4,
+      "interview_count": 4,
+      "total": 8,
+      "companies": [
+        "DeepSeek",
+        "多家公司",
+        "字节跳动",
+        "腾讯",
+        "阿里巴巴"
+      ],
+      "company_count": 5
+    },
+    "long_horizon_reasoning": {
+      "jd_count": 1,
+      "interview_count": 0,
+      "total": 1,
+      "companies": [
+        "腾讯"
+      ],
+      "company_count": 1
+    },
+    "tool_orchestration": {
+      "jd_count": 1,
+      "interview_count": 2,
+      "total": 3,
+      "companies": [
+        "DeepSeek",
+        "多家公司",
+        "字节跳动"
+      ],
+      "company_count": 3
+    },
+    "agentic_rl": {
+      "jd_count": 1.0,
+      "interview_count": 0,
+      "total": 1.0,
+      "companies": [
+        "DeepSeek",
+        "腾讯"
+      ],
+      "company_count": 2
+    },
+    "rlvr": {
+      "jd_count": 0.5,
+      "interview_count": 0,
+      "total": 0.5,
+      "companies": [
+        "字节跳动"
+      ],
+      "company_count": 1
+    },
+    "memory_harness": {
+      "jd_count": 2,
+      "interview_count": 0,
+      "total": 2,
+      "companies": [
+        "字节跳动",
+        "腾讯"
+      ],
+      "company_count": 2
+    },
+    "context_management": {
+      "jd_count": 3,
+      "interview_count": 4,
+      "total": 7,
+      "companies": [
+        "DeepSeek",
+        "多家公司",
+        "字节跳动",
+        "腾讯"
+      ],
+      "company_count": 4
+    },
+    "agent_reliability": {
+      "jd_count": 0.5,
+      "interview_count": 4,
+      "total": 4.5,
+      "companies": [
+        "多家公司",
+        "美团",
+        "阿里巴巴"
+      ],
+      "company_count": 3
+    },
+    "planning": {
+      "jd_count": 3,
+      "interview_count": 1,
+      "total": 4,
+      "companies": [
+        "字节跳动",
+        "美团",
+        "阿里巴巴"
+      ],
+      "company_count": 3
+    },
+    "runtime": {
+      "jd_count": 1,
+      "interview_count": 0,
+      "total": 1,
+      "companies": [
+        "DeepSeek"
+      ],
+      "company_count": 1
+    },
+    "tool_calling": {
+      "jd_count": 4,
+      "interview_count": 5,
+      "total": 9,
+      "companies": [
+        "多家公司",
+        "字节跳动",
+        "美团",
+        "腾讯",
+        "阿里巴巴"
+      ],
+      "company_count": 5
+    },
+    "task_decomposition": {
+      "jd_count": 0,
+      "interview_count": 1,
+      "total": 1,
+      "companies": [
+        "阿里巴巴"
+      ],
+      "company_count": 1
+    }
+  },
+  "knowledge_gaps": [
+    {
+      "topic_id": "agent_reliability",
+      "domain": "Agent Evaluation",
+      "topic_name": "Agent Reliability",
+      "topic_cn": "Agent 可靠性",
+      "market_heat": 4.5,
+      "jd_count": 0.5,
+      "interview_count": 4,
+      "company_count": 3,
+      "personal_level": 2,
+      "interest": 5,
+      "gap_score": 13.5,
+      "priority": "🔴"
+    },
+    {
+      "topic_id": "harness_optimization",
+      "domain": "Agent Harness",
+      "topic_name": "Harness Optimization",
+      "topic_cn": "Harness 优化",
+      "market_heat": 4.0,
+      "jd_count": 2.0,
+      "interview_count": 2,
+      "company_count": 5,
+      "personal_level": 2,
+      "interest": 5,
+      "gap_score": 12.0,
+      "priority": "🔴"
+    },
+    {
+      "topic_id": "error_recovery",
+      "domain": "Agent Harness",
+      "topic_name": "Error Recovery",
+      "topic_cn": "错误恢复",
+      "market_heat": 5,
+      "jd_count": 2,
+      "interview_count": 3,
+      "company_count": 3,
+      "personal_level": 3,
+      "interest": 5,
+      "gap_score": 10.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "evaluation_harness",
+      "domain": "Agent Harness",
+      "topic_name": "Evaluation (Harness)",
+      "topic_cn": "评估（Harness）",
+      "market_heat": 3,
+      "jd_count": 0,
+      "interview_count": 3,
+      "company_count": 2,
+      "personal_level": 2,
+      "interest": 5,
+      "gap_score": 9.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "tool_calling",
+      "domain": "Tool Use",
+      "topic_name": "Tool Calling",
+      "topic_cn": "工具调用",
+      "market_heat": 9,
+      "jd_count": 4,
+      "interview_count": 5,
+      "company_count": 5,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 9.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "general_agent_eval",
+      "domain": "Agent Evaluation",
+      "topic_name": "General Agent",
+      "topic_cn": "通用 Agent 评估",
+      "market_heat": 5,
+      "jd_count": 3,
+      "interview_count": 2,
+      "company_count": 4,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 8.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "agent_loop",
+      "domain": "Agent Harness",
+      "topic_name": "Agent Loop",
+      "topic_cn": "Agent 循环",
+      "market_heat": 8,
+      "jd_count": 4,
+      "interview_count": 4,
+      "company_count": 5,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 8.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "context_management",
+      "domain": "Memory & Context",
+      "topic_name": "Context Management",
+      "topic_cn": "上下文管理",
+      "market_heat": 7,
+      "jd_count": 3,
+      "interview_count": 4,
+      "company_count": 4,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 7.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "planning",
+      "domain": "Planning & Reasoning",
+      "topic_name": "Planning",
+      "topic_cn": "规划",
+      "market_heat": 4,
+      "jd_count": 3,
+      "interview_count": 1,
+      "company_count": 3,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 6.4,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "long_term_memory",
+      "domain": "Memory & Context",
+      "topic_name": "Long-term Memory",
+      "topic_cn": "长期记忆",
+      "market_heat": 3,
+      "jd_count": 1,
+      "interview_count": 2,
+      "company_count": 2,
+      "personal_level": 3,
+      "interest": 5,
+      "gap_score": 6.0,
+      "priority": "🟠"
+    },
+    {
+      "topic_id": "collaboration",
+      "domain": "Multi-Agent",
+      "topic_name": "Collaboration",
+      "topic_cn": "协作",
+      "market_heat": 4,
+      "jd_count": 2,
+      "interview_count": 2,
+      "company_count": 3,
+      "personal_level": 3,
+      "interest": 3,
+      "gap_score": 4.8,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "memory_retrieval",
+      "domain": "Memory & Context",
+      "topic_name": "Memory Retrieval",
+      "topic_cn": "记忆检索",
+      "market_heat": 3,
+      "jd_count": 2,
+      "interview_count": 1,
+      "company_count": 2,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 4.8,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "tool_orchestration",
+      "domain": "Agent Harness",
+      "topic_name": "Tool Orchestration",
+      "topic_cn": "工具编排",
+      "market_heat": 3,
+      "jd_count": 1,
+      "interview_count": 2,
+      "company_count": 3,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 4.8,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "memory_harness",
+      "domain": "Agent Harness",
+      "topic_name": "Memory (Harness)",
+      "topic_cn": "记忆（Harness）",
+      "market_heat": 2,
+      "jd_count": 2,
+      "interview_count": 0,
+      "company_count": 2,
+      "personal_level": 3,
+      "interest": 5,
+      "gap_score": 4.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "multi_agent_tradeoffs",
+      "domain": "Multi-Agent",
+      "topic_name": "Multi-Agent Tradeoffs",
+      "topic_cn": "多 Agent 权衡",
+      "market_heat": 2,
+      "jd_count": 0,
+      "interview_count": 2,
+      "company_count": 2,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 3.2,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "tool_protocol",
+      "domain": "Tool Use",
+      "topic_name": "Tool Protocol",
+      "topic_cn": "工具协议",
+      "market_heat": 1.5,
+      "jd_count": 1.5,
+      "interview_count": 0,
+      "company_count": 3,
+      "personal_level": 3,
+      "interest": 5,
+      "gap_score": 3.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "agentic_rl",
+      "domain": "Agent Training",
+      "topic_name": "Agentic RL",
+      "topic_cn": "Agent 强化学习",
+      "market_heat": 1.0,
+      "jd_count": 1.0,
+      "interview_count": 0,
+      "company_count": 2,
+      "personal_level": 2,
+      "interest": 5,
+      "gap_score": 3.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "react",
+      "domain": "Agent Paradigms",
+      "topic_name": "ReAct",
+      "topic_cn": "推理+行动",
+      "market_heat": 2,
+      "jd_count": 1,
+      "interview_count": 1,
+      "company_count": 2,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 2.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "plan_execute",
+      "domain": "Agent Paradigms",
+      "topic_name": "Plan-and-Execute",
+      "topic_cn": "先规划后执行",
+      "market_heat": 1,
+      "jd_count": 0,
+      "interview_count": 1,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 5,
+      "gap_score": 2.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "long_horizon_reasoning",
+      "domain": "Planning & Reasoning",
+      "topic_name": "Long-Horizon Reasoning",
+      "topic_cn": "长链路推理",
+      "market_heat": 1,
+      "jd_count": 1,
+      "interview_count": 0,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 1.6,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "runtime",
+      "domain": "Agent Harness",
+      "topic_name": "Runtime",
+      "topic_cn": "运行时",
+      "market_heat": 1,
+      "jd_count": 1,
+      "interview_count": 0,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 1.6,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "task_decomposition",
+      "domain": "Planning & Reasoning",
+      "topic_name": "Task Decomposition",
+      "topic_cn": "任务分解",
+      "market_heat": 1,
+      "jd_count": 0,
+      "interview_count": 1,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 1.6,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "sandbox",
+      "domain": "Agent Harness",
+      "topic_name": "Sandbox",
+      "topic_cn": "沙箱",
+      "market_heat": 1,
+      "jd_count": 1,
+      "interview_count": 0,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 3,
+      "gap_score": 1.2,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "coding_agent",
+      "domain": "Agent Systems",
+      "topic_name": "Coding Agent",
+      "topic_cn": "编程 Agent",
+      "market_heat": 1,
+      "jd_count": 1,
+      "interview_count": 0,
+      "company_count": 1,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 1.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "execution_paradigm_comparison",
+      "domain": "Agent Paradigms",
+      "topic_name": "Execution Paradigm Comparison",
+      "topic_cn": "执行范式对比",
+      "market_heat": 1,
+      "jd_count": 0,
+      "interview_count": 1,
+      "company_count": 1,
+      "personal_level": 4,
+      "interest": 5,
+      "gap_score": 1.0,
+      "priority": "🟡"
+    },
+    {
+      "topic_id": "rlvr",
+      "domain": "Agent Training",
+      "topic_name": "RLVR",
+      "topic_cn": "可验证奖励强化学习",
+      "market_heat": 0.5,
+      "jd_count": 0.5,
+      "interview_count": 0,
+      "company_count": 1,
+      "personal_level": 3,
+      "interest": 4,
+      "gap_score": 0.8,
+      "priority": "🟡"
+    }
+  ]
+}

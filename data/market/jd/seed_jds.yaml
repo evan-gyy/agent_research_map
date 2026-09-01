@@ -1,0 +1,168 @@
+# ============================================================
+# Seed JD Data — Agent 岗位招聘信息
+# 来源: 牛客网/招聘平台公开 JD，手工结构化
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-08-31"
+
+jds:
+  - id: bytedance_agent_jd_20260828
+    source: nowcoder
+    url: "https://www.nowcoder.com/discuss/922659050167226368"
+    company: 字节跳动
+    title: AI Agent 工程师
+    date: 2026-08-28
+    skills:
+      - topic_id: agent_loop
+        mentioned_as: "Agent Loop / Harness"
+      - topic_id: context_management
+        mentioned_as: "Context 管理"
+      - topic_id: tool_calling
+        mentioned_as: "Tool Calling / Function Calling"
+      - topic_id: planning
+        mentioned_as: "Planning"
+      - topic_id: memory_harness
+        mentioned_as: "Memory"
+      - topic_id: general_agent_eval
+        mentioned_as: "Agent 评测"
+      - topic_id: error_recovery
+        mentioned_as: "Agent 优化 / 错误恢复"
+    experience:
+      - "Agent 应用开发经验"
+      - "生产环境部署"
+    bonus:
+      - topic_id: rlvr
+        mentioned_as: "RL"
+      - topic_id: tool_protocol
+        mentioned_as: "MCP"
+    responsibilities:
+      - "Agent workflow 设计"
+      - "Agent 性能优化"
+      - "评测体系搭建"
+
+  - id: alibaba_agent_jd_20260827
+    source: nowcoder
+    url: "https://www.nowcoder.com/discuss/923739430513299456"
+    company: 阿里巴巴
+    title: Agent Platform Engineer
+    date: 2026-08-27
+    skills:
+      - topic_id: agent_loop
+        mentioned_as: "Agent 架构 / Harness"
+      - topic_id: tool_calling
+        mentioned_as: "Function Calling"
+      - topic_id: memory_retrieval
+        mentioned_as: "RAG"
+      - topic_id: long_term_memory
+        mentioned_as: "Agent Memory"
+      - topic_id: general_agent_eval
+        mentioned_as: "Agent Evaluation"
+      - topic_id: planning
+        mentioned_as: "Planning"
+      - topic_id: collaboration
+        mentioned_as: "Multi-Agent"
+    experience:
+      - "大模型应用开发"
+      - "Agent 系统设计"
+    bonus:
+      - topic_id: tool_protocol
+        mentioned_as: "MCP"
+      - topic_id: harness_optimization
+        mentioned_as: "Agent Infrastructure"
+    responsibilities:
+      - "Agent 平台设计"
+      - "性能瓶颈定位"
+      - "评测体系"
+
+  - id: deepseek_agent_jd_20260825
+    source: manual
+    url: ""
+    company: DeepSeek
+    title: Agent Infrastructure Engineer
+    date: 2026-08-25
+    skills:
+      - topic_id: agent_loop
+        mentioned_as: "Agent Loop / Harness"
+      - topic_id: context_management
+        mentioned_as: "Context Engineering"
+      - topic_id: runtime
+        mentioned_as: "Runtime"
+      - topic_id: sandbox
+        mentioned_as: "Sandbox"
+      - topic_id: tool_orchestration
+        mentioned_as: "Tool 编排"
+      - topic_id: error_recovery
+        mentioned_as: "Error Recovery"
+      - topic_id: harness_optimization
+        mentioned_as: "Harness 优化"
+    experience:
+      - "Agent 基础设施"
+      - "LLM 应用工程"
+    bonus:
+      - topic_id: agentic_rl
+        mentioned_as: "Agentic RL"
+    responsibilities:
+      - "Harness 设计与实现"
+      - "Agent 性能优化"
+      - "自动优化"
+
+  - id: meituan_agent_jd_20260824
+    source: manual
+    url: ""
+    company: 美团
+    title: LLM Agent 工程师
+    date: 2026-08-24
+    skills:
+      - topic_id: react
+        mentioned_as: "ReAct"
+      - topic_id: tool_calling
+        mentioned_as: "Tool Use"
+      - topic_id: memory_retrieval
+        mentioned_as: "RAG"
+      - topic_id: planning
+        mentioned_as: "Planning"
+      - topic_id: collaboration
+        mentioned_as: "Multi-Agent"
+      - topic_id: coding_agent
+        mentioned_as: "Coding Agent"
+    experience:
+      - "LLM 应用开发"
+    bonus:
+      - topic_id: tool_protocol
+        mentioned_as: "MCP"
+      - topic_id: agent_reliability
+        mentioned_as: "Agent 可靠性"
+    responsibilities:
+      - "Agent 应用开发"
+      - "工具调用优化"
+
+  - id: tencent_agent_jd_20260822
+    source: manual
+    url: ""
+    company: 腾讯
+    title: AI Agent 研发工程师
+    date: 2026-08-22
+    skills:
+      - topic_id: agent_loop
+        mentioned_as: "Agent 架构"
+      - topic_id: context_management
+        mentioned_as: "上下文管理"
+      - topic_id: memory_harness
+        mentioned_as: "Memory 系统"
+      - topic_id: tool_calling
+        mentioned_as: "Function Calling"
+      - topic_id: general_agent_eval
+        mentioned_as: "Agent 评测"
+      - topic_id: long_horizon_reasoning
+        mentioned_as: "长链路推理"
+    experience:
+      - "Agent 系统开发"
+    bonus:
+      - topic_id: harness_optimization
+        mentioned_as: "Harness"
+      - topic_id: agentic_rl
+        mentioned_as: "RL"
+    responsibilities:
+      - "Agent 系统设计"
+      - "评测体系"

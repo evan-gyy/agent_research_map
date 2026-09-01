@@ -1,0 +1,180 @@
+# ============================================================
+# Seed Interview Questions — 面试题库
+# ============================================================
+# 每个问题关联到 knowledge_map.yaml 的 topic，
+# 并标注相关论文/系统（从 seed_materials.yaml 引用）。
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-08-31"
+
+questions:
+
+  # ---- Harness / Agent Loop ----
+  - id: q_harness_vs_orchestrator
+    text: "Harness 和 Orchestrator 有什么区别？"
+    category: [agent_harness]
+    topics: [agent_loop, harness_optimization]
+    difficulty: 4
+    companies: [ByteDance]
+    related_materials: [dsh, openclaw, harness_survey]
+    answer_keys:
+      - "Orchestrator 负责任务调度和 Agent 编排"
+      - "Harness 负责把单个 Agent 跑起来：Context/Session/Loop/Tool/Memory/Runtime/Sandbox"
+      - "Orchestrator 是多 Agent 层，Harness 是单 Agent 层"
+      - "两者可以组合：Orchestrator 调度多个 Harness 实例"
+    status: learning
+
+  - id: q_react_vs_plan_execute
+    text: "ReAct 和 Plan-Execute 有什么区别？"
+    category: [agent_paradigms]
+    topics: [react, plan_execute, execution_paradigm_comparison]
+    difficulty: 3
+    companies: [ByteDance]
+    related_materials: [react, plan_and_execute, reflexion]
+    answer_keys:
+      - "ReAct: 推理和行动交替，每步都重新推理下一步"
+      - "Plan-Execute: 先生成完整计划，再逐步执行"
+      - "ReAct 更灵活但 token 消耗高，Plan-Execute 更结构化但不够适应变化"
+      - "实际系统常混合使用"
+    status: learning
+
+  - id: q_context_overflow
+    text: "Context 超限怎么办？"
+    category: [agent_harness, memory_context]
+    topics: [context_management]
+    difficulty: 4
+    companies: [ByteDance]
+    related_materials: [memgpt, context_engineering]
+    answer_keys:
+      - "Context 压缩：summarization / selection / pruning"
+      - "分层 Memory：working memory → episodic → semantic"
+      - "Retrieval：只在需要时检索相关上下文"
+      - "Context Engineering：从 prompt engineering 到系统化上下文构建"
+    status: learning
+
+  - id: q_agent_path_oscillation
+    text: "Agent 路径震荡怎么办？"
+    category: [agent_harness]
+    topics: [error_recovery, agent_loop]
+    difficulty: 4
+    companies: [ByteDance]
+    related_materials: [reflexion, dsh]
+    answer_keys:
+      - "路径震荡 = Agent 在两个状态间反复跳转不收敛"
+      - "检测：step 重复检测 / state hash 对比"
+      - "恢复：强制 plan 修正 / 回退到 checkpoint / 注入 reflection"
+      - "预防：limit max retries / 设置 termination 条件"
+    status: learning
+
+  - id: q_tool_description_too_long
+    text: "Tool 描述过长怎么办？"
+    category: [tool_use, agent_harness]
+    topics: [tool_orchestration, tool_calling]
+    difficulty: 3
+    companies: [ByteDance]
+    related_materials: [gorilla, mcp]
+    answer_keys:
+      - "分层 Tool 描述：先摘要后详情"
+      - "Tool Selection：先选工具再加载完整描述"
+      - "动态 Tool 注册：只注册当前任务相关的工具"
+      - "Tool 描述压缩 + few-shot 示例替代长描述"
+    status: learning
+
+  - id: q_multi_agent_file_conflict
+    text: "多 Agent 并发修改文件冲突怎么办？"
+    category: [multi_agent, agent_harness]
+    topics: [collaboration, multi_agent_tradeoffs]
+    difficulty: 4
+    companies: [ByteDance]
+    related_materials: [metagpt, more_agents_not_better]
+    answer_keys:
+      - "锁机制：文件级 / 行级锁"
+      - "任务隔离：每个 Agent 负责不同文件"
+      - "顺序执行：通过 Orchestrator 协调写入顺序"
+      - "CRDT 或 diff-merge 策略"
+    status: learning
+
+  - id: q_agent_perf_bottleneck
+    text: "Agent 性能瓶颈来自模型还是 RAG 还是 Tool，怎么定位？"
+    category: [agent_evaluation, agent_harness]
+    topics: [evaluation_harness, agent_reliability]
+    difficulty: 4
+    companies: [Alibaba]
+    related_materials: [agentbench, swebench]
+    answer_keys:
+      - "分层 Profiling：model latency / tool latency / retrieval quality"
+      - "Trace 分析：每步的 input/output/latency"
+      - "A/B 测试：固定其他变量，只改一个组件"
+      - "区分能力瓶颈 vs 系统瓶颈"
+    status: learning
+
+  - id: q_agent_eval_design
+    text: "Agent Evaluation 体系怎么设计？"
+    category: [agent_evaluation]
+    topics: [general_agent_eval, agent_reliability, evaluation_harness]
+    difficulty: 4
+    companies: [Alibaba]
+    related_materials: [agentbench, swebench, gaia, webarena]
+    answer_keys:
+      - "任务级：success rate / completion rate"
+      - "过程级：step efficiency / tool call accuracy / token efficiency"
+      - "可靠性：consistency / robustness / error recovery rate"
+      - "分场景：通用 / Web / Coding / 长链路"
+    status: learning
+
+  - id: q_agent_hallucination
+    text: "Agent 幻觉怎么处理？"
+    category: [agent_harness, agent_evaluation]
+    topics: [error_recovery, agent_reliability]
+    difficulty: 3
+    companies: [Alibaba]
+    related_materials: [reflexion, critique_llm]
+    answer_keys:
+      - "工具参数幻觉：schema validation + retry"
+      - "事实幻觉：RAG 接地 / verification step"
+      - "执行幻觉：执行后检查结果是否符合预期"
+      - "Reflection：从失败中学习"
+    status: learning
+
+  - id: q_claude_code_memory
+    text: "Claude Code 的 Memory 机制？"
+    category: [agent_systems, memory_context]
+    topics: [long_term_memory, context_management]
+    difficulty: 4
+    companies: [Multiple]
+    related_materials: [claude_code, memgpt]
+    answer_keys:
+      - "CLAUDE.md / AGENTS.md 作为 project memory"
+      - "上下文管理：system prompt + tool results + working memory"
+      - "Memory file 编辑作为显式记忆更新"
+      - "Context window 管理：自动压缩 / 选择"
+    status: learning
+
+  - id: q_harness_engineering
+    text: "Harness Engineering 是什么？"
+    category: [agent_harness]
+    topics: [agent_loop, harness_optimization]
+    difficulty: 4
+    companies: [Multiple]
+    related_materials: [dsh, harness_survey, jit_agent]
+    answer_keys:
+      - "把 Agent 跑起来需要的所有基础设施"
+      - "Context 构建 / Session 管理 / Agent Loop / Tool 编排 / Memory / Runtime / Sandbox / Recovery"
+      - "和 Prompt Engineering 的区别：Harness 是系统层，Prompt 是模型交互层"
+      - "优化方向：自动配置 / 自演进化"
+    status: learning
+
+  - id: q_rag_vs_memory
+    text: "RAG 和 Memory 的关系？"
+    category: [memory_context]
+    topics: [memory_retrieval, long_term_memory]
+    difficulty: 3
+    companies: [Alibaba]
+    related_materials: [ret_aug, memgpt, rag_survey]
+    answer_keys:
+      - "RAG 是 Memory Retrieval 的一种实现"
+      - "Memory 是更大的概念：短期/长期/情景/语义/程序"
+      - "RAG 通常指外部知识检索，Memory 可以是内部交互历史"
+      - "Harness 层：memory → retrieval → context construction → model"
+    status: learning

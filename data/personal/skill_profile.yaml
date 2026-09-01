@@ -1,0 +1,211 @@
+version: "1.0"
+last_updated: "2026-08-31"
+
+profile:
+  name: "gyiyang"
+  role: "Agent Engineer (seeking)"
+  target_companies: [ByteDance, Alibaba, DeepSeek]
+
+# level: 1-5 (5=可以设计和实现, 4=理解原理能独立使用, 3=知道是什么用过, 2=听过概念, 1=不了解)
+# interest: 1-5
+
+# 注意: agent_harness 域有 context_management topic，与 memory_context 域的同名。
+# YAML list 可以有重复 topic_id，分析时会合并。
+
+skills:
+  # ---- 00. Foundations ----
+  - topic_id: llm_reasoning
+    level: 4
+    interest: 3
+  - topic_id: chain_of_thought
+    level: 4
+    interest: 4
+  - topic_id: in_context_learning
+    level: 4
+    interest: 3
+  - topic_id: prompting
+    level: 4
+    interest: 3
+  - topic_id: instruction_following
+    level: 3
+    interest: 3
+
+  # ---- 01. Agent Paradigms ----
+  - topic_id: react
+    level: 4
+    interest: 5
+  - topic_id: plan_execute
+    level: 3
+    interest: 5
+  - topic_id: reflection
+    level: 3
+    interest: 4
+  - topic_id: search
+    level: 3
+    interest: 3
+  - topic_id: self_improvement
+    level: 3
+    interest: 4
+  - topic_id: execution_paradigm_comparison
+    level: 4
+    interest: 5
+
+  # ---- 02. Planning & Reasoning ----
+  - topic_id: task_decomposition
+    level: 3
+    interest: 4
+  - topic_id: planning
+    level: 3
+    interest: 4
+  - topic_id: tree_graph_search
+    level: 3
+    interest: 3
+  - topic_id: long_horizon_reasoning
+    level: 3
+    interest: 4
+  - topic_id: verification
+    level: 3
+    interest: 4
+
+  # ---- 03. Tool Use ----
+  - topic_id: tool_calling
+    level: 4
+    interest: 5
+  - topic_id: tool_learning
+    level: 3
+    interest: 4
+  - topic_id: tool_selection
+    level: 3
+    interest: 3
+  - topic_id: tool_creation
+    level: 2
+    interest: 3
+  - topic_id: tool_protocol
+    level: 3
+    interest: 5
+
+  # ---- 04. Memory & Context ----
+  - topic_id: context_management
+    level: 4
+    interest: 5
+  - topic_id: short_term_memory
+    level: 3
+    interest: 3
+  - topic_id: long_term_memory
+    level: 3
+    interest: 5
+  - topic_id: episodic_memory
+    level: 2
+    interest: 3
+  - topic_id: semantic_memory
+    level: 2
+    interest: 2
+  - topic_id: procedural_memory
+    level: 2
+    interest: 3
+  - topic_id: memory_retrieval
+    level: 3
+    interest: 4
+  - topic_id: memory_editing
+    level: 2
+    interest: 3
+
+  # ---- 05. Multi-Agent ----
+  - topic_id: collaboration
+    level: 3
+    interest: 3
+  - topic_id: debate
+    level: 2
+    interest: 2
+  - topic_id: role_based
+    level: 3
+    interest: 3
+  - topic_id: agent_communication
+    level: 3
+    interest: 3
+  - topic_id: multi_agent_tradeoffs
+    level: 3
+    interest: 4
+
+  # ---- 06. Agent Training ----
+  - topic_id: sft
+    level: 2
+    interest: 3
+  - topic_id: rlhf
+    level: 2
+    interest: 3
+  - topic_id: rlvr
+    level: 3
+    interest: 4
+  - topic_id: agentic_rl
+    level: 2
+    interest: 5
+  - topic_id: process_reward
+    level: 2
+    interest: 3
+  - topic_id: self_training
+    level: 2
+    interest: 3
+
+  # ---- 07. Agent Evaluation ----
+  - topic_id: general_agent_eval
+    level: 3
+    interest: 4
+  - topic_id: web_agent_eval
+    level: 2
+    interest: 3
+  - topic_id: coding_agent_eval
+    level: 3
+    interest: 4
+  - topic_id: long_horizon_eval
+    level: 2
+    interest: 4
+  - topic_id: agent_reliability
+    level: 2
+    interest: 5
+
+  # ---- 08. Agent Systems ----
+  - topic_id: coding_agent
+    level: 4
+    interest: 5
+  - topic_id: web_agent
+    level: 2
+    interest: 3
+  - topic_id: computer_use
+    level: 2
+    interest: 3
+  - topic_id: research_agent
+    level: 3
+    interest: 4
+  - topic_id: domain_agent
+    level: 2
+    interest: 2
+
+  # ---- 09. Agent Harness ----
+  - topic_id: session
+    level: 3
+    interest: 4
+  - topic_id: agent_loop
+    level: 4
+    interest: 5
+  - topic_id: tool_orchestration
+    level: 3
+    interest: 4
+  - topic_id: memory_harness
+    level: 3
+    interest: 5
+  - topic_id: runtime
+    level: 3
+    interest: 4
+  - topic_id: sandbox
+    level: 3
+    interest: 3
+  - topic_id: error_recovery
+    level: 3
+    interest: 5
+  - topic_id: evaluation_harness
+    level: 2
+    interest: 5
+  - topic_id: harness_optimization
+    level: 2
+    interest: 5

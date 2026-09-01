@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "a976ac979cc5ba31",
+    "type": "split",
+    "children": [
+      {
+        "id": "71e9b3d53c912ecb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "309400d80986551b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Topics/Q0035-ReAct、Plan-and-Execute、Workflow 三者有什么区别？.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Q0035-ReAct、Plan-and-Execute、Workflow 三者有什么区别？"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "680e043033d93042",
+    "type": "split",
+    "children": [
+      {
+        "id": "97f3ba4ec888be14",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "26797a9e836b5ee6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "e8dddb047cced8d3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "3040147f5f2ebfd2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5f04cffade7e3c9a",
+    "type": "split",
+    "children": [
+      {
+        "id": "60be7c323ed8c49b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e682e6befa573e9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "题目分类索引.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "1bf74d0f95c064ba",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "题目分类索引.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "dd338426e714300f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "7e70ef3a99c84f1d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "66be1a669e6b9d96",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "题目分类索引.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "309400d80986551b",
+  "lastOpenFiles": [
+    "题目分类索引.md",
+    "Topics/Q0118-Flash Attention 的原理？.md",
+    "采集网页台账.md",
+    "Archive/非NLP方向/README.md",
+    "Topics/Q0117-MHA、GQA、MQA、MLA 的结构？.md",
+    "Topics/Q0116-DPO、PPO、GRPO 的结构？.md",
+    "Topics/Q0115-LoRA 参数更新量的计算？.md",
+    "Topics/Q0114-有没有用过端到端的 RAG 评估框架？项目里的 Modular Agent 是怎么实现多步规划的？调度策略如何设计，有没有异常 fallback？.md",
+    "Topics/Q0113-RAG 是什么，它和传统检索+生成的流程有何不同，如何评估一个 RAG 系统是否 work？.md",
+    "Topics/Q0112-SFT 的核心流程以及数据构建策略，SFT 之后常见的 Post-Training 有哪些？DPO 和 PPO 区别？GRPO 有没有用过？.md",
+    "Topics/Q0111-在 Agent 多轮对话任务中，Attention 的局限性体现在哪里？.md",
+    "Topics/Q0110-Transformer 中 Attention 的本质是什么？从数学角度简要解释一下。.md",
+    "Topics/Q0109-在现有大模型的基础上，如何通过 agent 的相关方法，训练一个 coder 模型，撰写金融领域相关模型的代码？.md",
+    "Topics/Q0108-DeepSeek-MTP 是用在训练阶段还是推理阶段的，具体过程是怎样的？.md",
+    "Topics/Q0107-在现有模型的基础上，由于算力问题，如何利用大模型来蒸馏一个 3B 的模型？.md",
+    "Topics/Q0106-都知道哪些 vllm 的优化技术？.md",
+    "Topics/Q0105-文档分块怎么分的？固定大小设置多少？如果分的时候语义不连贯怎么办？.md",
+    "Topics/Q0104-如果分开会怎么对两个模型进行处理？.md",
+    "Topics/Q0103-问答和评估使用的是同一个模型吗？是，有什么优劣？.md",
+    "Topics/Q0102-知识库里加了什么内容？.md",
+    "Topics/Q0101-微调和 RAG，为什么使用 RAG 不用微调？.md",
+    "Topics/Q0100-分批评估怎么进行的？.md",
+    "Topics/Q0099-多轮智能追问是怎么样的？.md",
+    "Topics/Q0098-Reward 怎么设计的，蒸馏的损失函数？.md",
+    "Topics/Q0097-如果让你设计一个 agent 系统，怎么设定评定指标（过程指标+结果指标）？.md",
+    "Topics/Q0096-RRF 原理？.md",
+    "Archive/非NLP方向",
+    "Archive/待复核旧题",
+    "Archive/非原题",
+    "Archive"
+  ]
+}
