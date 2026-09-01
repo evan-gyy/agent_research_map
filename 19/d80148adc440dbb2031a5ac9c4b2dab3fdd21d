@@ -1,0 +1,23 @@
+web/tests/content.test.ts
+  s_ee3be2ae76751d::t_e3eb9edf0e9262 7,12
+README.md
+  s_ee3be2ae76751d::t_e3eb9edf0e9262 7
+web/e2e/library.spec.ts
+  s_ee3be2ae76751d::t_e3eb9edf0e9262 3-4,10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "19d80148adc440dbb2031a5ac9c4b2dab3fdd21d",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
