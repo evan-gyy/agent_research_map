@@ -46,3 +46,41 @@ test("mobile pages avoid horizontal overflow and expose the filter drawer", asyn
   await page.goto("/agent_research_map/questions/q0015/");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+test("agent atlas compares products and renders source-backed product details", async ({ page }) => {
+  await page.goto("/agent_research_map/agents/");
+  await expect(page.getByRole("heading", { name: "主流 Agent 案例" })).toBeVisible();
+  await expect(page.locator(".agent-product-card")).toHaveCount(2);
+  await page.getByLabel("选择知识点").selectOption("context-token-compression");
+  await expect(page.locator("[data-agent-point]:visible")).toHaveCount(1);
+  await expect(page.locator("[data-agent-point]:visible .agent-practice-card")).toHaveCount(2);
+  await page.getByRole("link", { name: /查看完整案例/ }).first().click();
+  await expect(page.getByRole("heading", { name: "Codex 案例" })).toBeVisible();
+  await expect(page.locator(".agent-document .mermaid").first()).toBeVisible();
+  await expect(page.getByRole("heading", { name: "十二、来源" })).toBeVisible();
+});
+
+test("question details link their knowledge point to product practices", async ({ page }) => {
+  await page.goto("/agent_research_map/questions/q0003/");
+  await expect(page.getByRole("heading", { name: "主流 Agent 怎么做" })).toBeVisible();
+  await expect(page.locator(".agent-practice-mini")).toHaveCount(2);
+  await page.getByRole("link", { name: "横向比较" }).click();
+  await expect(page.getByLabel("选择知识点")).toHaveValue("context-token-compression");
+  await expect(page.locator("[data-agent-point]:visible")).toHaveCount(1);
+});
+
+test("agent atlas and product details avoid mobile overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/agent_research_map/agents/");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.goto("/agent_research_map/agents/claude-code/");
+  await expect(page.locator(".agent-document .mermaid").first()).toBeVisible();
+  const overflow = await page.evaluate(() => ({
+    fits: document.documentElement.scrollWidth <= window.innerWidth,
+    offenders: [...document.querySelectorAll<HTMLElement>("body *")]
+      .filter((element) => element.getBoundingClientRect().right > window.innerWidth + 1 && !element.closest(".agent-flow"))
+      .slice(0, 8)
+      .map((element) => element.tagName.toLowerCase() + "." + element.className),
+  }));
+  expect(overflow.fits, overflow.offenders.join(", ")).toBe(true);
+});

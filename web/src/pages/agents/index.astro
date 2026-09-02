@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAgentProducts, getAllQuestions, getKnowledgePointLabel } from "../../lib/content";
+const products = await getAgentProducts();
+const questions = await getAllQuestions();
+const base = import.meta.env.BASE_URL;
+const coveredPoints = [...new Set(products.flatMap((product) => product.practices.map((practice) => practice.point)))]
+  .map((slug) => ({ slug, label: getKnowledgePointLabel(slug), count: questions.filter((question) => question.knowledgePoint === slug).length }))
+  .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "zh-CN"));
+---
+<BaseLayout title="主流 Agent 案例" description="学习 Codex、Claude Code 等主流 Agent 产品的模块、流程和工程实践。" active="agents">
+  <section class="page-intro container agent-intro">
+    <p class="eyebrow">Agent Case Studies</p>
+    <h1>主流 Agent 案例</h1>
+    <p>从产品主链路理解模块如何协作，再回到题库知识点，横向比较不同 Agent 的工程做法。</p>
+    <div class="agent-overview-stats"><span><strong>{products.length}</strong> 个产品</span><span><strong>{coveredPoints.length}</strong> 个已映射知识点</span><span><strong>{products.reduce((sum, product) => sum + product.practices.length, 0)}</strong> 条产品实践</span></div>
+  </section>
+
+  <section class="container agent-product-grid" aria-label="Agent 产品">
+    {products.map((product) => <article class="card agent-product-card">
+      <div class="agent-product-head"><div class="agent-logo" aria-hidden="true">{product.name.slice(0, 1)}</div><div><span class="eyebrow">{product.vendor}</span><h2>{product.name}</h2></div></div>
+      <p>{product.tagline}</p>
+      <div class="agent-flow compact" aria-label={product.name + " 主流程"}>{product.flow.map((step, index) => <><span>{step}</span>{index < product.flow.length - 1 && <i aria-hidden="true">→</i>}</>)}</div>
+      <div class="agent-card-meta"><span class="badge">{product.practices.length} 个模块</span><span class="badge">{product.evidence}</span></div>
+      <a class="button primary" href={base + "agents/" + product.slug + "/"}>查看完整案例 →</a>
+    </article>)}
+  </section>
+
+  <section class="container agent-compare-section">
+    <div class="section-heading"><div><p class="eyebrow">Knowledge Point Comparison</p><h2>按知识点比较产品做法</h2><p>选择一个题库知识点，只看有直接文档证据的产品实践。</p></div><label class="agent-point-select">知识点<select aria-label="选择知识点" data-agent-point-filter><option value="">全部已映射知识点</option>{coveredPoints.map((point) => <option value={point.slug}>{point.label} · {point.count} 题</option>)}</select></label></div>
+    <div class="agent-practice-groups">
+      {coveredPoints.map((point) => <section class="agent-point-group" data-agent-point={point.slug}>
+        <div class="agent-point-heading"><div><h3>{point.label}</h3><span>{point.count} 道关联题目</span></div><a href={base + "questions/?point=" + point.slug}>查看题目 →</a></div>
+        <div class="agent-practice-grid">{products.flatMap((product) => product.practices.filter((practice) => practice.point === point.slug).map((practice) => <article class="card agent-practice-card"><div><span class="badge">{product.name}</span><span class="evidence-label">{product.evidence}</span></div><h4>{practice.title}</h4><p>{practice.summary}</p><a href={base + "agents/" + product.slug + "/"}>来自「{practice.section}」→</a></article>))}</div>
+      </section>)}
+    </div>
+    <p class="empty card" data-agent-no-results hidden>这个知识点暂时没有已整理的产品实践。</p>
+  </section>
+  <script>
+    const select = document.querySelector<HTMLSelectElement>("[data-agent-point-filter]")!;
+    const groups = [...document.querySelectorAll<HTMLElement>("[data-agent-point]")];
+    const params = new URLSearchParams(location.search);
+    select.value = params.get("point") ?? "";
+    const apply = () => {
+      let visible = 0;
+      groups.forEach((group) => { const show = !select.value || group.dataset.agentPoint === select.value; group.hidden = !show; if (show) visible++; });
+      document.querySelector<HTMLElement>("[data-agent-no-results]")!.hidden = visible > 0;
+      const next = new URL(location.href); select.value ? next.searchParams.set("point", select.value) : next.searchParams.delete("point"); history.replaceState({}, "", next);
+    };
+    select.addEventListener("change", apply); apply();
+  </script>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAgentProducts, getAllQuestions, getKnowledgePointLabel } from "../../lib/content";
+export async function getStaticPaths() { const products = await getAgentProducts(); return products.map((product) => ({ params: { slug: product.slug }, props: { product } })); }
+const { product } = Astro.props;
+const questions = await getAllQuestions();
+const base = import.meta.env.BASE_URL;
+const points = [...new Set(product.practices.map((practice) => practice.point))].map((slug) => ({ slug, label: getKnowledgePointLabel(slug), count: questions.filter((question) => question.knowledgePoint === slug).length }));
+---
+<BaseLayout title={product.name + " 案例"} description={product.tagline} active="agents">
+  <section class="detail-hero container agent-detail-hero">
+    <a class="back-link" href={base + "agents/"}>← 返回 Agent 案例</a>
+    <div class="agent-detail-title"><div class="agent-logo large" aria-hidden="true">{product.name.slice(0, 1)}</div><div><p class="eyebrow">{product.vendor} · Product Case Study</p><h1>{product.name} 案例</h1><p>{product.tagline}</p></div></div>
+    <div class="agent-evidence"><span>证据范围</span><strong>{product.evidence}</strong></div>
+  </section>
+
+  <section class="container agent-detail-layout">
+    <main>
+      <article class="card agent-flow-card"><div class="panel-head"><div><h2>端到端主流程</h2><span class="panel-note">先建立全局心智模型，再深入模块</span></div></div><div class="agent-flow">{product.flow.map((step, index) => <><span><b>{String(index + 1).padStart(2, "0")}</b>{step}</span>{index < product.flow.length - 1 && <i aria-hidden="true">→</i>}</>)}</div></article>
+      <article class="card content-card prose agent-document" set:html={product.contentHtml}></article>
+    </main>
+    <aside class="agent-detail-aside">
+      <div class="card agent-toc-card"><h2>关联知识点</h2><p class="panel-note">进入题库复习原理，再回来理解产品实现。</p>{points.map((point) => <a href={base + "questions/?point=" + point.slug}><span>{point.label}</span><b>{point.count} 题</b></a>)}</div>
+      <div class="card agent-toc-card"><h2>实践速览</h2>{product.practices.map((practice) => <a href={base + "agents/?point=" + practice.point}><span>{practice.title}</span><small>{getKnowledgePointLabel(practice.point)}</small></a>)}</div>
+    </aside>
+  </section>
+  <script>
+    import mermaid from "mermaid";
+    document.querySelectorAll<HTMLElement>("pre > code.language-mermaid").forEach((code) => { const pre=code.parentElement!; const div=document.createElement("div"); div.className="mermaid"; div.textContent=code.textContent; pre.replaceWith(div); });
+    if (document.querySelector(".mermaid")) { mermaid.initialize({ startOnLoad:false, theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default", securityLevel:"strict" }); await mermaid.run({nodes:document.querySelectorAll<HTMLElement>(".mermaid")}); }
+  </script>
+</BaseLayout>

@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "codex",
+    "name": "Codex",
+    "vendor": "OpenAI",
+    "tagline": "以 Thread / Turn / Item 承载长任务，把工具、审批与流式事件做成运行时协议。",
+    "sourceFile": "Codex.md",
+    "evidence": "官方文档与公开源码",
+    "flow": ["目标与上下文", "Plan / Goal", "Agent Loop", "工具与审批", "观察结果", "验证与交付"],
+    "practices": [
+      { "point": "agent-architecture-core", "title": "运行时与宿主分层", "summary": "宿主应用保留业务规则和最终写入权，Harness 专注模型交互、Agent Loop、状态与工具协议。", "section": "Codex 为什么可以作为 Agent 平台" },
+      { "point": "react-agent-loop", "title": "工具反馈驱动的动态循环", "summary": "读取文件、执行命令、观察结果并继续行动；Plan 约束方向，执行阶段仍根据真实反馈局部决策。", "section": "Plan 与动态执行如何组合" },
+      { "point": "planning-task-decomposition", "title": "先稳定目标，再进入执行", "summary": "Plan mode 在修改前收集上下文、澄清歧义并形成可审阅方案；长任务用 Goal mode 维持终态与完成条件。", "section": "Plan 与动态执行如何组合" },
+      { "point": "workflow-state-orchestration", "title": "Thread / Turn / Item 状态模型", "summary": "用持久化 Thread、可中断 Turn 和结构化 Item 表达消息、命令、文件修改、工具调用与审批。", "section": "app-server 的运行时协议" },
+      { "point": "context-token-compression", "title": "Handoff Summary 重建上下文", "summary": "达到阈值后用包含进展、决策、约束和剩余工作的交接摘要替换旧轨迹，并重新插入规范上下文。", "section": "Context 压缩" },
+      { "point": "multi-agent-collaboration", "title": "独立上下文的子 Agent", "summary": "独立任务在隔离上下文中执行，主线程只接收必要摘要，以减少日志噪声并支持并行研究。", "section": "当前模块地图" },
+      { "point": "harness-coding-agent", "title": "三层产品接入", "summary": "从 codex exec、SDK 到 app-server，逐步获得线程恢复、事件流、审批和完整 UI 生命周期控制。", "section": "三种接入层级" },
+      { "point": "mcp-protocol", "title": "统一工具与外部系统接入", "summary": "内置工具、MCP、Skill 和动态工具进入同一循环，工具调用与结果以结构化 Item 回灌。", "section": "工具与审批为什么是一等事件" },
+      { "point": "tool-reliability", "title": "沙箱、审批与权限分层", "summary": "模型提出动作，沙箱限制执行边界，审批处理敏感动作，权限只授予工具明确请求的最小子集。", "section": "工具与审批为什么是一等事件" },
+      { "point": "reliability-resilience", "title": "中断、失败和恢复可观测", "summary": "Turn 区分完成、中断与失败，Item 记录耗时、进度和错误，持久化 Thread 支持 Resume 与 Fork。", "section": "流式事件与可观测性" }
+    ]
+  },
+  {
+    "slug": "claude-code",
+    "name": "Claude Code",
+    "vendor": "Anthropic",
+    "tagline": "围绕 Agent Loop 构建多级上下文回收、权限决策管线、子 Agent 与会话恢复。",
+    "sourceFile": "Claude Code.md",
+    "evidence": "官方文档与标注版本的历史源码快照",
+    "flow": ["接收任务", "Plan Mode", "上下文组装", "模型决策", "工具权限管线", "结果回灌与压缩"],
+    "practices": [
+      { "point": "agent-architecture-core", "title": "循环、上下文和控制面协作", "summary": "Agent Loop 负责推进任务，Context 管理控制输入预算，权限与 Hooks 在模型之外约束动作。", "section": "当前模块地图" },
+      { "point": "react-agent-loop", "title": "流式消息驱动的主循环", "summary": "模型输出工具请求，运行时执行并把结果严格配对回灌，循环直到完成、受限或被中断。", "section": "主循环在源码里如何运转" },
+      { "point": "planning-task-decomposition", "title": "Plan Mode 隔离分析与修改", "summary": "先探索代码和形成计划，在用户确认或模式切换后再使用写工具，降低复杂改动的返工风险。", "section": "Plan Mode" },
+      { "point": "context-token-compression", "title": "多级上下文回收", "summary": "先微压缩大型工具输出，再做全局摘要；压缩后确定性重载 System Prompt、CLAUDE.md、Memory、MCP 工具和 Skills。", "section": "Context 管理其实是多级回收" },
+      { "point": "memory-systems", "title": "稳定规则可重注入", "summary": "长期规则放入 CLAUDE.md 与 Memory 等可恢复载体，避免压缩后只依赖易丢失的早期对话。", "section": "Context 管理" },
+      { "point": "multi-agent-collaboration", "title": "隔离、继承与并行", "summary": "子 Agent 使用独立 Context 和最小工具集，父 Agent接收必要结果；Fork 与后台任务支持并行工作。", "section": "子 Agent：隔离、继承和并行" },
+      { "point": "workflow-state-orchestration", "title": "Transcript、Resume 与 Fork", "summary": "会话轨迹、文件历史和消息链共同支持恢复与分叉，恢复时需要验证协议链和文件状态的一致性。", "section": "会话持久化、Resume 与 Fork" },
+      { "point": "mcp-protocol", "title": "大规模工具按需发现", "summary": "MCP Tool Search 在工具规模较大时延迟加载定义，减少完整工具 Schema 长期占用上下文。", "section": "Context 管理其实是多级回收" },
+      { "point": "tool-reliability", "title": "规则、Hook、模式与批准", "summary": "权限判断经过规则、Hook、运行模式和用户批准的分层管线，拒绝和中断仍维持 Tool Call / Result 配对。", "section": "工具和权限的决策管线" },
+      { "point": "reliability-resilience", "title": "压缩与恢复的故障保护", "summary": "压缩保留输出空间、失败计数和 Circuit Breaker；Session 恢复验证消息链与文件状态。", "section": "可迁移到业务 Agent 的经验" }
+    ]
+  }
+]

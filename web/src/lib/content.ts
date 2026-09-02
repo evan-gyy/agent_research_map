@@ -8,6 +8,7 @@ import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
+import agentProductsJson from "../data/agent-products.json";
 import knowledgePointsJson from "../data/knowledge-points.json";
 
 export interface QuestionRecord {
@@ -33,8 +34,27 @@ export interface FrequencyRow extends KnowledgePoint {
   highFrequency: boolean;
 }
 
+export interface AgentPractice {
+  point: string;
+  title: string;
+  summary: string;
+  section: string;
+}
+
+export interface AgentProduct {
+  slug: string;
+  name: string;
+  vendor: string;
+  tagline: string;
+  evidence: string;
+  flow: string[];
+  practices: AgentPractice[];
+  contentHtml: string;
+}
+
 const webRoot = path.resolve(process.cwd());
 export const topicsDir = path.resolve(webRoot, "../ai-llm-learn/Topics");
+export const agentProductsDir = path.resolve(webRoot, "../ai-llm-learn/Agent实现拆解");
 export const knowledgePoints: KnowledgePoint[] = Object.entries(knowledgePointsJson).map(
   ([slug, value]) => ({ slug, label: value.label, tags: value.tags }),
 );
@@ -58,6 +78,28 @@ async function renderMarkdown(markdown: string): Promise<string> {
     .use(rehypeStringify)
     .process(neutralize(markdown));
   return String(result);
+}
+
+let agentProductsPromise: Promise<AgentProduct[]> | undefined;
+export function getAgentProducts(): Promise<AgentProduct[]> {
+  agentProductsPromise ??= Promise.all(agentProductsJson.map(async (entry) => {
+    const missing = entry.practices.filter((practice) => !knownPoints.has(practice.point));
+    if (missing.length) {
+      throw new Error(entry.name + " 包含未知知识点: " + missing.map((item) => item.point).join(", "));
+    }
+    const sourcePath = path.join(agentProductsDir, entry.sourceFile);
+    if (!fs.existsSync(sourcePath)) throw new Error(entry.name + " 缺少拆解文档: " + entry.sourceFile);
+    const markdown = fs.readFileSync(sourcePath, "utf8").replace(/^#\s+.+\r?\n+/, "");
+    return { ...entry, contentHtml: await renderMarkdown(markdown) } as AgentProduct;
+  }));
+  return agentProductsPromise;
+}
+
+export async function getAgentPracticesForPoint(point: string) {
+  const products = await getAgentProducts();
+  return products.flatMap((product) => product.practices
+    .filter((practice) => practice.point === point)
+    .map((practice) => ({ product, practice })));
 }
 
 function extractSection(content: string, start: string, end: string): string {
