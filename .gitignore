@@ -224,3 +224,6 @@ web/dist/
 web/.astro/
 web/test-results/
 web/playwright-report/
+
+# Obsidian local workspace and UI settings
+.obsidian/
