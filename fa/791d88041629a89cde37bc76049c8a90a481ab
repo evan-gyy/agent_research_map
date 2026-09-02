@@ -1,0 +1,19 @@
+.gitignore
+  s_ee3be2ae76751d::t_186a3a2c0b2fbe 227-229
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "fa791d88041629a89cde37bc76049c8a90a481ab",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
