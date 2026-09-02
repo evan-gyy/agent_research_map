@@ -1,0 +1,42 @@
+web/src/data/agent-products.json
+  s_ee3be2ae76751d::t_29928d0cce89c4 1-44
+web/src/pages/questions/[id].astro
+  s_ee3be2ae76751d::t_df9fd3ed522904 3,6,15
+web/src/styles/global.css
+  s_ee3be2ae76751d::t_f811f66e892280 222-230,232,248-249,257,275
+  s_ee3be2ae76751d::t_6ac2c5772e8967 231
+web/src/pages/agents/index.astro
+  s_ee3be2ae76751d::t_055b3756580b6f 1-10,12,15-24,26-52
+  s_ee3be2ae76751d::t_2414928670381c 11,13-14,25
+web/src/lib/content.ts
+  s_ee3be2ae76751d::t_9d63e16f86eb19 11,37-54,57,83-104
+web/src/pages/agents/[slug].astro
+  s_ee3be2ae76751d::t_055b3756580b6f 1-9,11,14-32
+  s_ee3be2ae76751d::t_2414928670381c 10,12-13
+web/tests/content.test.ts
+  s_ee3be2ae76751d::t_039e375618409e 3,26-35
+web/src/layouts/BaseLayout.astro
+  s_ee3be2ae76751d::t_df9fd3ed522904 7
+  s_ee3be2ae76751d::t_2414928670381c 41
+web/e2e/library.spec.ts
+  s_ee3be2ae76751d::t_039e375618409e 49-51,53-56,59-77,86
+  s_ee3be2ae76751d::t_b8ebc364dd9946 81,85
+  s_ee3be2ae76751d::t_5619f121ba7738 78-80,82-84
+  s_ee3be2ae76751d::t_2414928670381c 52,57-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "75cab207a1a39c0f874789c6adbf1ad7fad0a7d0",
+  "prompts": {},
+  "sessions": {
+    "s_ee3be2ae76751d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05c50-d678-79b2-83ff-001182477ab4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
