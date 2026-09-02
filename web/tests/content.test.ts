@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getAllQuestions, getAreaRows, getFrequencyRows } from "../src/lib/content";
+import { getAgentPracticesForPoint, getAgentProducts, getAllQuestions, getAreaRows, getFrequencyRows, knowledgePoints } from "../src/lib/content";
 
 test("formal questions parse into a public whitelist", async () => {
   const questions = await getAllQuestions();
@@ -22,4 +22,14 @@ test("frequency counts each question exactly once", async () => {
 test("area statistics cover the full bank", async () => {
   const questions = await getAllQuestions();
   assert.equal(getAreaRows(questions).reduce((sum, row) => sum + row.count, 0), questions.length);
+});
+
+test("agent product documents and knowledge-point mappings are valid", async () => {
+  const products = await getAgentProducts();
+  const knownPoints = new Set(knowledgePoints.map((point) => point.slug));
+  assert.deepEqual(products.map((product) => product.slug), ["codex", "claude-code"]);
+  assert.ok(products.every((product) => product.contentHtml.includes("<h2")));
+  assert.ok(products.every((product) => product.practices.length >= 10));
+  assert.ok(products.flatMap((product) => product.practices).every((practice) => knownPoints.has(practice.point)));
+  assert.equal((await getAgentPracticesForPoint("context-token-compression")).length, 2);
 });

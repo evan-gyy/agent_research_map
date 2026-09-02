@@ -4,7 +4,7 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
-  active?: "home" | "questions" | "stats";
+  active?: "home" | "questions" | "agents" | "stats";
 }
 const {
   title = "AI · LLM 学习库",
@@ -38,6 +38,7 @@ const href = (path = "") => base + path.replace(/^\//, "");
         <nav class="nav" aria-label="主导航">
           <a href={href()} aria-current={active === "home" ? "page" : undefined}>总览</a>
           <a href={href("questions/")} aria-current={active === "questions" ? "page" : undefined}>题库</a>
+          <a href={href("agents/")} aria-current={active === "agents" ? "page" : undefined}>Agent 案例</a>
           <a href={href("stats/")} aria-current={active === "stats" ? "page" : undefined}>统计</a>
         </nav>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">◐</button>
