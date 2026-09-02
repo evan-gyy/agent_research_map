@@ -1,0 +1,49 @@
+ai-llm-learn/学习索引.md
+  s_0a24cf09aa02e0::t_0b8810b74f97f0 18
+  s_0a24cf09aa02e0::t_ccb8f04fc5ec0b 19-20
+skills/interview-answer-writer/agents/openai.yaml
+  s_0a24cf09aa02e0::t_cb2413bbbc0ef4 1-3
+"ai-llm-learn/Topics/Q0002-ReAct 与 Plan 模式有什么区别？.md"
+  s_0a24cf09aa02e0::t_3cf3f28f084390 89,91-136,144-146,150-153,159
+  s_0a24cf09aa02e0::t_ccb8f04fc5ec0b 147-149
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-88,90,137-143,154-158
+ai-llm-learn/Agent实现拆解/Codex.md
+  s_0a24cf09aa02e0::t_0b8810b74f97f0 1-90
+"ai-llm-learn/Topics/Q0005-Context 与长期 Memory 有什么区别？.md"
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-87
+ai-llm-learn/Agent实现拆解/README.md
+  s_0a24cf09aa02e0::t_0b8810b74f97f0 1-74
+"ai-llm-learn/Topics/Q0030-Agent 与普通 LLM 应用、Workflow 有什么区别？.md"
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-117
+"ai-llm-learn/Topics/Q0027-RAG 流程中的文档切分策略应该如何设计？.md"
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-106
+ai-llm-learn/Agent实现拆解/分析模板.md
+  s_0a24cf09aa02e0::t_0b8810b74f97f0 1-61
+"ai-llm-learn/Topics/Q0013-RAG 系统从文档入库到生成答案的完整流程是什么？.md"
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-108
+ai-llm-learn/Topics/Q0003-上下文超过模型限制时如何处理？.md
+  s_0a24cf09aa02e0::t_d462ae8e657fd8 15,26-100,186-189
+  s_0a24cf09aa02e0::t_ccb8f04fc5ec0b 177-179
+  s_0a24cf09aa02e0::t_3cf3f28f084390 101-176,180-185,190
+skills/interview-answer-writer/SKILL.md
+  s_0a24cf09aa02e0::t_cb2413bbbc0ef4 1-18,22-46,61-94,97-99
+  s_0a24cf09aa02e0::t_fd0e6623a7304c 19-21,47-60,95-96
+"ai-llm-learn/Agent实现拆解/Claude Code.md"
+  s_0a24cf09aa02e0::t_0b8810b74f97f0 1-85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "4b7b1f147f1987992c5f720c6514346a2c5e58af",
+  "prompts": {},
+  "sessions": {
+    "s_0a24cf09aa02e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05ad5-d02e-7112-b119-ae6d53137d2f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
