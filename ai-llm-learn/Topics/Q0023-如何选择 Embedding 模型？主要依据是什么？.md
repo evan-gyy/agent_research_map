@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # 如何选择 Embedding 模型？主要依据是什么？
@@ -23,7 +23,25 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+选择 Embedding 模型主要看目标语言与领域、检索任务、向量维度、最大长度、延迟成本和部署约束；最终用自己的 Query—Document 数据测 Recall@K、MRR/nDCG，而不是只看公开榜单。
+
+### 一、筛选维度
+
+- 中文、多语言、代码或专业领域覆盖。
+- Query/Document 是否需要不同前缀或非对称编码。
+- 长文本截断、向量维度和存储成本。
+- 本地部署、吞吐、批处理与许可证。
+- 是否支持归一化及与向量库距离度量兼容。
+
+> **核心小结：** Embedding 模型要与数据分布和检索方式匹配，不是参数越大越好。
+
+### 二、离线与线上验证
+
+建立包含精确实体、语义改写、长尾和困难负例的数据集；比较稠密、BM25 和混合基线。线上再看任务成功、延迟和成本。更换模型需重建索引并进行双写或蓝绿切换。
+
+> **核心小结：** 选型依据是自有数据上的检索增益与全链路成本。
 
 ## 问题来源
 

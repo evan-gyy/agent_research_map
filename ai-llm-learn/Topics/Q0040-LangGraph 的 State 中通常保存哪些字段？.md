@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # LangGraph 的 State 中通常保存哪些字段？
@@ -23,7 +23,26 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+LangGraph State 应保存节点间真正需要共享、可序列化和可恢复的信息，例如消息、用户请求、计划、任务状态、工具结果引用、错误、重试次数和最终输出；不要塞数据库连接、大文件正文或不可序列化客户端。
+
+### 一、字段示例
+
+- messages：对话或模型消息，配合 Reducer 追加。
+- request/user_context：规范化请求和权限作用域。
+- plan/tasks：子任务、依赖和状态。
+- evidence_refs：工具结果 ID/路径，不一定存全文。
+- error/retry_count/deadline：可靠性控制。
+- final_answer：最终结构化输出。
+
+> **核心小结：** State 是可恢复的控制面数据，不是进程内所有对象的垃圾箱。
+
+### 二、设计原则
+
+字段用 TypedDict/Pydantic 明确定义；并行写同一字段配置 Reducer；大对象外置；记录 Schema Version；区分持久业务事实与临时派生值。
+
+> **核心小结：** State 越小、边界越清晰，Checkpoint、并行合并和回放越可靠。
 
 ## 问题来源
 

@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # Agent 常见的优化手段有哪些？
@@ -23,7 +23,28 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+Agent 常见优化分为模型与 Prompt、Context、规划、工具、运行时、评估六层。顺序应从可观测瓶颈出发：先修工具和数据硬错误，再优化 Context 与控制流，最后才考虑换模型或增加推理轮次。
+
+### 一、优化地图
+
+| 层次 | 常见手段 |
+|---|---|
+| Context | 检索、压缩、Tool Search、子 Agent 隔离 |
+| Planning | 结构化任务、并行 DAG、有限重规划 |
+| Tool | Schema、校验、幂等、缓存、批处理 |
+| Runtime | 超时、背压、重试、熔断、恢复 |
+| Model | 路由、蒸馏、Few-shot、推理预算 |
+| Eval | 分层指标、回放、故障注入、灰度 |
+
+> **核心小结：** 优化对象是端到端系统，不只是模型输出。
+
+### 二、原则
+
+每次只改变一个主要变量，在相同任务和预算下比较；关注 P95 和每成功任务成本；保留失败轨迹形成回归集。
+
+> **核心小结：** 没有分层指标和对照实验，调优很容易变成不可归因的堆配置。
 
 ## 问题来源
 

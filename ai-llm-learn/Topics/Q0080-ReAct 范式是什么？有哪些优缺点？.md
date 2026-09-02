@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # ReAct 范式是什么？有哪些优缺点？
@@ -23,7 +23,25 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+ReAct 范式让模型在每次观察后重新决策，优点是适应未知环境、可利用工具反馈纠错；缺点是调用次数不可预测、成本和延迟高、易震荡，并扩大提示注入与越权风险。
+
+### 一、适用场景
+
+适合排障、开放研究、网页或代码探索；不适合固定查询、严格低延迟和高风险写操作。业务主链路可以一次 Planner 并行工具，失败分支再进入有限 ReAct。
+
+> **核心小结：** 中间结果会显著改变下一步时，ReAct 才真正有价值。
+
+### 二、优化
+
+- 工具 Schema 和权限前置校验。
+- 最大步数、Token、成本和 Deadline。
+- 记录状态与重复动作，触发重规划或终止。
+- 工具结果摘要但保留关键证据。
+- 将成熟高频路径固化为 Workflow。
+
+> **核心小结：** 生产 ReAct 必须是有预算、有状态、有权限边界的受控循环。
 
 ## 问题来源
 

@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # SFT 的流程和数据策略是什么？SFT 后常见哪些 Post-Training 方法？DPO、PPO、GRPO 有何区别？
@@ -23,7 +23,31 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+SFT 用高质量“输入—目标输出”教模型遵循任务；之后常见 Post-Training 包括偏好优化 DPO、基于价值/奖励的 PPO，以及组内相对奖励的 GRPO。三者核心差别是：DPO 直接学偏好对，PPO 使用 Reward Model 和 Critic 做在线策略更新，GRPO 用同题多样本的组内相对优势减少对 Critic 的依赖。
+
+### 一、SFT 流程
+
+数据采集→清洗去重→格式统一→质量筛选→训练/验证按来源隔离→因果语言模型 CE 训练→能力和安全回归。数据要覆盖正常、边界、拒答和工具失败，避免只训练理想答案。
+
+> **核心小结：** SFT 决定基础行为分布，数据质量、覆盖和切分比盲目扩大数量更重要。
+
+### 二、三种方法
+
+| 方法 | 数据/信号 | 优点 | 代价 |
+|---|---|---|---|
+| DPO | chosen/rejected 偏好对 | 简单稳定、无需在线 Rollout | 受离线偏好覆盖限制 |
+| PPO | Reward + Critic + 在线采样 | 可直接优化序列级目标 | 系统复杂、显存和训练成本高 |
+| GRPO | 同 Prompt 多输出的相对 Reward | 可省独立 Critic | 需要多样本采样和可靠 Reward |
+
+> **核心小结：** 没有通用最优算法；离线偏好充分可选 DPO，可验证任务和在线采样条件好时考虑 PPO/GRPO。
+
+### 三、工程保护
+
+监控 KL 防止策略偏离基座，使用独立安全集和隐藏测试检查 Reward Hacking；不同方法在相同采样与计算预算下比较。
+
+> **核心小结：** Post-Training 的难点常在 Reward、数据和评估，而不只是优化器公式。
 
 ## 问题来源
 

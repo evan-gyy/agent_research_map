@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # 如何利用 Agent 方法训练面向金融代码生成的 Coder 模型？
@@ -23,7 +23,33 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+用 Agent 方法训练金融 Coder，不是让 Agent 自己随意改权重，而是用 Agent 生成和验证高质量训练轨迹：规划需求、检索金融规范、生成代码、运行测试/静态检查、根据错误修复，再把成功轨迹和失败对比转成 SFT、偏好或强化学习数据。
+
+### 一、数据闭环
+
+```mermaid
+flowchart LR
+ T[金融编码任务] --> P[Agent规划]
+ P --> K[检索规范/API]
+ K --> C[生成代码]
+ C --> X[沙箱测试/风控检查]
+ X -- 失败 --> C
+ X -- 成功 --> D[轨迹清洗]
+ D --> S[SFT/偏好/RL]
+ S --> E[独立评测]
+```
+
+金融代码需要加入数值精度、时区、权限、审计和禁止真实交易等约束。测试环境使用脱敏数据和模拟接口，不能让训练 Agent 访问生产账户。
+
+> **核心小结：** Agent 的价值是生成“带验证的过程数据”，沙箱和可执行测试负责质量闭环。
+
+### 二、训练与评估
+
+成功轨迹用于 SFT；同题好坏代码对用于 DPO；可验证单测、编译和安全扫描可作为 RL Reward。评估不仅看 Pass@k，还看金融规则正确率、安全违规率、修复轮次和 Token 成本。
+
+> **核心小结：** 训练信号应尽量来自可执行验证，模型 Judge 只补充难以形式化的可读性和设计质量。
 
 ## 问题来源
 

@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # 多轮、多会话场景下如何管理 Memory？
@@ -23,7 +23,21 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+多轮、多会话 Memory 要分清 Session、用户、项目和组织作用域。单轮 Context 保存当前轨迹；会话结束生成摘要和候选长期记忆；新会话按身份、权限与相关性检索，而不是直接拼接所有历史。
+
+### 一、数据模型
+
+每条 Memory 包含 subject、scope、content、source、timestamp、confidence、version 和 expiry。会话摘要与长期事实分库存储，避免摘要中的临时推测污染稳定记忆。
+
+> **核心小结：** 作用域和来源比向量相似度更优先，否则容易串用户和串项目。
+
+### 二、冲突与隐私
+
+用户明确更正优先旧记录；时间敏感事实按版本失效；支持查看、删除和禁用记忆。召回后还要在 Prompt 中标注其来源和可能过期。
+
+> **核心小结：** 跨会话 Memory 必须可治理，不能成为不可见、不可纠正的黑盒画像。
 
 ## 问题来源
 

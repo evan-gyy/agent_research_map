@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # 如何测试 Skill 路由并设计评测集？
@@ -23,7 +23,25 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+Skill 路由评测要同时测试“该调用时选对、不该调用时克制、参数和权限正确”。数据集覆盖单 Skill、多 Skill、相似 Skill、无 Skill、缺参数、冲突约束和对抗输入，并保存标准路由与预期结果。
+
+### 一、指标
+
+- Skill Top-1/Top-K 准确率和 Macro-F1。
+- No-tool/Unknown 拒识率。
+- 参数 Schema 合法率和必填字段完整率。
+- 端到端任务成功率、错误调用成本和延迟。
+- 高风险 Skill 未授权调用率必须接近零。
+
+> **核心小结：** 路由正确不只看工具名，还要看是否该调用、参数和最终结果。
+
+### 二、评测集
+
+从真实日志分层抽样，补充相似描述困难负例和新版本回归；按 Query 而不是同模板随机切分，避免泄漏。每次修改 Skill 描述或路由模型都跑固定集和线上灰度。
+
+> **核心小结：** 好评测集必须包含容易误路由和本应拒绝调用的样本。
 
 ## 问题来源
 

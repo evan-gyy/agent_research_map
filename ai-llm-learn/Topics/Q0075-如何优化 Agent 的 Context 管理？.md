@@ -12,7 +12,7 @@ source_track: verified-web-original
 evidence: verified-page-text
 verification: online-verified
 collected_at: 2026-09-01
-status: unanswered
+status: draft
 ---
 
 # 如何优化 Agent 的 Context 管理？
@@ -23,7 +23,21 @@ status: unanswered
 
 ## 答案
 
-<!-- 后续补充；不得修改上面的原题原文。 -->
+### 面试直答
+
+Agent Context 优化要同时做预算、筛选、压缩、检索、隔离和缓存：稳定规则重注入，近期任务状态保原文，旧历史结构化摘要，大资料按需检索，独立探索交给子 Agent，工具 Schema 延迟加载。
+
+### 一、优化顺序
+
+先测 Token 构成，再处理最大项：工具输出过大先截断/落盘，Schema 过多先路由，历史过长再压缩，知识文档用 RAG。不要一开始就粗暴滑窗。
+
+> **核心小结：** Context 优化应针对实际 Token 热点，而不是统一删除旧消息。
+
+### 二、质量保护
+
+压缩摘要保留目标、约束、决策、文件、错误和下一步；原始 Transcript 可回查；用续接成功率、关键信息保留率、输入 Token、P95 延迟和任务成功率评估。经历多次压缩或目标变化时新开会话。
+
+> **核心小结：** 优化目标是在更少 Token 下保持任务成功，而不只是减少计费。
 
 ## 问题来源
 
