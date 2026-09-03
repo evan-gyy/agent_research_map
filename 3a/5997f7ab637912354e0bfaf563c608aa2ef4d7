@@ -1,0 +1,59 @@
+ai-llm-learn/学习索引.md
+  s_0a24cf09aa02e0::t_d5c5724be242f4 21
+.github/workflows/pages.yml
+  s_0a24cf09aa02e0::t_c58241587eaadd 5
+"ai-llm-learn/Agent实现拆解/Pi Agent.md"
+  s_0a24cf09aa02e0::t_ebb322c61bf93e 217-440
+  s_0a24cf09aa02e0::t_2a10e80ab9e6f8 91-108,134-141,473-515,517-523,525-548,550-685
+  s_0a24cf09aa02e0::t_fbad7432345d65 441-472,516,524,549
+  s_0a24cf09aa02e0::t_4eb27f44dbfed9 3-6
+  s_0a24cf09aa02e0::t_d5c5724be242f4 25
+  s_0a24cf09aa02e0::t_b814899cabbe91 1-2,7-24,26-90,109-133,142-216
+skills/agent-implementation-researcher/references/deliverable-standard.md
+  s_0a24cf09aa02e0::t_d5c5724be242f4 28-29
+  s_0a24cf09aa02e0::t_67531c791ac538 1-27,30-107
+skills/agent-implementation-researcher/scripts/validate_agent_research.mjs
+  s_0a24cf09aa02e0::t_863dcf5e63f6ae 1-15,17-22,27-38,42-51,53-57,60-61,63-65,67,69,71-73
+  s_0a24cf09aa02e0::t_6b03f28ab13973 39-41
+  s_0a24cf09aa02e0::t_5c8c6e93e5b9be 16,23-26,52,58-59,62,66,68,70,74-80
+web/e2e/library.spec.ts
+  s_0a24cf09aa02e0::t_c58241587eaadd 53,56,61-64,70,80
+web/src/pages/agents/index.astro
+  s_0a24cf09aa02e0::t_c58241587eaadd 11
+web/src/data/agent-products.json
+  s_0a24cf09aa02e0::t_c58241587eaadd 43-63
+web/src/styles/global.css
+  s_0a24cf09aa02e0::t_fc47d24ed7415d 279
+  s_0a24cf09aa02e0::t_a27d8a6b10e1e8 276-277
+  s_0a24cf09aa02e0::t_cd3b1897f3b90b 278
+skills/agent-implementation-researcher/references/research-method.md
+  s_0a24cf09aa02e0::t_67531c791ac538 1-63,66-125,130-151
+  s_0a24cf09aa02e0::t_d5c5724be242f4 64-65,126-128
+  s_0a24cf09aa02e0::t_e79c5cbd9432b4 129
+skills/agent-implementation-researcher/agents/openai.yaml
+  s_0a24cf09aa02e0::t_7fdd5f286f7d5d 1-4
+ai-llm-learn/Agent实现拆解/README.md
+  s_0a24cf09aa02e0::t_d5c5724be242f4 11,35-36
+  s_0a24cf09aa02e0::t_853f3e33d57783 16-26
+web/tests/content.test.ts
+  s_0a24cf09aa02e0::t_c58241587eaadd 30,34
+skills/agent-implementation-researcher/SKILL.md
+  s_0a24cf09aa02e0::t_5c8c6e93e5b9be 33
+  s_0a24cf09aa02e0::t_7fdd5f286f7d5d 1-32,34-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "3a5997f7ab637912354e0bfaf563c608aa2ef4d7",
+  "prompts": {},
+  "sessions": {
+    "s_0a24cf09aa02e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05ad5-d02e-7112-b119-ae6d53137d2f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "gyiyang <gyiyang@trip.com>"
+    }
+  }
+}
