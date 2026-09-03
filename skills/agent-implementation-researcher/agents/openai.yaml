@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Implementation Researcher"
+  short_description: "源码级拆解 Agent 运行时、上下文、工具与安全机制"
+  default_prompt: "Use $agent-implementation-researcher to research an Agent product from official docs and source code, then produce a detailed Chinese implementation guide."

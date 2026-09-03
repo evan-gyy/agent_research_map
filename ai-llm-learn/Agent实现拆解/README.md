@@ -8,21 +8,22 @@
 
 - [Codex 模块地图](<Codex.md>)
 - [Claude Code 模块地图](<Claude Code.md>)
+- [Pi Agent 源码级实现拆解](<Pi Agent.md>)
 - Dynamic Planner：后续从本地真实业务链路拆解
 
 ### 按模块研究
 
-| 模块 | 关键问题 | Codex | Claude Code | Dynamic Planner |
-|---|---|---|---|---|
-| 规划与执行 | 什么时候先计划，什么时候边执行边决策？ | 已初步拆解 | 已初步拆解 | 已有源码依据，待独立成文 |
-| Agent Loop | 模型、工具和环境反馈如何闭环？ | 已初步拆解 | 已深入主循环 | 已有源码依据，待独立成文 |
-| Context | 历史如何压缩、重建和隔离？ | 已深入压缩与重建 | 已深入多级回收 | 待研究 |
-| Memory | 跨会话信息如何写入和召回？ | 待研究 | 待研究 | 待研究 |
-| Tool / MCP | 工具如何发现、加载、授权和执行？ | 已拆解协议与生命周期 | 已拆解 Tool Search 与权限管线 | 已有业务技能链路 |
-| 子 Agent | 如何并行且不污染主上下文？ | 已建立源码路线 | 已拆解隔离、继承与 Fork | 不套用通用子 Agent 概念 |
-| 权限与安全 | 写操作、命令和网络如何控制？ | 已拆解沙箱与审批边界 | 已拆解规则、Hook、模式与批准 | 待研究 |
-| 状态与恢复 | 长任务如何暂停、恢复和续接？ | 已拆解 Thread/Resume/Fork | 已拆解 Transcript/Resume/Fork | 待研究 |
-| 可观测与评估 | 如何定位模型、工具和编排问题？ | 已拆解 Item/Event 数据面 | 已建立生命周期 Hook 入口 | 已有链路日志，待成文 |
+| 模块 | 关键问题 | Codex | Claude Code | Pi | Dynamic Planner |
+|---|---|---|---|---|---|
+| 规划与执行 | 什么时候先计划，什么时候边执行边决策？ | 已初步拆解 | 已初步拆解 | 默认不内建 Plan Mode，以双循环和 Extension 组合 | 已有源码依据，待独立成文 |
+| Agent Loop | 模型、工具和环境反馈如何闭环？ | 已初步拆解 | 已深入主循环 | 已拆解 Outer/Inner Loop、Steering 与 Follow-up | 已有源码依据，待独立成文 |
+| Context | 历史如何压缩、重建和隔离？ | 已深入压缩与重建 | 已深入多级回收 | 已拆解资源装配、PrepareNextTurn 与 Compaction | 待研究 |
+| Memory | 跨会话信息如何写入和召回？ | 待研究 | 待研究 | 无统一长期 Memory；Session/Extension 可持久化状态 | 待研究 |
+| Tool / MCP | 工具如何发现、加载、授权和执行？ | 已拆解协议与生命周期 | 已拆解 Tool Search 与权限管线 | 默认四工具；MCP 由 Extension 实现 | 已有业务技能链路 |
+| 子 Agent | 如何并行且不污染主上下文？ | 已建立源码路线 | 已拆解隔离、继承与 Fork | 默认不内建，可用 Extension/SDK/外部进程组合 | 不套用通用子 Agent 概念 |
+| 权限与安全 | 写操作、命令和网络如何控制？ | 已拆解沙箱与审批边界 | 已拆解规则、Hook、模式与批准 | Project Trust 只管资源；执行隔离依赖外部沙箱 | 待研究 |
+| 状态与恢复 | 长任务如何暂停、恢复和续接？ | 已拆解 Thread/Resume/Fork | 已拆解 Transcript/Resume/Fork | 已拆解 JSONL Tree、Resume、Branch、Fork | 待研究 |
+| 可观测与评估 | 如何定位模型、工具和编排问题？ | 已拆解 Item/Event 数据面 | 已建立生命周期 Hook 入口 | 已拆解 Agent Event、RPC/JSON 流与测试边界 | 已有链路日志，待成文 |
 
 ## 文档结构
 
@@ -31,7 +32,8 @@ Agent实现拆解/
 ├── README.md                 # 双向索引与研究路线
 ├── 分析模板.md               # 每个产品/模块统一分析框架
 ├── Codex.md                  # 产品模块地图与已验证结论
-└── Claude Code.md            # 产品模块地图与已验证结论
+├── Claude Code.md            # 产品模块地图与已验证结论
+└── Pi Agent.md               # 源码级主链、Session、扩展与安全边界
 ~~~
 
 后续建议增加两类文档：

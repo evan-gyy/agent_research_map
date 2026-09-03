@@ -27,9 +27,9 @@ test("area statistics cover the full bank", async () => {
 test("agent product documents and knowledge-point mappings are valid", async () => {
   const products = await getAgentProducts();
   const knownPoints = new Set(knowledgePoints.map((point) => point.slug));
-  assert.deepEqual(products.map((product) => product.slug), ["codex", "claude-code"]);
+  assert.deepEqual(products.map((product) => product.slug), ["codex", "claude-code", "pi"]);
   assert.ok(products.every((product) => product.contentHtml.includes("<h2")));
   assert.ok(products.every((product) => product.practices.length >= 10));
   assert.ok(products.flatMap((product) => product.practices).every((practice) => knownPoints.has(practice.point)));
-  assert.equal((await getAgentPracticesForPoint("context-token-compression")).length, 2);
+  assert.equal((await getAgentPracticesForPoint("context-token-compression")).length, 3);
 });
