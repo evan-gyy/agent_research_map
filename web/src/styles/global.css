@@ -273,6 +273,10 @@ h3 { margin: 0; font-size: 1rem; }
   .question-card-meta { padding-left: 55px; }
   .question-tag { display: none; }
   .section-heading, .agent-detail-hero { display: grid; grid-template-columns: 1fr; align-items: start; }.agent-point-select { min-width: 0; width: 100%; }.agent-detail-title { align-items: flex-start; }.agent-evidence { justify-items: start; }.agent-detail-aside { grid-template-columns: 1fr; }.agent-flow span { min-width: 104px; flex-basis: 104px; }.agent-product-card { padding: 18px; }
+  .agent-document table { width: 100%; table-layout: fixed; }
+  .agent-document th, .agent-document td { padding: 7px 6px; overflow-wrap: anywhere; }
+  .agent-document code { overflow-wrap: anywhere; word-break: break-word; }
+  .agent-document pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {

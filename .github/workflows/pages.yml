@@ -2,7 +2,7 @@ name: Deploy AI LLM Learning Library
 on:
   push:
     branches: [master]
-    paths: ["ai-llm-learn/Topics/**", "ai-llm-learn/Templates/**", "web/**", ".github/workflows/pages.yml"]
+    paths: ["ai-llm-learn/Topics/**", "ai-llm-learn/Templates/**", "ai-llm-learn/Agent实现拆解/**", "web/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 permissions:
   contents: read

@@ -8,7 +8,7 @@ const coveredPoints = [...new Set(products.flatMap((product) => product.practice
   .map((slug) => ({ slug, label: getKnowledgePointLabel(slug), count: questions.filter((question) => question.knowledgePoint === slug).length }))
   .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "zh-CN"));
 ---
-<BaseLayout title="主流 Agent 案例" description="学习 Codex、Claude Code 等主流 Agent 产品的模块、流程和工程实践。" active="agents">
+<BaseLayout title="主流 Agent 案例" description="学习 Codex、Claude Code、Pi Agent 等主流 Agent 产品的模块、流程和工程实践。" active="agents">
   <section class="page-intro container agent-intro">
     <p class="eyebrow">Agent Case Studies</p>
     <h1>主流 Agent 案例</h1>

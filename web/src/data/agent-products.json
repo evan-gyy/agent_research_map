@@ -40,5 +40,26 @@
       { "point": "tool-reliability", "title": "规则、Hook、模式与批准", "summary": "权限判断经过规则、Hook、运行模式和用户批准的分层管线，拒绝和中断仍维持 Tool Call / Result 配对。", "section": "工具和权限的决策管线" },
       { "point": "reliability-resilience", "title": "压缩与恢复的故障保护", "summary": "压缩保留输出空间、失败计数和 Circuit Breaker；Session 恢复验证消息链与文件状态。", "section": "可迁移到业务 Agent 的经验" }
     ]
+  },
+  {
+    "slug": "pi",
+    "name": "Pi Agent",
+    "vendor": "Earendil Works",
+    "tagline": "以小核心、双循环和进程内 Extension 组合 Coding Agent，把策略选择留给使用者。",
+    "sourceFile": "Pi Agent.md",
+    "evidence": "官方文档、固定 Commit 的公开源码与可复现实验",
+    "flow": ["资源与 Context", "AgentSession", "Outer / Inner Loop", "工具校验与执行", "Session Tree", "压缩、分支与交付"],
+    "practices": [
+      { "point": "agent-architecture-core", "title": "Provider、Runtime、Harness 与 UI 分层", "summary": "pi-ai 统一模型协议，pi-agent-core 负责循环，pi-coding-agent 叠加 Session、工具、扩展和交互模式。", "section": "五层模块地图" },
+      { "point": "react-agent-loop", "title": "Outer / Inner 双循环", "summary": "Inner Loop 处理 Tool Call 与 Steering，Outer Loop 在 Agent 原本将停止时继续消费 Follow-up。", "section": "一条真实请求如何跑完" },
+      { "point": "workflow-state-orchestration", "title": "Append-only JSONL Session Tree", "summary": "Entry 通过 id 和 parentId 组成会话树，在同一文件中支持 Resume、Branch、Fork、摘要节点和扩展状态。", "section": "Session：JSONL 不是聊天数组，而是一棵树" },
+      { "point": "context-token-compression", "title": "摘要节点保留原始历史", "summary": "Compaction 追加 summary 与 firstKeptEntryId，用旧摘要加近期原文重建窗口，不覆盖原始 Transcript。", "section": "Compaction：摘要节点，不破坏原始历史" },
+      { "point": "tool-design", "title": "四个默认工具与可选工具集", "summary": "默认仅启用 read、bash、edit、write；其他工具和工作流由设置、SDK、Extension 或 Package 选择。", "section": "Tool 系统：小默认集、严格配对、可并行" },
+      { "point": "parameter-schema", "title": "Schema、Hook 与结果严格配对", "summary": "Tool Call 经过参数准备和 TypeBox Schema 校验，Tool Result 按原调用顺序与 ID 回灌。", "section": "Tool Call 的真实时序" },
+      { "point": "mcp-protocol", "title": "MCP 有意不内建", "summary": "核心不规定 MCP Client；团队可使用 CLI + Skill，或通过 Extension 接入所需协议与工具发现策略。", "section": "内建能力少，扩展选择多" },
+      { "point": "multi-agent-collaboration", "title": "Subagent 由 Extension 或外部进程组合", "summary": "默认没有统一子 Agent 语义，可用 Extension Tool、SDK Session 或 tmux 进程实现适合任务的隔离与并发。", "section": "内建能力少，扩展选择多" },
+      { "point": "tool-reliability", "title": "Project Trust 与执行隔离分层", "summary": "Project Trust 只控制项目资源加载；文件、进程、网络与凭据隔离依赖 Gondolin、Docker、OpenShell 或自定义策略。", "section": "安全：Project Trust 不等于 Permission Sandbox" },
+      { "point": "reliability-resilience", "title": "截断保护、取消与可观测事件", "summary": "输出截断时拒绝执行残缺 Tool Call，AbortSignal 贯穿运行，Agent Event 暴露消息、工具、错误和结束状态。", "section": "失败与边界示例" }
+    ]
   }
 ]
